@@ -15,50 +15,50 @@ const timelineSteps = [
   {
     step: '01',
     title: 'Workflow Audit',
-    subtitle: 'Discovery & Bottleneck Mapping',
+    subtitle: 'Spreadsheet & Process Mapping',
     icon: <FileSearch className="w-5 h-5 text-[#7AE7FF]" />,
     description:
-      'We audit your current spreadsheets, manual processes, and team workflows to identify bottlenecks and data fragmentation.',
+      'We sit down with your team to review your current spreadsheets, manual workarounds, and daily pain points to map out a clear solution.',
   },
   {
     step: '02',
     title: 'System Blueprint',
-    subtitle: 'Technical Architecture & Spec',
+    subtitle: 'Visual Wireframes & Specs',
     icon: <FileCode2 className="w-5 h-5 text-[#4F7CFF]" />,
     description:
-      'We design high-fidelity system wireframes, relational database schemas, and API integration pathways for your review.',
+      'We design simple visual screen mockups and clear database plans so you see exactly how your software will look and feel before any coding starts.',
   },
   {
     step: '03',
     title: 'Development Sprint',
-    subtitle: 'Agile Code Production',
+    subtitle: 'Agile 2-Week Builds',
     icon: <Cpu className="w-5 h-5 text-[#7AE7FF]" />,
     description:
-      'Our engineering team builds your bespoke software in focused 2-week sprints with transparent live progress updates.',
+      'Our engineering studio builds your software in focused 2-week sprint cycles. You test real working features every fortnight.',
   },
   {
     step: '04',
-    title: 'Testing',
-    subtitle: 'QA & User Acceptance',
+    title: 'Testing & Staff Training',
+    subtitle: 'QA & Effortless Onboarding',
     icon: <ShieldCheck className="w-5 h-5 text-[#4F7CFF]" />,
     description:
-      'Rigorous integration testing, edge-case validation, and key stakeholder UAT sessions prior to final deployment.',
+      'We test every edge case and train your staff step-by-step so transitioning to the new software is completely frictionless.',
   },
   {
     step: '05',
-    title: 'Deployment',
+    title: 'Smooth Deployment',
     subtitle: 'Go-Live & Data Migration',
     icon: <Rocket className="w-5 h-5 text-[#7AE7FF]" />,
     description:
-      'Seamless production deployment, historical spreadsheet data migration, and hands-on staff training.',
+      'We import all your historical Excel data and launch your live software system with zero disruption to daily business.',
   },
   {
     step: '06',
-    title: 'Support',
-    subtitle: 'SLA Maintenance & Scaling',
+    title: 'Continuous Support',
+    subtitle: 'Maintenance & Upgrades',
     icon: <Headphones className="w-5 h-5 text-[#4F7CFF]" />,
     description:
-      'Dedicated technical support, proactive monitoring, server maintenance, and continuous software feature upgrades.',
+      'We provide ongoing technical support, automatic cloud backups, and feature upgrades as your business continues to expand.',
   },
 ];
 
@@ -74,14 +74,14 @@ export default function HowWeWork() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             How We Work.
           </h2>
-          <p className="text-white/60 text-sm leading-relaxed">
-            A structured, predictable 6-phase engineering lifecycle designed to eliminate uncertainty and deliver production software fast.
+          <p className="text-white/70 text-sm sm:text-base leading-relaxed">
+            A simple, predictable 6-phase engineering lifecycle designed to eliminate uncertainty and deliver production software fast.
           </p>
         </div>
 
         {/* Timeline Grid */}
         <div className="relative">
-          {/* Vertical Connecting Line (Desktop) */}
+          {/* Vertical Line */}
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#4F7CFF] via-[#7AE7FF] to-[#4F7CFF]/20 -translate-x-1/2" />
 
           <div className="space-y-8 lg:space-y-12">
@@ -98,15 +98,14 @@ export default function HowWeWork() {
                     isEven ? 'lg:flex-row-reverse' : ''
                   }`}
                 >
-                  {/* Empty side for layout balance */}
                   <div className="hidden lg:block lg:w-5/12" />
 
-                  {/* Center Node Indicator */}
-                  <div className="w-10 h-10 rounded-full bg-[#0d0e12] border-2 border-[#4F7CFF] text-[#7AE7FF] font-mono text-xs font-bold flex items-center justify-center shadow-[0_0_15px_rgba(79,124,255,0.4)] my-4 lg:my-0 shrink-0 z-10">
+                  {/* Center Node */}
+                  <div className="w-10 h-10 rounded-full bg-[#0d0e12] border-2 border-[#4F7CFF] text-[#7AE7FF] font-mono text-xs font-bold flex items-center justify-center shadow-[0_0_15px_rgba(79,124,255,0.3)] my-4 lg:my-0 shrink-0 z-10">
                     {item.step}
                   </div>
 
-                  {/* Card Content */}
+                  {/* Card */}
                   <div className="w-full lg:w-5/12 glass-card rounded-2xl p-6 border border-white/10 hover:border-[#4F7CFF]/50 transition group">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="p-2 rounded-lg bg-white/[0.04] border border-white/10 group-hover:border-[#4F7CFF]/40 transition">
@@ -121,7 +120,7 @@ export default function HowWeWork() {
                         </h3>
                       </div>
                     </div>
-                    <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

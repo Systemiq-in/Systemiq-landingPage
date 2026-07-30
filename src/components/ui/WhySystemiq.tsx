@@ -6,38 +6,38 @@ import { Target, Zap, TrendingUp, Check, Shield } from 'lucide-react';
 const pillars = [
   {
     title: 'Business First',
-    subtitle: 'Workflow-Led Architecture',
+    subtitle: 'Built Around Your Workflows',
     icon: <Target className="w-6 h-6 text-[#7AE7FF]" />,
     description:
-      'We engineer around your workflow—not the other way around. No forced off-the-shelf constraints or clunky workarounds.',
+      'We engineer software around how your business already operates—not the other way around. Zero forced process changes or rigid workarounds.',
     points: [
-      'Zero forced process changes',
-      'Exact matching of operational rules',
-      'Seamless legacy data ingestion',
+      'Matches your exact daily business steps',
+      'No forced subscription seat fees',
+      'Seamless import of existing spreadsheet data',
     ],
   },
   {
-    title: 'Rapid Delivery',
-    subtitle: 'Fixed Sprint Shipping',
+    title: 'Rapid Sprint Delivery',
+    subtitle: 'Working Software Every 2 Weeks',
     icon: <Zap className="w-6 h-6 text-[#4F7CFF]" />,
     description:
-      'Production-ready systems delivered in fixed sprint cycles. Continuous deliverables and zero scope drift.',
+      'Production-ready software delivered in predictable 2 to 4-week sprint cycles. You test real features every step of the way.',
     points: [
-      '2 to 4-week sprint milestones',
+      'Clear 2-week deliverable milestones',
       'Live staging environment testing',
-      'Fixed-timeline delivery guarantees',
+      'Fixed timeline delivery guarantee',
     ],
   },
   {
     title: 'Built to Scale',
-    subtitle: 'Enterprise Foundation',
+    subtitle: '100% IP & Data Ownership',
     icon: <TrendingUp className="w-6 h-6 text-[#7AE7FF]" />,
     description:
-      'Cloud-native architecture designed for future growth. High concurrency, microservice-ready, and 100% IP ownership.',
+      'Cloud-native architecture designed for long-term company growth. Fast execution speeds, zero lag, and total ownership of your software.',
     points: [
-      'Sub-100ms API query speeds',
-      'Auto-scaling cloud infrastructure',
+      'Instant sub-second page load speeds',
       'Full source code & data ownership',
+      'Auto-scaling cloud infrastructure',
     ],
   },
 ];
@@ -49,13 +49,13 @@ export default function WhySystemiq() {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-[#4F7CFF]">
             <Shield className="w-3.5 h-3.5" />
-            <span>The Systemiq Engineering Edge</span>
+            <span>The Systemiq Studio Edge</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Why Growing Businesses Choose Systemiq.
           </h2>
-          <p className="text-white/60 text-sm leading-relaxed">
-            We operate as your specialized external software systems studio—delivering enterprise precision without agency bloat.
+          <p className="text-white/70 text-sm sm:text-base leading-relaxed">
+            We operate as your dedicated external software systems studio—delivering enterprise precision without agency bloat.
           </p>
         </div>
 
@@ -80,14 +80,14 @@ export default function WhySystemiq() {
                 <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-sm text-white/60 leading-relaxed mb-6">
+                <p className="text-sm text-white/70 leading-relaxed mb-6">
                   {item.description}
                 </p>
               </div>
 
               <div className="pt-6 border-t border-white/05 space-y-2.5">
                 {item.points.map((pt) => (
-                  <div key={pt} className="flex items-center gap-2 text-xs font-mono text-white/70">
+                  <div key={pt} className="flex items-center gap-2 text-xs font-mono text-white/80">
                     <Check className="w-3.5 h-3.5 text-[#7AE7FF] shrink-0" />
                     <span>{pt}</span>
                   </div>

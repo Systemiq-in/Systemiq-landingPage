@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, ShieldCheck, ArrowRight, Code2, Users, Sparkles } from 'lucide-react';
+import { GraduationCap, Award, ShieldCheck, ArrowRight, Code2, Users, Sparkles, Rocket, Zap, HeartHandshake } from 'lucide-react';
 
 export default function BuilderNetworkSection() {
   return (
@@ -13,7 +13,7 @@ export default function BuilderNetworkSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="glass-panel rounded-3xl p-8 sm:p-12 lg:p-16 border border-white/10 bg-gradient-to-b from-[#0e0f14]/90 to-[#090909]/95 relative overflow-hidden">
-          {/* Subtle Top Accent Beam */}
+          {/* Subtle Top Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7AE7FF]/50 to-transparent" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -29,84 +29,81 @@ export default function BuilderNetworkSection() {
                 <span className="text-gradient">Building Engineers.</span>
               </h2>
 
-              <p className="text-white/70 text-base leading-relaxed">
-                Systemiq pairs elite engineering student talent with veteran Senior System Architects. This hybrid studio model enables us to engineer production-grade business software with extraordinary agility, while forging the next generation of software architects.
+              <p className="text-white/80 text-base leading-relaxed">
+                No coffee runs. No boring 100-page assignment PDFs. Systemiq collaborates with top-tier student developers under senior architect supervision to build real software used by growing businesses every day.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-xl bg-white/[0.03] border border-white/05 space-y-1.5">
                   <div className="flex items-center gap-2 text-white font-bold text-sm">
-                    <ShieldCheck className="w-4 h-4 text-[#7AE7FF]" />
-                    <span>Senior Supervision</span>
+                    <Rocket className="w-4 h-4 text-[#7AE7FF]" />
+                    <span>Real Production Code</span>
                   </div>
-                  <p className="text-xs text-white/50 leading-relaxed">
-                    100% of architecture design, code review, security audits, and deployments are executed by Senior Principals.
+                  <p className="text-xs text-white/60 leading-relaxed">
+                    Ship code to real cloud servers with thousands of daily users—not sandbox toy apps.
                   </p>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white/[0.03] border border-white/05 space-y-1.5">
                   <div className="flex items-center gap-2 text-white font-bold text-sm">
-                    <Award className="w-4 h-4 text-[#4F7CFF]" />
-                    <span>Real-World Impact</span>
+                    <ShieldCheck className="w-4 h-4 text-[#4F7CFF]" />
+                    <span>Senior Mentorship</span>
                   </div>
-                  <p className="text-xs text-white/50 leading-relaxed">
-                    Students work on real SME production systems with true business metrics—not academic toy apps.
+                  <p className="text-xs text-white/60 leading-relaxed">
+                    100% of architecture design, security reviews, and DB schemas are led by Senior Principals.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/careers"
                   className="px-6 py-3 rounded-lg bg-gradient-to-r from-[#4F7CFF] to-[#3B62E6] hover:from-[#5C86FF] hover:to-[#4F7CFF] text-white text-sm font-semibold flex items-center gap-2 transition shadow-lg shadow-[#4F7CFF]/20"
                 >
-                  <span>Apply to Join Builder Network</span>
+                  <span>Join Builder Network</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link
-                  href="/about#network"
-                  className="px-6 py-3 rounded-lg bg-white/05 hover:bg-white/10 border border-white/10 text-white text-sm font-medium transition"
-                >
-                  Learn About Our Model
-                </Link>
+                <span className="text-xs font-mono text-[#7AE7FF] flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5" /> Paid Sprints · Remote-First · Rolling Applications
+                </span>
               </div>
             </div>
 
-            {/* Right Metric Card Column */}
+            {/* Right GenZ Vibe Card Column */}
             <div className="lg:col-span-5 space-y-4">
               <div className="glass-card rounded-2xl p-6 border border-white/10 space-y-6">
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
                   <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
-                    Network Metrics
+                    Student Dev Perks
                   </span>
                   <span className="flex items-center gap-1 text-[11px] font-mono text-[#7AE7FF]">
-                    <Sparkles className="w-3.5 h-3.5" /> Studio Standard
+                    <Sparkles className="w-3.5 h-3.5" /> Zero Corporate Fluff
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <span className="text-3xl font-bold text-white font-mono">100%</span>
-                    <span className="text-xs text-white/50 block mt-0.5">Code Review Rate</span>
+                <div className="space-y-3 font-mono text-xs text-white/80">
+                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/05 flex items-center justify-between">
+                    <span>💡 Learn Modern Stack</span>
+                    <span className="text-[#7AE7FF]">Next 15 + Postgres</span>
                   </div>
-                  <div>
-                    <span className="text-3xl font-bold text-[#7AE7FF] font-mono">4.9/5</span>
-                    <span className="text-xs text-white/50 block mt-0.5">SME Quality Rating</span>
+                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/05 flex items-center justify-between">
+                    <span>💸 Get Paid Per Sprint</span>
+                    <span className="text-[#7AE7FF]">Fair Compensation</span>
                   </div>
-                  <div>
-                    <span className="text-3xl font-bold text-[#4F7CFF] font-mono">40+</span>
-                    <span className="text-xs text-white/50 block mt-0.5">Active Student Engineers</span>
+                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/05 flex items-center justify-between">
+                    <span>⚡ Resume Flex</span>
+                    <span className="text-[#7AE7FF]">Production Proof</span>
                   </div>
-                  <div>
-                    <span className="text-3xl font-bold text-white font-mono">0</span>
-                    <span className="text-xs text-white/50 block mt-0.5">Security Vulnerabilities</span>
+                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/05 flex items-center justify-between">
+                    <span>🎯 Senior 1-on-1 Code Reviews</span>
+                    <span className="text-[#7AE7FF]">100% Quality Rate</span>
                   </div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#7AE7FF]/05 border border-[#7AE7FF]/20 flex items-center gap-3">
-                  <Code2 className="w-5 h-5 text-[#7AE7FF] shrink-0" />
+                <div className="p-3 rounded-xl bg-[#7AE7FF]/08 border border-[#7AE7FF]/20 flex items-center gap-3">
+                  <HeartHandshake className="w-5 h-5 text-[#7AE7FF] shrink-0" />
                   <span className="text-xs text-white/80 leading-tight">
-                    Strict Senior-Mentored Production Pipeline with zero compromise on software security.
+                    Gain real engineering muscle before you even graduate.
                   </span>
                 </div>
               </div>

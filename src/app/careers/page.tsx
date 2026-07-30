@@ -15,37 +15,59 @@ import {
   Sparkles,
   ShieldCheck,
   Send,
+  Zap,
+  Rocket,
+  Flame,
+  Laugh,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const benefits = [
   {
     title: 'Senior Mentorship',
-    desc: 'Work 1-on-1 with Principal Architects with 10+ years of experience in distributed systems and cloud databases.',
+    desc: 'Work 1-on-1 with Principal Architects. Get real code reviews that actually level up your software engineering skills.',
     icon: <Users className="w-5 h-5 text-[#7AE7FF]" />,
   },
   {
     title: 'Paid Production Sprints',
-    desc: 'Get paid competitive compensation for every production sprint module you deliver for real enterprise SME clients.',
+    desc: 'Get paid competitive stipends for every production sprint module you deliver for real business clients. No unpaid labor.',
     icon: <DollarSign className="w-5 h-5 text-[#4F7CFF]" />,
   },
   {
-    title: 'Real-World Stack',
-    desc: 'Build with Next.js 15, TypeScript, Tailwind CSS, PostgreSQL, Docker, WebSockets, and Meta APIs—zero outdated frameworks.',
+    title: 'Modern Stack (Zero Legacy)',
+    desc: 'Build with Next.js 15, TypeScript, Tailwind CSS, PostgreSQL, Docker, and Meta APIs—zero outdated 2010 frameworks.',
     icon: <Code2 className="w-5 h-5 text-[#7AE7FF]" />,
   },
   {
-    title: 'Fast-Track Career Acceleration',
-    desc: 'Graduate with verified production experience, code review portfolios, and direct hiring intros to high-growth tech firms.',
+    title: 'Resume Flex That Works',
+    desc: 'Graduate with verified production code used by real companies. Put actual business impact metrics on your CV.',
     icon: <Award className="w-5 h-5 text-[#4F7CFF]" />,
   },
 ];
 
+const cultureHighlights = [
+  {
+    emoji: '🚫☕',
+    title: 'Zero Coffee Runs',
+    desc: 'You build production features on day one. We don’t ask you to format slides or make coffee.',
+  },
+  {
+    emoji: '🔥⚡',
+    title: 'Ship Real Code',
+    desc: 'Your code runs in live cloud servers handling thousands of actual business operations every single week.',
+  },
+  {
+    emoji: '🤝🧠',
+    title: 'No Corporate BS',
+    desc: 'Direct access to senior leads. We care about clean code, problem-solving, and shipping fast.',
+  },
+];
+
 const hiringSteps = [
-  { step: '01', title: 'Code Review & Application', desc: 'Submit your GitHub profile, top project repo, and technical background.' },
-  { step: '02', title: 'Architecture Assessment', desc: 'Complete a async 60-minute practical coding challenge evaluating TypeScript & SQL.' },
-  { step: '03', title: 'Senior Architect Interview', desc: '30-minute technical interview discussing systems design and engineering principles.' },
-  { step: '04', title: 'Network Onboarding', desc: 'Join the Systemiq Builder Network and receive your first mentored sprint assignment.' },
+  { step: '01', title: 'Submit GitHub & Apply', desc: 'Fill out the application form with your GitHub link and top projects.' },
+  { step: '02', title: 'Practical Coding Challenge', desc: 'Take a quick 60-min async coding task evaluating TypeScript & database basics.' },
+  { step: '03', title: 'Architect Chat', desc: '30-minute casual tech conversation with our Principal Lead.' },
+  { step: '04', title: 'Join the Network', desc: 'Get onboarded and start your first mentored production sprint!' },
 ];
 
 export default function CareersPage() {
@@ -108,24 +130,35 @@ export default function CareersPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         {/* Header */}
         <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7AE7FF]/10 border border-[#7AE7FF]/30 text-xs font-mono text-[#7AE7FF]">
-            <GraduationCap className="w-4 h-4" />
-            <span>The Systemiq Builder Network</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7AE7FF]/10 border border-[#7AE7FF]/30 text-xs font-mono text-[#7AE7FF]">
+            <Flame className="w-4 h-4 text-[#7AE7FF]" />
+            <span>STUDENT ENGINEER NETWORK</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
-            Building Software. <br />
-            <span className="text-gradient">Building Engineers.</span>
+            Escape Boring Theory. <br />
+            <span className="text-gradient">Ship Real Code.</span>
           </h1>
           <p className="text-lg text-white/70 leading-relaxed">
-            Are you a passionate engineering student ready to build production software systems for real businesses under principal architect mentorship? Join the Systemiq Builder Network.
+            The Systemiq Builder Network connects top student developers with Senior System Architects to engineer production software for growing companies. Build real skills, get paid, and flex a production portfolio.
           </p>
+        </div>
+
+        {/* GenZ Culture Vibe */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {cultureHighlights.map((ch) => (
+            <div key={ch.title} className="glass-card rounded-2xl p-6 border border-white/10 space-y-2">
+              <span className="text-3xl">{ch.emoji}</span>
+              <h3 className="text-xl font-bold text-white tracking-tight">{ch.title}</h3>
+              <p className="text-xs text-white/60 leading-relaxed">{ch.desc}</p>
+            </div>
+          ))}
         </div>
 
         {/* Why Join Grid */}
         <div className="space-y-8">
           <div>
-            <span className="tech-tag">Network Benefits</span>
-            <h2 className="text-3xl font-bold text-white tracking-tight mt-2">Why Join Systemiq Builder Network?</h2>
+            <span className="tech-tag">Network Perks</span>
+            <h2 className="text-3xl font-bold text-white tracking-tight mt-2">Why Student Devs Love Systemiq</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -142,8 +175,8 @@ export default function CareersPage() {
         {/* Hiring Process */}
         <div className="space-y-8">
           <div>
-            <span className="tech-tag">Selection Lifecycle</span>
-            <h2 className="text-3xl font-bold text-white tracking-tight mt-2">Hiring Process</h2>
+            <span className="tech-tag">Selection Steps</span>
+            <h2 className="text-3xl font-bold text-white tracking-tight mt-2">How to Join</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -160,10 +193,10 @@ export default function CareersPage() {
         {/* Application Form (Formspree) */}
         <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-white/15 bg-[#0d0e12] max-w-3xl mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <span className="tech-tag">Online Application</span>
-            <h2 className="text-3xl font-bold text-white tracking-tight">Apply to the Builder Network</h2>
+            <span className="tech-tag">Fast Application</span>
+            <h2 className="text-3xl font-bold text-white tracking-tight">Apply to Builder Network</h2>
             <p className="text-xs sm:text-sm text-white/60">
-              Fill out the details below. Our senior engineering leads review applications on a rolling basis.
+              No long cover letters required. Show us your GitHub, tell us what you love building, and let’s talk.
             </p>
           </div>
 
@@ -172,9 +205,9 @@ export default function CareersPage() {
               <div className="w-16 h-16 rounded-full bg-[#4F7CFF]/20 border border-[#4F7CFF]/40 text-[#7AE7FF] flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Application Submitted!</h3>
+              <h3 className="text-2xl font-bold text-white">Application Received! 🎉</h3>
               <p className="text-sm text-white/60 max-w-md mx-auto">
-                Thank you, <span className="text-white font-medium">{formData.name}</span>. Our senior architect team will review your GitHub and reach out via email within 48 hours for stage 2 assessment.
+                Awesome, <span className="text-white font-medium">{formData.name}</span>. Our senior team will check out your GitHub and get back to you via email within 48 hours.
               </p>
               <button
                 onClick={() => setIsSubmitted(false)}
@@ -193,14 +226,14 @@ export default function CareersPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-white/70 mb-1">Full Name *</label>
+                  <label className="block text-xs font-mono text-white/70 mb-1">Your Full Name *</label>
                   <input
                     type="text"
                     name="name"
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="e.g. Rahul Verma"
+                    placeholder="e.g. Alex Chen"
                     className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF]"
                   />
                 </div>
@@ -212,7 +245,7 @@ export default function CareersPage() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="rahul@university.edu"
+                    placeholder="alex@university.edu"
                     className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF]"
                   />
                 </div>
@@ -220,7 +253,7 @@ export default function CareersPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-white/70 mb-1">GitHub / Portfolio Link *</label>
+                  <label className="block text-xs font-mono text-white/70 mb-1">GitHub / Portfolio URL *</label>
                   <input
                     type="url"
                     name="github"
@@ -232,39 +265,39 @@ export default function CareersPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-white/70 mb-1">University / Degree *</label>
+                  <label className="block text-xs font-mono text-white/70 mb-1">College / University & Year *</label>
                   <input
                     type="text"
                     name="university"
                     required
                     value={formData.university}
                     onChange={handleChange}
-                    placeholder="e.g. B.Tech Computer Science (3rd Year)"
+                    placeholder="e.g. CS 3rd Year @ State Uni"
                     className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-white/70 mb-1">Primary Tech Stack & Familiarity</label>
+                <label className="block text-xs font-mono text-white/70 mb-1">Tech Stack You Love Using</label>
                 <input
                   type="text"
                   name="techStack"
                   value={formData.techStack}
                   onChange={handleChange}
-                  placeholder="e.g. TypeScript, React, Next.js, PostgreSQL, Node.js"
+                  placeholder="e.g. TypeScript, Next.js, React, Node, Tailwind, PostgreSQL"
                   className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-white/70 mb-1">Why do you want to build systems with Systemiq?</label>
+                <label className="block text-xs font-mono text-white/70 mb-1">What’s a cool project or feature you’ve built recently?</label>
                 <textarea
                   name="whyJoin"
                   rows={3}
                   value={formData.whyJoin}
                   onChange={handleChange}
-                  placeholder="Briefly describe your interest in building real SME software systems..."
+                  placeholder="Tell us briefly about a project you worked on or what gets you excited about software..."
                   className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF] resize-none"
                 />
               </div>
@@ -277,11 +310,11 @@ export default function CareersPage() {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Submitting Application...</span>
+                    <span>Submitting...</span>
                   </>
                 ) : (
                   <>
-                    <span>Submit Network Application</span>
+                    <span>Submit Builder Application</span>
                     <Send className="w-4 h-4" />
                   </>
                 )}

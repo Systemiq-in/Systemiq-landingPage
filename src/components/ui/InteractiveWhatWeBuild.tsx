@@ -6,7 +6,6 @@ import {
   Server,
   Boxes,
   Warehouse,
-  Users,
   Building,
   Zap,
   GitMerge,
@@ -14,141 +13,105 @@ import {
   Calculator,
   Receipt,
   LayoutDashboard,
-  ShieldAlert,
+  ShieldCheck,
   ArrowRight,
+  CheckCircle2,
+  Sparkles,
+  Users,
 } from 'lucide-react';
 import WorkflowAuditModal from '../layout/WorkflowAuditModal';
 
-interface ServiceItem {
+interface BrandCard {
   id: string;
   title: string;
   category: string;
   icon: React.ReactNode;
   tag: string;
+  badgeStyle: string;
+  cardGradient: string;
+  textColor: string;
   description: string;
-  features: string[];
+  outcomes: string[];
 }
 
-const services: ServiceItem[] = [
+const brandCards: BrandCard[] = [
   {
     id: 'erp',
     title: 'Custom ERP Systems',
     category: 'Enterprise Core',
-    icon: <Server className="w-5 h-5 text-[#7AE7FF]" />,
-    tag: 'Core System',
+    icon: <Server className="w-6 h-6 text-white" />,
+    tag: '#ZeroExcel',
+    badgeStyle: 'bg-[#4F7CFF]/20 text-[#7AE7FF] border border-[#4F7CFF]/40',
+    cardGradient: 'bg-gradient-to-br from-[#121526] via-[#161b36] to-[#0d0e12] border-[#4F7CFF]/40',
+    textColor: 'text-white',
     description:
-      'Tailor-made Resource Planning tailored to your specific operational matrix. Replaces rigid off-the-shelf legacy software.',
-    features: ['Multi-entity Ledger', 'Department Routing', 'Role-based Access', 'Audit Logs'],
+      'One central system for orders, inventory, raw materials, and finances. Built specifically around your actual daily business steps.',
+    outcomes: ['Zero manual copy-pasting', 'Multi-branch visibility', 'Role permission controls'],
   },
   {
     id: 'inventory',
-    title: 'Inventory Management',
-    category: 'Supply Chain',
-    icon: <Boxes className="w-5 h-5 text-[#4F7CFF]" />,
-    tag: 'Real-time Sync',
+    title: 'Inventory & Stock Sync',
+    category: 'Warehouse',
+    icon: <Boxes className="w-6 h-6 text-slate-950" />,
+    tag: '#LiveStock',
+    badgeStyle: 'bg-black/20 text-slate-950 border border-slate-900/20 font-bold',
+    cardGradient: 'bg-gradient-to-br from-[#FFB800] via-[#FBBF24] to-[#F59E0B] border-amber-400/40',
+    textColor: 'text-slate-950',
     description:
-      'Live stock tracking across multiple warehouses, automated reorder thresholds, and serial/batch number trace.',
-    features: ['Batch Tracking', 'Reorder Triggers', 'Multi-Loc Sync', 'Barcoding'],
+      'Know your exact inventory counts across all stores and warehouses in real-time. Automatic reorder alerts before items run out.',
+    outcomes: ['Prevents stockouts', 'Batch & serial tracking', 'Automated reorder triggers'],
   },
   {
     id: 'warehouse',
-    title: 'Warehouse Systems',
+    title: 'Mobile Warehouse Scanners',
     category: 'Logistics',
-    icon: <Warehouse className="w-5 h-5 text-[#7AE7FF]" />,
-    tag: 'High Velocity',
+    icon: <Warehouse className="w-6 h-6 text-white" />,
+    tag: '#FastPick',
+    badgeStyle: 'bg-[#7AE7FF]/20 text-[#7AE7FF] border border-[#7AE7FF]/40',
+    cardGradient: 'bg-gradient-to-br from-[#0c1e2b] via-[#102a3d] to-[#0d0e12] border-[#7AE7FF]/40',
+    textColor: 'text-white',
     description:
-      'Mobile-first warehouse execution, bin allocation, pick-pack-ship workflows, and dispatch manifests.',
-    features: ['Bin Level Map', 'Pick-Pack Verification', 'Dispatch Manifests', 'Scanner API'],
+      'Equip warehouse staff with fast mobile scanner apps. Speed up picking, packing, and dispatch with 99.9% accuracy.',
+    outcomes: ['99.9% pick accuracy', 'Fast mobile scanning', 'Instant dispatch manifests'],
   },
   {
     id: 'dealer-portals',
-    title: 'Dealer Portals',
-    category: 'B2B Network',
-    icon: <Building className="w-5 h-5 text-[#4F7CFF]" />,
-    tag: 'B2B Hub',
+    title: 'B2B Dealer Portals',
+    category: 'Wholesale Hub',
+    icon: <Building className="w-6 h-6 text-white" />,
+    tag: '#24/7Orders',
+    badgeStyle: 'bg-[#8B5CF6]/20 text-[#C4B5FD] border border-[#8B5CF6]/40',
+    cardGradient: 'bg-gradient-to-br from-[#19142b] via-[#221a3d] to-[#0d0e12] border-[#8B5CF6]/40',
+    textColor: 'text-white',
     description:
-      'Self-service ordering portals for distributors and dealers with customized credit limits and volume tier pricing.',
-    features: ['Credit Limit Engine', 'Tiered Pricing', 'Live Order Status', 'Catalog Search'],
+      'Give wholesale dealers a self-service portal to view live prices, check credit limits, and place bulk orders anytime.',
+    outcomes: ['Automatic credit enforcement', 'Dealer tier pricing', '24/7 order placement'],
   },
   {
     id: 'crm',
-    title: 'Sales & CRM Systems',
-    category: 'Revenue Operations',
-    icon: <Users className="w-5 h-5 text-[#7AE7FF]" />,
-    tag: 'Pipeline Engine',
+    title: 'Sales & PDF Quotations',
+    category: 'Revenue',
+    icon: <Users className="w-6 h-6 text-white" />,
+    tag: '#InstantQuotes',
+    badgeStyle: 'bg-[#4F7CFF]/20 text-[#7AE7FF] border border-[#4F7CFF]/40',
+    cardGradient: 'bg-gradient-to-br from-[#121526] via-[#192247] to-[#0d0e12] border-[#4F7CFF]/40',
+    textColor: 'text-white',
     description:
-      'B2B sales pipeline manager engineered around complex SME sales cycles, quotes, and contract approvals.',
-    features: ['Quote Generator', 'Pipeline Analytics', 'Lead Scoring', 'Followup Automations'],
-  },
-  {
-    id: 'sales-auto',
-    title: 'Sales Automation',
-    category: 'Revenue Operations',
-    icon: <Zap className="w-5 h-5 text-[#4F7CFF]" />,
-    tag: 'Automated Flow',
-    description:
-      'Automate repetitive sales admin, automated proposal generation, contract dispatch, and payment reminders.',
-    features: ['Proposal Dispatch', 'Dunnings Engine', 'E-signatures', 'Auto Reminders'],
-  },
-  {
-    id: 'workflow-auto',
-    title: 'Workflow Automation',
-    category: 'Operations',
-    icon: <GitMerge className="w-5 h-5 text-[#7AE7FF]" />,
-    tag: 'Orchestration',
-    description:
-      'Connect isolated teams and systems with rule-based event engines, approvals, and cross-tool data sync.',
-    features: ['Approval Hierarchy', 'Webhooks Engine', 'Event Triggers', 'Exception Alerts'],
+      'Track sales leads, generate professional PDF quotes in 3 seconds, and ensure your sales team follows up on time.',
+    outcomes: ['3-second PDF quotes', 'Lead follow-up reminders', 'Sales manager dashboards'],
   },
   {
     id: 'whatsapp',
-    title: 'WhatsApp Integrations',
-    category: 'Integrations',
-    icon: <MessageSquare className="w-5 h-5 text-[#4F7CFF]" />,
-    tag: 'Business API',
+    title: 'Tally & WhatsApp Sync',
+    category: 'Automation',
+    icon: <MessageSquare className="w-6 h-6 text-white" />,
+    tag: '#AutoMessaging',
+    badgeStyle: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+    cardGradient: 'bg-gradient-to-br from-[#0c2419] via-[#103323] to-[#0d0e12] border-emerald-500/40',
+    textColor: 'text-white',
     description:
-      'Automated WhatsApp notifications for order confirmation, dispatch alerts, payment links, and customer queries.',
-    features: ['Official Meta API', 'Payment Links', 'Automated Receipts', 'Support Routing'],
-  },
-  {
-    id: 'tally',
-    title: 'Tally Integration',
-    category: 'Finance API',
-    icon: <Calculator className="w-5 h-5 text-[#7AE7FF]" />,
-    tag: 'Direct Sync',
-    description:
-      'Bi-directional synchronization between custom front-end apps and Tally Prime / ERP 9 with 0 accounting drift.',
-    features: ['Voucher Posting', 'Ledger Master Sync', '0-Drift Reconciliation', 'Auto Reconciliation'],
-  },
-  {
-    id: 'billing',
-    title: 'Billing & Invoicing Systems',
-    category: 'Finance Core',
-    icon: <Receipt className="w-5 h-5 text-[#4F7CFF]" />,
-    tag: 'GST & Compliance',
-    description:
-      'E-invoicing, GST compliant billing, multi-currency invoices, and automated payment gateway reconciliations.',
-    features: ['E-Way Bill Direct API', 'GST Breakdown', 'Multi-Currency', 'Stripe/Razorpay Sync'],
-  },
-  {
-    id: 'dashboards',
-    title: 'Admin Dashboards',
-    category: 'Intelligence',
-    icon: <LayoutDashboard className="w-5 h-5 text-[#7AE7FF]" />,
-    tag: 'Real-time Metrics',
-    description:
-      'Executive command centers delivering real-time operational metrics, unit economics, and health alerts.',
-    features: ['Custom Widgets', 'Real-time WebSockets', 'CSV Export', 'Role Views'],
-  },
-  {
-    id: 'internal-portals',
-    title: 'Internal Portals',
-    category: 'Workforce',
-    icon: <ShieldAlert className="w-5 h-5 text-[#4F7CFF]" />,
-    tag: 'Workforce Hub',
-    description:
-      'Custom employee portals for attendance, task handoffs, operational ticketing, and internal knowledge bases.',
-    features: ['Task Handoffs', 'Shift Logging', 'Asset Tracking', 'SOP Hub'],
+      'Post invoices straight to Tally Prime without re-typing. Text customers order updates & receipts on WhatsApp automatically.',
+    outcomes: ['Direct Tally Prime sync', 'Automated WhatsApp receipts', 'Zero double entry'],
   },
 ];
 
@@ -162,85 +125,88 @@ export default function InteractiveWhatWeBuild() {
   };
 
   return (
-    <section className="py-24 relative bg-[#090909]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 relative bg-[#090909] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="tech-tag">Systems Portfolio</span>
-              <span className="text-xs font-mono text-white/40">// Production Software Modules</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="pill-tag bg-[#4F7CFF]/20 text-[#7AE7FF] border border-[#4F7CFF]/40">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Interactive Solutions Catalog</span>
+              </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-              What We Engineer.
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+              What We Engineer <span className="highlight-yellow px-2 text-white">For Growing Businesses</span>
             </h2>
           </div>
-          <p className="text-white/60 text-sm max-w-md leading-relaxed">
-            Every business system is engineered from scratch for your specific operational workflow—ensuring zero bloat, lightning execution speed, and 100% ownership.
+          <p className="text-white/70 text-base max-w-md leading-relaxed">
+            Pick a module below to inspect its capabilities and request a customized sprint blueprint.
           </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((item, idx) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              onClick={() => handleCardClick(item.title)}
-              className="glass-card rounded-2xl p-6 relative group cursor-pointer flex flex-col justify-between overflow-hidden"
-            >
-              {/* Subtle hover gradient glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#4F7CFF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-              <div>
-                {/* Top bar inside card */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 group-hover:border-[#4F7CFF]/50 group-hover:bg-[#4F7CFF]/10 flex items-center justify-center transition-colors">
-                    {item.icon}
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.04] text-white/60 group-hover:text-[#7AE7FF] group-hover:bg-[#7AE7FF]/10 transition-colors">
-                    {item.tag}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#7AE7FF] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-white/60 leading-relaxed mb-6">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Tags / Features */}
-              <div>
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/05 mb-4">
-                  {item.features.map((feat) => (
-                    <span
-                      key={feat}
-                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.02] border border-white/05 text-white/50"
-                    >
-                      {feat}
+        {/* Uniform Brand Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {brandCards.map((item, idx) => {
+            const isDarkText = item.textColor === 'text-slate-950';
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                onClick={() => handleCardClick(item.title)}
+                className={`rounded-3xl p-8 cursor-pointer flex flex-col justify-between shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${item.cardGradient} ${item.textColor} border relative overflow-hidden group`}
+              >
+                <div>
+                  {/* Top Bar inside card */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${isDarkText ? 'bg-black/15' : 'bg-white/10'}`}>
+                      {item.icon}
+                    </div>
+                    <span className={`pill-tag ${item.badgeStyle}`}>
+                      {item.tag}
                     </span>
-                  ))}
+                  </div>
+
+                  <span className={`text-xs font-mono font-bold uppercase tracking-wider block mb-1 ${isDarkText ? 'text-slate-800' : 'text-[#7AE7FF]'}`}>
+                    {item.category}
+                  </span>
+                  <h3 className="text-2xl font-extrabold tracking-tight mb-3">
+                    {item.title}
+                  </h3>
+                  <p className={`text-sm leading-relaxed mb-8 ${isDarkText ? 'text-slate-900/80 font-medium' : 'text-white/80'}`}>
+                    {item.description}
+                  </p>
                 </div>
 
-                <div className="flex items-center justify-between text-xs font-mono text-white/50 group-hover:text-white transition-colors">
-                  <span>Engineer Architecture</span>
-                  <ArrowRight className="w-4 h-4 text-[#7AE7FF] -translate-x-1 group-hover:translate-x-0 transition-transform" />
+                {/* Outcomes */}
+                <div>
+                  <div className={`space-y-2 pt-6 border-t ${isDarkText ? 'border-black/15' : 'border-white/10'} mb-6`}>
+                    {item.outcomes.map((oc) => (
+                      <div key={oc} className="flex items-center gap-2 text-xs font-semibold">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 ${isDarkText ? 'text-slate-950' : 'text-[#7AE7FF]'}`} />
+                        <span>{oc}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center justify-between text-xs font-bold font-mono">
+                    <span>Inspect Blueprint</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
       <WorkflowAuditModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        defaultTopic={selectedTopic || 'Custom Software System'}
+        defaultTopic={selectedTopic || 'Custom Software'}
       />
     </section>
   );
