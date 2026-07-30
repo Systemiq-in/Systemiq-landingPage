@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   GraduationCap,
   Award,
@@ -9,65 +9,43 @@ import {
   DollarSign,
   Users,
   CheckCircle2,
-  Terminal,
-  ArrowRight,
-  Loader2,
-  Sparkles,
-  ShieldCheck,
   Send,
+  Loader2,
+  ArrowRight,
+  ShieldCheck,
   Zap,
-  Rocket,
-  Flame,
-  Laugh,
+  Terminal,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-const benefits = [
+const fellowshipPerks = [
   {
-    title: 'Senior Mentorship',
-    desc: 'Work 1-on-1 with Principal Architects. Get real code reviews that actually level up your software engineering skills.',
-    icon: <Users className="w-5 h-5 text-[#7AE7FF]" />,
+    title: 'Production Code on Day One',
+    desc: 'Ship code directly to production cloud servers handling thousands of daily transactions for real companies.',
+    icon: <Terminal className="w-5 h-5 text-blue-600" />,
+  },
+  {
+    title: 'Principal Engineer Mentorship',
+    desc: 'Receive 1-on-1 code reviews and system architecture coaching from experienced Principal Engineers.',
+    icon: <Users className="w-5 h-5 text-indigo-600" />,
   },
   {
     title: 'Paid Production Sprints',
-    desc: 'Get paid competitive stipends for every production sprint module you deliver for real business clients. No unpaid labor.',
-    icon: <DollarSign className="w-5 h-5 text-[#4F7CFF]" />,
+    desc: 'Get paid competitive stipends for every production module you complete and ship.',
+    icon: <DollarSign className="w-5 h-5 text-blue-600" />,
   },
   {
-    title: 'Modern Stack (Zero Legacy)',
-    desc: 'Build with Next.js 15, TypeScript, Tailwind CSS, PostgreSQL, Docker, and Meta APIs—zero outdated 2010 frameworks.',
-    icon: <Code2 className="w-5 h-5 text-[#7AE7FF]" />,
-  },
-  {
-    title: 'Resume Flex That Works',
-    desc: 'Graduate with verified production code used by real companies. Put actual business impact metrics on your CV.',
-    icon: <Award className="w-5 h-5 text-[#4F7CFF]" />,
+    title: 'Verified Portfolio & CV',
+    desc: 'Graduate with production code metrics on your CV that prove real engineering capability.',
+    icon: <Award className="w-5 h-5 text-indigo-600" />,
   },
 ];
 
-const cultureHighlights = [
-  {
-    emoji: '🚫☕',
-    title: 'Zero Coffee Runs',
-    desc: 'You build production features on day one. We don’t ask you to format slides or make coffee.',
-  },
-  {
-    emoji: '🔥⚡',
-    title: 'Ship Real Code',
-    desc: 'Your code runs in live cloud servers handling thousands of actual business operations every single week.',
-  },
-  {
-    emoji: '🤝🧠',
-    title: 'No Corporate BS',
-    desc: 'Direct access to senior leads. We care about clean code, problem-solving, and shipping fast.',
-  },
-];
-
-const hiringSteps = [
-  { step: '01', title: 'Submit GitHub & Apply', desc: 'Fill out the application form with your GitHub link and top projects.' },
-  { step: '02', title: 'Practical Coding Challenge', desc: 'Take a quick 60-min async coding task evaluating TypeScript & database basics.' },
-  { step: '03', title: 'Architect Chat', desc: '30-minute casual tech conversation with our Principal Lead.' },
-  { step: '04', title: 'Join the Network', desc: 'Get onboarded and start your first mentored production sprint!' },
+const programPhases = [
+  { step: '01', title: 'Application Review', desc: 'Submit your GitHub profile and highlight your best project.' },
+  { step: '02', title: '60-Min Practical Task', desc: 'Complete a async coding task focused on TypeScript and DB queries.' },
+  { step: '03', title: 'Architecture Interview', desc: 'A 30-minute tech discussion with a Senior System Architect.' },
+  { step: '04', title: 'Fellowship Onboarding', desc: 'Get matched with a mentored sprint and start shipping live features.' },
 ];
 
 export default function CareersPage() {
@@ -101,7 +79,7 @@ export default function CareersPage() {
         },
         body: JSON.stringify({
           ...formData,
-          _subject: `New Builder Network Application from ${formData.name}`,
+          _subject: `Builder Network Application from ${formData.name}`,
           type: 'Builder Network Application',
         }),
       });
@@ -112,7 +90,7 @@ export default function CareersPage() {
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#4F7CFF', '#7AE7FF', '#ffffff'],
+          colors: ['#2563EB', '#4F46E5', '#0EA5E9'],
         });
       } else {
         const data = await response.json();
@@ -126,92 +104,87 @@ export default function CareersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090909] pt-28 pb-20">
+    <div className="min-h-screen bg-[#FAFAFA] text-slate-900 pt-28 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         {/* Header */}
         <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7AE7FF]/10 border border-[#7AE7FF]/30 text-xs font-mono text-[#7AE7FF]">
-            <Flame className="w-4 h-4 text-[#7AE7FF]" />
-            <span>STUDENT ENGINEER NETWORK</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-600">
+            <GraduationCap className="w-4 h-4 text-blue-600" />
+            <span>ENGINEERING FELLOWSHIP PROGRAM</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
-            Escape Boring Theory. <br />
-            <span className="text-gradient">Ship Real Code.</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Build Production Systems. <br />
+            <span className="text-blue-600">Work With Principal Engineers.</span>
           </h1>
-          <p className="text-lg text-white/70 leading-relaxed">
-            The Systemiq Builder Network connects top student developers with Senior System Architects to engineer production software for growing companies. Build real skills, get paid, and flex a production portfolio.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            The Systemiq Builder Network is a paid engineering fellowship for ambitious computer science students. Work on real production architectures, receive 1-on-1 senior code reviews, and ship software that powers growing businesses.
           </p>
         </div>
 
-        {/* GenZ Culture Vibe */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {cultureHighlights.map((ch) => (
-            <div key={ch.title} className="glass-card rounded-2xl p-6 border border-white/10 space-y-2">
-              <span className="text-3xl">{ch.emoji}</span>
-              <h3 className="text-xl font-bold text-white tracking-tight">{ch.title}</h3>
-              <p className="text-xs text-white/60 leading-relaxed">{ch.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Why Join Grid */}
+        {/* 4 Perks Grid */}
         <div className="space-y-8">
           <div>
-            <span className="tech-tag">Network Perks</span>
-            <h2 className="text-3xl font-bold text-white tracking-tight mt-2">Why Student Devs Love Systemiq</h2>
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block">Fellowship Structure</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
+              Why Join the Systemiq Builder Network
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((b) => (
-              <div key={b.title} className="glass-card rounded-2xl p-6 border border-white/10 space-y-3">
-                <div className="p-3 w-max rounded-xl bg-white/05 border border-white/10">{b.icon}</div>
-                <h3 className="text-lg font-bold text-white">{b.title}</h3>
-                <p className="text-xs text-white/60 leading-relaxed">{b.desc}</p>
+            {fellowshipPerks.map((p) => (
+              <div key={p.title} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-md space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center">
+                  {p.icon}
+                </div>
+                <h3 className="text-lg font-extrabold text-slate-900 tracking-tight">{p.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Hiring Process */}
+        {/* Selection Process */}
         <div className="space-y-8">
           <div>
-            <span className="tech-tag">Selection Steps</span>
-            <h2 className="text-3xl font-bold text-white tracking-tight mt-2">How to Join</h2>
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block">Selection Process</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
+              4 Steps to Join
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {hiringSteps.map((hs) => (
-              <div key={hs.step} className="glass-card rounded-2xl p-6 border border-white/10 space-y-3 relative">
-                <span className="text-2xl font-bold font-mono text-[#7AE7FF]">{hs.step}</span>
-                <h3 className="text-base font-bold text-white">{hs.title}</h3>
-                <p className="text-xs text-white/60 leading-relaxed">{hs.desc}</p>
+            {programPhases.map((phase) => (
+              <div key={phase.step} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-md space-y-2">
+                <span className="text-2xl font-extrabold font-mono text-blue-600">{phase.step}</span>
+                <h3 className="text-base font-extrabold text-slate-900">{phase.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">{phase.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Application Form (Formspree) */}
-        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-white/15 bg-[#0d0e12] max-w-3xl mx-auto space-y-8">
+        {/* Application Form */}
+        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 max-w-3xl mx-auto space-y-8 shadow-xl">
           <div className="text-center space-y-2">
-            <span className="tech-tag">Fast Application</span>
-            <h2 className="text-3xl font-bold text-white tracking-tight">Apply to Builder Network</h2>
-            <p className="text-xs sm:text-sm text-white/60">
-              No long cover letters required. Show us your GitHub, tell us what you love building, and let’s talk.
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block">Fellowship Application</span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Apply to the Builder Network</h2>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Share your GitHub profile and top projects. Applications are reviewed on a rolling basis.
             </p>
           </div>
 
           {isSubmitted ? (
             <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#4F7CFF]/20 border border-[#4F7CFF]/40 text-[#7AE7FF] flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Application Received! 🎉</h3>
-              <p className="text-sm text-white/60 max-w-md mx-auto">
-                Awesome, <span className="text-white font-medium">{formData.name}</span>. Our senior team will check out your GitHub and get back to you via email within 48 hours.
+              <h3 className="text-2xl font-extrabold text-slate-900">Application Submitted! 🎉</h3>
+              <p className="text-sm text-slate-600 max-w-md mx-auto">
+                Thank you, <span className="text-slate-900 font-bold">{formData.name}</span>. Our engineering leads will review your GitHub profile and contact you via email within 48 hours.
               </p>
               <button
                 onClick={() => setIsSubmitted(false)}
-                className="px-6 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium text-xs transition"
+                className="px-6 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition"
               >
                 Submit Another Application
               </button>
@@ -219,14 +192,14 @@ export default function CareersPage() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               {errorMsg && (
-                <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-xs">
+                <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-medium">
                   {errorMsg}
                 </div>
               )}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-white/70 mb-1">Your Full Name *</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
                   <input
                     type="text"
                     name="name"
@@ -234,11 +207,11 @@ export default function CareersPage() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="e.g. Alex Chen"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF]"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-600"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-white/70 mb-1">Email Address *</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
                   <input
                     type="email"
                     name="email"
@@ -246,14 +219,14 @@ export default function CareersPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="alex@university.edu"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF]"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-600"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-white/70 mb-1">GitHub / Portfolio URL *</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">GitHub / Portfolio URL *</label>
                   <input
                     type="url"
                     name="github"
@@ -261,60 +234,60 @@ export default function CareersPage() {
                     value={formData.github}
                     onChange={handleChange}
                     placeholder="https://github.com/username"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF]"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-600"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-white/70 mb-1">College / University & Year *</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">University & Graduation Year *</label>
                   <input
                     type="text"
                     name="university"
                     required
                     value={formData.university}
                     onChange={handleChange}
-                    placeholder="e.g. CS 3rd Year @ State Uni"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF]"
+                    placeholder="e.g. BS Computer Science '26"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-600"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-white/70 mb-1">Tech Stack You Love Using</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Primary Tech Stack</label>
                 <input
                   type="text"
                   name="techStack"
                   value={formData.techStack}
                   onChange={handleChange}
-                  placeholder="e.g. TypeScript, Next.js, React, Node, Tailwind, PostgreSQL"
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF]"
+                  placeholder="e.g. TypeScript, React, Next.js, Node.js, PostgreSQL"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-600"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-white/70 mb-1">What’s a cool project or feature you’ve built recently?</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Highlighted Project or Feature</label>
                 <textarea
                   name="whyJoin"
                   rows={3}
                   value={formData.whyJoin}
                   onChange={handleChange}
-                  placeholder="Tell us briefly about a project you worked on or what gets you excited about software..."
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#4F7CFF] resize-none"
+                  placeholder="Briefly describe a project you built or a technical problem you solved..."
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-600 resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#4F7CFF] to-[#7AE7FF] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg hover:opacity-90 transition disabled:opacity-50"
+                className="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Submitting...</span>
+                    <span>Submitting Application...</span>
                   </>
                 ) : (
                   <>
-                    <span>Submit Builder Application</span>
+                    <span>Submit Fellowship Application</span>
                     <Send className="w-4 h-4" />
                   </>
                 )}
