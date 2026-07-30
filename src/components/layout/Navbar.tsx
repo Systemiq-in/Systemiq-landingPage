@@ -47,14 +47,14 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-300 ${
           isScrolled
-            ? 'glass-header-light py-3 shadow-md shadow-slate-900/05'
-            : 'bg-white/80 backdrop-blur-md py-4 border-b border-slate-200/80'
+            ? 'glass-header-studio py-3 shadow-xl'
+            : 'bg-[#0B0F17]/80 backdrop-blur-md py-4 border-b border-slate-800/80'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 p-1 rounded-xl bg-white border border-slate-200 shadow-sm group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
+            <div className="relative w-9 h-9 p-1 rounded-xl bg-white border border-slate-200 shadow-md group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
               <Image
                 src="/logo_without_bg.png"
                 alt="Systemiq Technologies Logo"
@@ -65,18 +65,18 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 flex items-center gap-1.5 font-sans">
+              <span className="font-extrabold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5 font-sans">
                 SYSTEMIQ
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
               </span>
-              <span className="text-[9px] font-mono tracking-widest text-slate-500 uppercase -mt-1 font-semibold">
+              <span className="text-[9px] font-mono tracking-widest text-slate-400 uppercase -mt-1 font-semibold">
                 Business Systems Studio
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 bg-slate-100/80 rounded-full px-4 py-1.5 border border-slate-200">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 bg-slate-900/90 rounded-full px-4 py-1.5 border border-slate-800">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -84,14 +84,14 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`relative px-3 py-1.5 text-xs xl:text-sm font-semibold transition-colors duration-200 ${
-                    isActive ? 'text-blue-600' : 'text-slate-600 hover:text-slate-900'
+                    isActive ? 'text-blue-400 font-bold' : 'text-slate-300 hover:text-white'
                   }`}
                 >
                   {link.name}
                   {isActive && (
                     <motion.div
-                      layoutId="activeUnderlineLight"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-blue-600 rounded-full"
+                      layoutId="activeUnderlineStudio"
+                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-blue-500 rounded-full"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -105,18 +105,18 @@ export default function Navbar() {
             {/* Cmd+K trigger */}
             <button
               onClick={triggerCmdK}
-              className="px-3 py-1.5 text-xs font-mono text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 border border-slate-200 rounded-lg flex items-center gap-1.5 transition font-semibold"
+              className="px-3 py-1.5 text-xs font-mono text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg flex items-center gap-1.5 transition font-semibold"
               title="Search Systemiq (Cmd+K)"
             >
-              <Command className="w-3.5 h-3.5 text-blue-600" />
+              <Command className="w-3.5 h-3.5 text-blue-400" />
               <span className="hidden xl:inline">Search</span>
-              <kbd className="text-[10px] text-slate-400 bg-white px-1 rounded border border-slate-200">⌘K</kbd>
+              <kbd className="text-[10px] text-slate-400 bg-slate-800 px-1 rounded border border-slate-700">⌘K</kbd>
             </button>
 
             {/* Workflow Audit CTA */}
             <button
               onClick={() => setIsAuditModalOpen(true)}
-              className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-xs font-bold text-white flex items-center gap-1.5 transition-all shadow-md shadow-blue-500/20"
+              className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-extrabold text-white flex items-center gap-1.5 transition-all shadow-lg shadow-blue-600/30 hover:scale-[1.02]"
             >
               <span>Book Free Audit</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white" />
@@ -127,14 +127,14 @@ export default function Navbar() {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={triggerCmdK}
-              className="p-2 text-slate-600 hover:text-slate-900 bg-slate-100 rounded-lg border border-slate-200"
+              className="p-2 text-slate-300 hover:text-white bg-slate-900 rounded-lg border border-slate-800"
               aria-label="Search"
             >
-              <Command className="w-4 h-4 text-blue-600" />
+              <Command className="w-4 h-4 text-blue-400" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-800 hover:text-slate-900 bg-slate-100 rounded-lg border border-slate-200"
+              className="p-2 text-white bg-slate-900 rounded-lg border border-slate-800"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -151,7 +151,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[65px] z-[80] lg:hidden bg-white/98 border-b border-slate-200 px-6 py-6 shadow-xl"
+            className="fixed inset-x-0 top-[65px] z-[80] lg:hidden bg-[#0B0F17] border-b border-slate-800 px-6 py-6 shadow-2xl"
           >
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
@@ -161,20 +161,20 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`text-sm font-semibold py-2.5 px-3 rounded-lg transition ${
                     pathname === link.href
-                      ? 'bg-blue-50 text-blue-600 border border-blue-200'
-                      : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
+                      ? 'bg-blue-600/20 text-blue-400 border border-blue-500/40'
+                      : 'text-slate-300 hover:text-white hover:bg-slate-900'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-slate-200 flex flex-col gap-3">
+              <div className="pt-4 border-t border-slate-800 flex flex-col gap-3">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setIsAuditModalOpen(true);
                   }}
-                  className="w-full py-3 rounded-xl bg-blue-600 text-white text-sm font-bold flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full py-3 rounded-xl bg-blue-600 text-white text-sm font-extrabold flex items-center justify-center gap-2 shadow-lg"
                 >
                   <span>Book Free Workflow Audit</span>
                   <ArrowUpRight className="w-4 h-4" />
