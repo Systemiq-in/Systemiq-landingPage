@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import WorkflowAuditModal from './WorkflowAuditModal';
 
 export default function FloatingCTA() {
@@ -11,7 +11,6 @@ export default function FloatingCTA() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show when scrolled down past 400px
       if (window.scrollY > 400) {
         setIsVisible(true);
       } else {
@@ -35,19 +34,16 @@ export default function FloatingCTA() {
             className="fixed bottom-6 right-6 z-[80] hidden sm:block"
           >
             <div className="relative group">
-              {/* Outer Glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#4F7CFF] to-[#7AE7FF] rounded-full blur-md opacity-40 group-hover:opacity-75 transition duration-300 animate-pulse" />
-
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="relative px-5 py-3 rounded-full bg-[#0d0e12] border border-white/20 text-white flex items-center gap-3 shadow-2xl hover:bg-[#121318] transition-colors"
+                className="relative px-5 py-3 rounded-full bg-white border border-slate-200 text-slate-900 flex items-center gap-3 shadow-xl hover:border-blue-600 hover:shadow-2xl transition-all"
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#7AE7FF] animate-ping" />
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse" />
                 <div className="flex flex-col text-left">
-                  <span className="text-xs font-semibold tracking-tight text-white flex items-center gap-1">
-                    Book Free Audit <ArrowUpRight className="w-3.5 h-3.5 text-[#7AE7FF]" />
+                  <span className="text-xs font-extrabold tracking-tight text-slate-900 flex items-center gap-1">
+                    Book Free Audit <ArrowUpRight className="w-3.5 h-3.5 text-blue-600" />
                   </span>
-                  <span className="text-[10px] font-mono text-white/50">45-min system blueprint</span>
+                  <span className="text-[10px] font-semibold text-slate-500">Free 30-min system blueprint</span>
                 </div>
               </button>
             </div>
