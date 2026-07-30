@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowRight,
@@ -11,7 +12,7 @@ import {
 } from 'lucide-react';
 import TrustedSection from '@/components/ui/TrustedSection';
 import InteractiveWhatWeBuild from '@/components/ui/InteractiveWhatWeBuild';
-import SpreadsheetVsSystemiq from '@/components/ui/SpreadsheetVsSystemiq';
+import TheSystemiqShift from '@/components/ui/TheSystemiqShift';
 import WhySystemiq from '@/components/ui/WhySystemiq';
 import HowWeWork from '@/components/ui/HowWeWork';
 import FeaturedIndustries from '@/components/ui/FeaturedIndustries';
@@ -31,7 +32,7 @@ export default function HomePage() {
   const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <div className="relative min-h-screen bg-[#F5F5F7] text-[#1D1D1F] overflow-x-hidden antialiased selection:bg-[#0071E3] selection:text-white">
+    <div className="relative min-h-screen bg-transparent text-[#1D1D1F] overflow-x-hidden antialiased selection:bg-[#0071E3] selection:text-white">
       {/* ---------------- IMMERSIVE BRAND HERO ---------------- */}
       <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center overflow-hidden">
         {/* Cinematic Background Gradient Mesh */}
@@ -44,11 +45,28 @@ export default function HomePage() {
           style={{ y: yText, opacity: opacityText }}
           className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center"
         >
+          {/* Giant Hero Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-8 relative w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center p-4 rounded-3xl bg-white/60 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.04)] border border-white/60"
+          >
+            <Image
+              src="/logo_without_bg.png"
+              alt="Systemiq Hero Logo"
+              width={100}
+              height={100}
+              className="object-contain drop-shadow-sm"
+              priority
+            />
+          </motion.div>
+
           {/* Subtle Premium Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/40 backdrop-blur-md border border-white/60 text-[11px] font-semibold text-[#1D1D1F] tracking-wide shadow-sm mb-8"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#0071E3]" />
@@ -121,8 +139,8 @@ export default function HomePage() {
       {/* ---------------- TRUSTED SECTION ---------------- */}
       <TrustedSection />
 
-      {/* ---------------- SPREADSHEET VS SYSTEMIQ ---------------- */}
-      <SpreadsheetVsSystemiq />
+      {/* ---------------- THE PARADIGM SHIFT ---------------- */}
+      <TheSystemiqShift />
 
       {/* ---------------- WHAT WE BUILD ---------------- */}
       <InteractiveWhatWeBuild />

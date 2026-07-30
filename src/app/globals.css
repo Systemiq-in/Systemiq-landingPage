@@ -27,6 +27,11 @@ html {
 
 body {
   background-color: #F5F5F7;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(0, 113, 227, 0.05), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(0, 113, 227, 0.05), transparent 25%),
+    radial-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px;
   color: #1D1D1F;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;

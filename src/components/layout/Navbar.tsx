@@ -53,7 +53,10 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link 
+            href="/" 
+            className={`flex items-center gap-3 group transition-all duration-500 ${!isScrolled && pathname === '/' ? 'opacity-0 -translate-y-4 pointer-events-none' : 'opacity-100 translate-y-0'}`}
+          >
             <div className="relative w-8 h-8 p-1 rounded-xl bg-white border border-black/[0.08] shadow-sm group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
               <Image
                 src="/logo_without_bg.png"

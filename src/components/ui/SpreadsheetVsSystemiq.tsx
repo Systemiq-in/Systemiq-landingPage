@@ -35,7 +35,7 @@ export default function SpreadsheetVsSystemiq() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section className="py-16 lg:py-20 bg-[#F5F5F7] border-t border-black/[0.08] relative">
+    <section className="py-16 lg:py-20 bg-transparent border-t border-black/[0.08] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">

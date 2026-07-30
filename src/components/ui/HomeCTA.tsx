@@ -9,7 +9,7 @@ export default function HomeCTA() {
 
   return (
     <>
-      <section className="py-16 lg:py-24 bg-white border-t border-black/[0.08] relative">
+      <section className="py-16 lg:py-24 bg-white/40 backdrop-blur-2xl border-t border-black/[0.08] relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-[#F5F5F7] rounded-3xl p-10 sm:p-14 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6">
             <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
