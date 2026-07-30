@@ -9,9 +9,8 @@ import {
   Building,
   Users,
   MessageSquare,
-  ArrowRight,
+  ChevronRight,
   CheckCircle2,
-  Layers,
 } from 'lucide-react';
 import WorkflowAuditModal from '@/components/layout/WorkflowAuditModal';
 
@@ -20,7 +19,7 @@ const solutionModules = [
     id: 'erp',
     title: 'Custom ERP Systems',
     category: 'Enterprise Core',
-    icon: <Server className="w-6 h-6 text-blue-600" />,
+    icon: <Server className="w-5 h-5 text-[#0071E3]" />,
     desc: 'One central software system for orders, inventory, raw materials, and finances. Built specifically around your actual daily business steps.',
     features: ['Zero manual copy-pasting', 'Multi-branch visibility', 'Role-based permission controls', 'Real-time production scheduling'],
   },
@@ -28,7 +27,7 @@ const solutionModules = [
     id: 'inventory',
     title: 'Inventory & Stock Control',
     category: 'Warehouse',
-    icon: <Boxes className="w-6 h-6 text-indigo-600" />,
+    icon: <Boxes className="w-5 h-5 text-[#0071E3]" />,
     desc: 'Know your exact inventory counts across all stores and warehouses in real-time. Automatic reorder alerts before items run out.',
     features: ['Prevents stockouts', 'Batch & serial tracking', 'Automated reorder triggers', 'Barcode printing & scanning'],
   },
@@ -36,7 +35,7 @@ const solutionModules = [
     id: 'warehouse',
     title: 'Mobile Warehouse Scanners',
     category: 'Logistics',
-    icon: <Warehouse className="w-6 h-6 text-blue-600" />,
+    icon: <Warehouse className="w-5 h-5 text-[#0071E3]" />,
     desc: 'Equip warehouse staff with fast mobile scanner apps. Speed up picking, packing, and dispatch with 99.9% accuracy.',
     features: ['99.9% pick accuracy', 'Fast mobile barcode scanning', 'Instant dispatch manifests', 'Inter-bin transfer tracking'],
   },
@@ -44,7 +43,7 @@ const solutionModules = [
     id: 'dealer-portals',
     title: 'B2B Dealer Portals',
     category: 'Wholesale Hub',
-    icon: <Building className="w-6 h-6 text-indigo-600" />,
+    icon: <Building className="w-5 h-5 text-[#0071E3]" />,
     desc: 'Give wholesale dealers a self-service portal to view live prices, check credit limits, and place bulk orders anytime.',
     features: ['Automatic credit limit enforcement', 'Dealer tier pricing matrix', '24/7 self-service order placement', 'Real-time order status tracking'],
   },
@@ -52,7 +51,7 @@ const solutionModules = [
     id: 'crm',
     title: 'Sales & Quotation Systems',
     category: 'Revenue',
-    icon: <Users className="w-6 h-6 text-blue-600" />,
+    icon: <Users className="w-5 h-5 text-[#0071E3]" />,
     desc: 'Track sales leads, generate professional PDF quotes in 3 seconds, and ensure your sales team follows up on time.',
     features: ['3-second PDF quote generator', 'Lead follow-up reminders', 'Sales manager dashboards', 'Discount approval workflows'],
   },
@@ -60,7 +59,7 @@ const solutionModules = [
     id: 'integrations',
     title: 'Tally & WhatsApp Integration',
     category: 'Automation',
-    icon: <MessageSquare className="w-6 h-6 text-indigo-600" />,
+    icon: <MessageSquare className="w-5 h-5 text-[#0071E3]" />,
     desc: 'Post invoices straight to Tally Prime without re-typing. Text customers order updates & receipts on WhatsApp automatically.',
     features: ['Direct Tally Prime ledger sync', 'Automated WhatsApp receipts', 'Zero double entry', 'Payment link integration'],
   },
@@ -76,59 +75,60 @@ export default function SolutionsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-slate-900 pt-28 pb-20">
+    <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-600">
-            <Layers className="w-4 h-4 text-blue-600" />
-            <span>Software Solution Catalog</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Software Systems Engineered For <span className="text-blue-600">Growing SMEs.</span>
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
+            Solutions Catalog
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
+            Engineered For Growing SMEs.
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Explore our modular software components designed to replace manual spreadsheets and automate daily business operations.
+          <p className="text-base sm:text-lg text-[#86868B] leading-relaxed font-normal">
+            Modular business software components designed to replace manual spreadsheets and automate daily workflows.
           </p>
         </div>
 
         {/* Solution Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {solutionModules.map((item) => (
-            <div
+            <motion.div
               key={item.id}
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.2 }}
               onClick={() => handleModuleClick(item.title)}
-              className="bg-white rounded-3xl p-8 border border-slate-200 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-6"
+              className="bg-white rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] flex items-center justify-center">
                   {item.icon}
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">
+                  <span className="text-xs font-semibold text-[#0071E3] uppercase tracking-wider block mb-1">
                     {item.category}
                   </span>
-                  <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">{item.title}</h2>
+                  <h2 className="text-2xl font-bold text-[#1D1D1F] tracking-tight">{item.title}</h2>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal">{item.desc}</p>
+                <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed font-normal">{item.desc}</p>
               </div>
 
-              <div className="space-y-4 pt-4 border-t border-slate-100">
+              <div className="space-y-4 pt-4 border-t border-black/[0.06]">
                 <div className="space-y-2">
                   {item.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                    <div key={f} className="flex items-center gap-2 text-xs font-medium text-[#1D1D1F]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
                       <span>{f}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between text-xs font-bold text-blue-600 pt-2 font-mono">
+                <div className="flex items-center justify-between text-xs font-semibold text-[#0071E3] pt-2">
                   <span>Inspect Blueprint</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

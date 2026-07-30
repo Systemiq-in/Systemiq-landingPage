@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, ArrowRight, TrendingUp, Clock, CheckCircle2 } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import WorkflowAuditModal from '@/components/layout/WorkflowAuditModal';
 
 const fullCaseStudies = [
@@ -19,7 +19,7 @@ const fullCaseStudies = [
   },
   {
     client: 'Metro Wholesale Logistics',
-    industry: 'Wholesale & B2B Distribution',
+    industry: 'Wholesale & Distribution',
     headline: 'Launched self-service B2B dealer portal with instant Tally sync',
     summary: 'Metro dealt with 350+ wholesale buyers sending paper orders via WhatsApp. Systemiq deployed a 24/7 dealer portal with credit checks and automatic Tally Prime ledger posting.',
     metrics: [
@@ -40,18 +40,17 @@ export default function CaseStudiesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-slate-900 pt-28 pb-20">
+    <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-600">
-            <Award className="w-4 h-4 text-blue-600" />
-            <span>Proven Business Impact</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Client Proven <span className="text-blue-600">Case Studies.</span>
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
+            Proven Results
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
+            Client Case Studies.
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-[#86868B] leading-relaxed font-normal">
             Discover how growing SMEs eliminated manual spreadsheets and scaled their daily business operations with custom software.
           </p>
         </div>
@@ -59,39 +58,41 @@ export default function CaseStudiesPage() {
         {/* Case Studies Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {fullCaseStudies.map((cs) => (
-            <div
+            <motion.div
               key={cs.client}
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.2 }}
               onClick={() => handleStudyClick(cs.client)}
-              className="bg-white rounded-3xl p-8 border border-slate-200 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer space-y-6 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer space-y-6 flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                  <span className="text-sm font-extrabold text-slate-900">{cs.client}</span>
-                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
+                <div className="flex items-center justify-between border-b border-black/[0.06] pb-4">
+                  <span className="text-base font-bold text-[#1D1D1F]">{cs.client}</span>
+                  <span className="text-xs font-semibold text-[#0071E3] bg-[#F5F5F7] px-3 py-1 rounded-full border border-black/[0.06]">
                     {cs.industry}
                   </span>
                 </div>
 
-                <h2 className="text-xl font-extrabold text-slate-900 leading-snug">"{cs.headline}"</h2>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal">{cs.summary}</p>
+                <h2 className="text-xl font-bold text-[#1D1D1F] leading-snug">"{cs.headline}"</h2>
+                <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed font-normal">{cs.summary}</p>
               </div>
 
-              <div className="space-y-4 pt-4 border-t border-slate-100">
+              <div className="space-y-4 pt-4 border-t border-black/[0.06]">
                 <div className="grid grid-cols-3 gap-3">
                   {cs.metrics.map((m) => (
-                    <div key={m.label} className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-center">
-                      <span className="text-[10px] font-semibold text-slate-500 block">{m.label}</span>
-                      <span className="text-base font-extrabold font-mono text-blue-600 block mt-0.5">{m.val}</span>
+                    <div key={m.label} className="p-3.5 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] text-center">
+                      <span className="text-[10px] font-medium text-[#86868B] block uppercase tracking-wider">{m.label}</span>
+                      <span className="text-lg font-bold text-[#0071E3] block mt-0.5">{m.val}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between text-xs font-bold text-blue-600 pt-2 font-mono">
+                <div className="flex items-center justify-between text-xs font-semibold text-[#0071E3] pt-2">
                   <span>Read Full Case Study</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

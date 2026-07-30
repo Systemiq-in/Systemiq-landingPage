@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Target, Zap, TrendingUp, Check, Shield } from 'lucide-react';
+import { Target, Zap, TrendingUp, Check } from 'lucide-react';
 
 const pillars = [
   {
     title: 'Business First',
     subtitle: 'Built Around Your Workflows',
-    icon: <Target className="w-5 h-5 text-blue-400" />,
+    icon: <Target className="w-5 h-5 text-[#0071E3]" />,
     description:
       'We engineer software around how your business already operates—not the other way around. Zero forced process changes or rigid workarounds.',
     points: [
@@ -19,7 +19,7 @@ const pillars = [
   {
     title: 'Rapid Sprint Delivery',
     subtitle: 'Working Software Every 2 Weeks',
-    icon: <Zap className="w-5 h-5 text-indigo-400" />,
+    icon: <Zap className="w-5 h-5 text-[#0071E3]" />,
     description:
       'Production-ready software delivered in predictable 2 to 4-week sprint cycles. You test real features every step of the way.',
     points: [
@@ -31,7 +31,7 @@ const pillars = [
   {
     title: 'Built to Scale',
     subtitle: '100% IP & Data Ownership',
-    icon: <TrendingUp className="w-5 h-5 text-blue-400" />,
+    icon: <TrendingUp className="w-5 h-5 text-[#0071E3]" />,
     description:
       'Cloud-native architecture designed for long-term company growth. Fast execution speeds, zero lag, and total ownership of your software.',
     points: [
@@ -44,51 +44,49 @@ const pillars = [
 
 export default function WhySystemiq() {
   return (
-    <section className="py-14 sm:py-16 bg-[#0B0F17] border-t border-slate-800/80 relative">
+    <section className="py-16 lg:py-20 bg-[#F5F5F7] border-t border-black/[0.08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-xs font-mono font-bold text-blue-400">
-            <Shield className="w-3.5 h-3.5" />
-            <span>The Systemiq Studio Edge</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Why Growing Businesses Choose Systemiq.
+          <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
+            The Studio Edge
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#1D1D1F] tracking-tight">
+            Why Growing SMEs Choose Systemiq.
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base leading-relaxed font-normal">
-            We operate as your dedicated external software systems studio—delivering enterprise precision without agency bloat.
+          <p className="text-[#86868B] text-base sm:text-lg font-normal leading-relaxed">
+            We operate as your dedicated external software systems studio—delivering enterprise precision without agency complexity.
           </p>
         </div>
 
-        {/* Three Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {pillars.map((item, idx) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: idx * 0.05 }}
-              className="bg-[#131927] rounded-2xl p-6 border border-slate-800 hover:border-blue-500/50 shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-2xl bg-[#F5F5F7] flex items-center justify-center mb-5 border border-black/[0.06]">
                   {item.icon}
                 </div>
-                <span className="text-xs font-mono font-bold text-blue-400 block mb-1">
+                <span className="text-xs font-semibold text-[#0071E3] block mb-1">
                   {item.subtitle}
                 </span>
-                <h3 className="text-xl font-extrabold text-white mb-2 tracking-tight">
+                <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-400 leading-relaxed mb-5 font-normal">
+                <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mb-6 font-normal">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-800 space-y-2">
+              <div className="pt-4 border-t border-black/[0.06] space-y-2">
                 {item.points.map((pt) => (
-                  <div key={pt} className="flex items-center gap-2 text-xs font-semibold text-slate-300">
-                    <Check className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                  <div key={pt} className="flex items-center gap-2 text-xs font-medium text-[#1D1D1F]">
+                    <Check className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
                     <span>{pt}</span>
                   </div>
                 ))}

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Clock, ShieldCheck, Zap, ArrowRight, Layers } from 'lucide-react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 import HowWeWork from '@/components/ui/HowWeWork';
 import WorkflowAuditModal from '@/components/layout/WorkflowAuditModal';
 
@@ -16,18 +16,17 @@ export default function ProcessPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-slate-900 pt-28 pb-20">
+    <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-600">
-            <Layers className="w-4 h-4 text-blue-600" />
-            <span>Engineering Methodology</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Predictable Software <span className="text-blue-600">Sprint Delivery.</span>
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
+            Engineering Methodology
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
+            Predictable Software Sprints.
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-[#86868B] leading-relaxed font-normal">
             No endless timelines or unpredictable scope creep. We engineer software in disciplined 2 to 4-week sprint cycles with guaranteed deliverables.
           </p>
         </div>
@@ -35,26 +34,31 @@ export default function ProcessPage() {
         {/* 3 Sprint Guarantees */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {sprintGuarantees.map((g) => (
-            <div key={g.title} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-md space-y-2">
-              <CheckCircle2 className="w-6 h-6 text-blue-600 mb-2" />
-              <h3 className="text-lg font-extrabold text-slate-900">{g.title}</h3>
-              <p className="text-xs text-slate-600 leading-relaxed font-normal">{g.desc}</p>
-            </div>
+            <motion.div
+              key={g.title}
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-3"
+            >
+              <CheckCircle2 className="w-6 h-6 text-[#0071E3] mb-2" />
+              <h3 className="text-xl font-bold text-[#1D1D1F] tracking-tight">{g.title}</h3>
+              <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed font-normal">{g.desc}</p>
+            </motion.div>
           ))}
         </div>
 
-        {/* How We Work Compact Section */}
+        {/* How We Work Section */}
         <HowWeWork />
 
         {/* CTA */}
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 text-center space-y-6 shadow-xl">
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Ready to Start Sprint 01?</h2>
-          <p className="text-sm text-slate-600 max-w-xl mx-auto font-normal">
+        <div className="bg-white rounded-3xl p-10 sm:p-14 border border-black/[0.08] text-center space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1D1D1F] tracking-tight">Ready to Start Sprint 01?</h2>
+          <p className="text-base text-[#86868B] max-w-xl mx-auto font-normal">
             Book a 30-minute Workflow Audit with our Senior System Architects.
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition shadow-lg shadow-blue-500/20"
+            className="px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm transition shadow-sm hover:scale-[1.02]"
           >
             Book Free Workflow Audit
           </button>

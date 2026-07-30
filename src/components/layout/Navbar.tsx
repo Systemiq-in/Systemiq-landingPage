@@ -9,12 +9,12 @@ import { Command, Menu, X, ArrowUpRight } from 'lucide-react';
 import WorkflowAuditModal from './WorkflowAuditModal';
 
 const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
+  { name: 'Overview', href: '/' },
   { name: 'Solutions', href: '/solutions' },
   { name: 'Industries', href: '/industries' },
-  { name: 'Process', href: '/process' },
+  { name: 'Methodology', href: '/process' },
   { name: 'Case Studies', href: '/case-studies' },
+  { name: 'About', href: '/about' },
   { name: 'Careers', href: '/careers' },
   { name: 'Contact', href: '/contact' },
 ];
@@ -27,7 +27,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -47,78 +47,68 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-300 ${
           isScrolled
-            ? 'glass-header-studio py-3 shadow-xl'
-            : 'bg-[#0B0F17]/80 backdrop-blur-md py-4 border-b border-slate-800/80'
+            ? 'glass-apple-nav py-3 shadow-[0_2px_12px_rgba(0,0,0,0.04)]'
+            : 'bg-[#F5F5F7]/80 backdrop-blur-md py-4 border-b border-black/[0.06]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 p-1 rounded-xl bg-white border border-slate-200 shadow-md group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
+            <div className="relative w-8 h-8 p-1 rounded-xl bg-white border border-black/[0.08] shadow-sm group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
               <Image
                 src="/logo_without_bg.png"
-                alt="Systemiq Technologies Logo"
-                width={28}
-                height={28}
+                alt="Systemiq Logo"
+                width={24}
+                height={24}
                 className="object-contain"
                 priority
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5 font-sans">
+              <span className="font-bold text-base tracking-tight text-[#1D1D1F] flex items-center gap-1">
                 SYSTEMIQ
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-              </span>
-              <span className="text-[9px] font-mono tracking-widest text-slate-400 uppercase -mt-1 font-semibold">
-                Business Systems Studio
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0071E3]" />
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 bg-slate-900/90 rounded-full px-4 py-1.5 border border-slate-800">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-3 py-1.5 text-xs xl:text-sm font-semibold transition-colors duration-200 ${
-                    isActive ? 'text-blue-400 font-bold' : 'text-slate-300 hover:text-white'
+                  className={`px-3 py-1.5 text-xs xl:text-sm font-medium transition-colors duration-200 rounded-full ${
+                    isActive
+                      ? 'text-[#0071E3] font-semibold bg-white shadow-sm border border-black/[0.06]'
+                      : 'text-[#1D1D1F]/70 hover:text-[#1D1D1F]'
                   }`}
                 >
                   {link.name}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeUnderlineStudio"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-blue-500 rounded-full"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Action Tools & CTA */}
+          {/* Action Buttons */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Cmd+K trigger */}
             <button
               onClick={triggerCmdK}
-              className="px-3 py-1.5 text-xs font-mono text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg flex items-center gap-1.5 transition font-semibold"
+              className="px-3 py-1.5 text-xs font-medium text-[#86868B] hover:text-[#1D1D1F] bg-white border border-black/[0.08] rounded-full flex items-center gap-1.5 transition shadow-sm"
               title="Search Systemiq (Cmd+K)"
             >
-              <Command className="w-3.5 h-3.5 text-blue-400" />
+              <Command className="w-3.5 h-3.5 text-[#0071E3]" />
               <span className="hidden xl:inline">Search</span>
-              <kbd className="text-[10px] text-slate-400 bg-slate-800 px-1 rounded border border-slate-700">⌘K</kbd>
+              <kbd className="text-[10px] text-[#86868B] bg-[#F5F5F7] px-1 rounded border border-black/[0.06]">⌘K</kbd>
             </button>
 
-            {/* Workflow Audit CTA */}
             <button
               onClick={() => setIsAuditModalOpen(true)}
-              className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-extrabold text-white flex items-center gap-1.5 transition-all shadow-lg shadow-blue-600/30 hover:scale-[1.02]"
+              className="px-5 py-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-xs font-semibold text-white flex items-center gap-1.5 transition-all shadow-sm hover:scale-[1.02]"
             >
-              <span>Book Free Audit</span>
+              <span>Book Audit</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white" />
             </button>
           </div>
@@ -127,14 +117,14 @@ export default function Navbar() {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={triggerCmdK}
-              className="p-2 text-slate-300 hover:text-white bg-slate-900 rounded-lg border border-slate-800"
+              className="p-2 text-[#1D1D1F] bg-white rounded-full border border-black/[0.08]"
               aria-label="Search"
             >
-              <Command className="w-4 h-4 text-blue-400" />
+              <Command className="w-4 h-4 text-[#0071E3]" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-white bg-slate-900 rounded-lg border border-slate-800"
+              className="p-2 text-[#1D1D1F] bg-white rounded-full border border-black/[0.08]"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -147,11 +137,11 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[65px] z-[80] lg:hidden bg-[#0B0F17] border-b border-slate-800 px-6 py-6 shadow-2xl"
+            className="fixed inset-x-0 top-[60px] z-[80] lg:hidden bg-white/98 border-b border-black/[0.08] px-6 py-6 shadow-xl"
           >
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
@@ -159,22 +149,22 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`text-sm font-semibold py-2.5 px-3 rounded-lg transition ${
+                  className={`text-sm font-medium py-2.5 px-3 rounded-xl transition ${
                     pathname === link.href
-                      ? 'bg-blue-600/20 text-blue-400 border border-blue-500/40'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-900'
+                      ? 'bg-[#F5F5F7] text-[#0071E3] font-semibold'
+                      : 'text-[#1D1D1F] hover:bg-[#F5F5F7]'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-slate-800 flex flex-col gap-3">
+              <div className="pt-4 border-t border-black/[0.06] flex flex-col gap-3">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setIsAuditModalOpen(true);
                   }}
-                  className="w-full py-3 rounded-xl bg-blue-600 text-white text-sm font-extrabold flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full py-3 rounded-full bg-[#0071E3] text-white text-sm font-semibold flex items-center justify-center gap-2 shadow-sm"
                 >
                   <span>Book Free Workflow Audit</span>
                   <ArrowUpRight className="w-4 h-4" />

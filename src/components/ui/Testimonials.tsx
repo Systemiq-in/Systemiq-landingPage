@@ -1,6 +1,6 @@
 'use client';
 
-import { Star, Quote } from 'lucide-react';
+import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
@@ -21,34 +21,33 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-14 sm:py-16 bg-[#0B0F17] border-t border-slate-800/80 relative">
+    <section className="py-16 lg:py-20 bg-[#F5F5F7] border-t border-black/[0.08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-xs font-mono font-bold text-blue-400">
-            <Star className="w-3.5 h-3.5 fill-blue-400 text-blue-400" />
-            <span>Client Feedback</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
+            Client Voices
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#1D1D1F] tracking-tight">
             What Founders Say.
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((t) => (
             <div
               key={t.author}
-              className="bg-[#131927] rounded-2xl p-6 sm:p-7 border border-slate-800 shadow-xl space-y-5 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6 flex flex-col justify-between"
             >
-              <div className="space-y-3">
-                <Quote className="w-7 h-7 text-blue-400/40" />
-                <p className="text-slate-300 text-sm leading-relaxed font-normal">
+              <div className="space-y-4">
+                <Quote className="w-8 h-8 text-[#0071E3]/30" />
+                <p className="text-[#1D1D1F] text-base leading-relaxed font-normal">
                   "{t.quote}"
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-slate-800">
-                <span className="text-sm font-extrabold text-white block">{t.author}</span>
-                <span className="text-xs text-slate-400 font-semibold block">{t.role} · {t.company}</span>
+              <div className="pt-4 border-t border-black/[0.06]">
+                <span className="text-base font-bold text-[#1D1D1F] block">{t.author}</span>
+                <span className="text-xs text-[#86868B] font-medium block">{t.role} · {t.company}</span>
               </div>
             </div>
           ))}
