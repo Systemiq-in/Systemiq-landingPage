@@ -60,7 +60,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl sm:text-8xl lg:text-9xl font-bold tracking-tighter text-[#1D1D1F] leading-[0.95] pb-2"
+            className="text-5xl sm:text-7xl lg:text-9xl font-bold tracking-tighter text-[#1D1D1F] leading-[0.95] pb-2"
           >
             Software that <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D1D1F] to-[#86868B]">
