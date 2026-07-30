@@ -6,26 +6,26 @@ import { Github, Linkedin, Twitter, Mail, Phone, MapPin, CheckCircle2 } from 'lu
 
 export default function Footer() {
   return (
-    <footer className="bg-[#070708] border-t border-white/[0.08] text-white/60 text-sm relative z-10 overflow-hidden">
+    <footer className="bg-slate-900 text-slate-300 text-sm relative z-10 overflow-hidden border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
           {/* Studio Info Column */}
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-8 h-8 p-1 rounded-lg bg-white/90 border border-white/30 flex items-center justify-center">
+              <div className="w-9 h-9 p-1 rounded-xl bg-white flex items-center justify-center shadow-md">
                 <Image
                   src="/logo_without_bg.png"
                   alt="Systemiq Logo"
-                  width={24}
-                  height={24}
+                  width={26}
+                  height={26}
                   className="object-contain"
                 />
               </div>
-              <span className="font-bold text-lg text-white tracking-tight">
+              <span className="font-extrabold text-xl text-white tracking-tight">
                 SYSTEMIQ
               </span>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed max-w-sm">
+            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
               Engineering systems that scale businesses. We replace manual spreadsheets and disconnected tools with custom software built specifically for how your SME runs.
             </p>
             <div className="flex items-center gap-3 pt-1">
@@ -33,7 +33,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/10 hover:border-[#4F7CFF]/50 hover:bg-[#4F7CFF]/10 text-white/70 hover:text-white flex items-center justify-center transition"
+                className="w-9 h-9 rounded-xl bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition shadow-sm"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -42,7 +42,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/10 hover:border-[#4F7CFF]/50 hover:bg-[#4F7CFF]/10 text-white/70 hover:text-white flex items-center justify-center transition"
+                className="w-9 h-9 rounded-xl bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition shadow-sm"
                 aria-label="Twitter"
               >
                 <Twitter className="w-4 h-4" />
@@ -51,7 +51,7 @@ export default function Footer() {
                 href="https://github.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/10 hover:border-[#4F7CFF]/50 hover:bg-[#4F7CFF]/10 text-white/70 hover:text-white flex items-center justify-center transition"
+                className="w-9 h-9 rounded-xl bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition shadow-sm"
                 aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
@@ -61,7 +61,7 @@ export default function Footer() {
 
           {/* Column 2: Solutions */}
           <div className="space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-white/40">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold">
               Custom Software
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -100,7 +100,7 @@ export default function Footer() {
 
           {/* Column 3: Studio & Process */}
           <div className="space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-white/40">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold">
               Studio & Careers
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -125,7 +125,7 @@ export default function Footer() {
                   className="hover:text-white transition flex items-center gap-1.5"
                 >
                   Builder Network
-                  <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-[#4F7CFF]/20 text-[#7AE7FF]">
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-400 font-bold">
                     Hiring
                   </span>
                 </Link>
@@ -140,29 +140,29 @@ export default function Footer() {
 
           {/* Column 4: Contact Info */}
           <div className="space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-white/40">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold">
               Studio Contact
             </h4>
             <ul className="space-y-3 text-sm font-mono text-xs">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#7AE7FF] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <span>Business Systems Studio · Global Remote</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#4F7CFF] shrink-0" />
+                <Mail className="w-4 h-4 text-blue-400 shrink-0" />
                 <a
                   href="mailto:contact@systemiq.tech"
-                  className="hover:text-white transition underline underline-offset-4 decoration-white/20"
+                  className="hover:text-white transition underline underline-offset-4 decoration-slate-600"
                 >
                   contact@systemiq.tech
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#7AE7FF] shrink-0" />
+                <Phone className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>+1 (800) SYSTEMIQ</span>
               </li>
               <li className="pt-1">
-                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#4F7CFF]/10 border border-[#4F7CFF]/30 text-[#7AE7FF] text-[11px]">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[11px] font-bold">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Now Booking Q3 SME Sprints</span>
                 </div>
@@ -172,14 +172,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-white/40">
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
           <div>
             © {new Date().getFullYear()} Systemiq Technologies. All rights reserved.
           </div>
 
           <div className="flex items-center gap-6">
             <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px]">
-              <kbd className="px-1.5 py-0.5 rounded bg-white/10 border border-white/10 text-white/70">⌘K</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">⌘K</kbd>
               <span>Command Palette</span>
             </span>
             <Link href="/contact" className="hover:text-white transition">

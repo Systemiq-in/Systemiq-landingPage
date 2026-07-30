@@ -47,14 +47,14 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-300 ${
           isScrolled
-            ? 'glass-header py-3 shadow-2xl shadow-black/60'
-            : 'bg-transparent py-5 border-b border-white/[0.04]'
+            ? 'glass-header-light py-3 shadow-md shadow-slate-900/05'
+            : 'bg-white/80 backdrop-blur-md py-4 border-b border-slate-200/80'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Logo with Light Badge Backdrop so black elements pop */}
+          {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 p-1 rounded-xl bg-white/90 border border-white/30 shadow-md group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
+            <div className="relative w-9 h-9 p-1 rounded-xl bg-white border border-slate-200 shadow-sm group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
               <Image
                 src="/logo_without_bg.png"
                 alt="Systemiq Technologies Logo"
@@ -65,33 +65,33 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5 font-sans">
+              <span className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 flex items-center gap-1.5 font-sans">
                 SYSTEMIQ
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#4F7CFF]" />
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
               </span>
-              <span className="text-[9px] font-mono tracking-widest text-white/50 uppercase -mt-1">
+              <span className="text-[9px] font-mono tracking-widest text-slate-500 uppercase -mt-1 font-semibold">
                 Business Systems Studio
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 glass-panel rounded-full px-4 py-1.5 border border-white/10 bg-[#0d0e12]/80">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 bg-slate-100/80 rounded-full px-4 py-1.5 border border-slate-200">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-3 py-1.5 text-xs xl:text-sm font-medium transition-colors duration-200 ${
-                    isActive ? 'text-white font-semibold' : 'text-white/70 hover:text-white'
+                  className={`relative px-3 py-1.5 text-xs xl:text-sm font-semibold transition-colors duration-200 ${
+                    isActive ? 'text-blue-600' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {link.name}
                   {isActive && (
                     <motion.div
-                      layoutId="activeUnderline"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-gradient-to-r from-[#4F7CFF] to-[#7AE7FF] rounded-full shadow-[0_0_8px_#4F7CFF]"
+                      layoutId="activeUnderlineLight"
+                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-blue-600 rounded-full"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -105,18 +105,18 @@ export default function Navbar() {
             {/* Cmd+K trigger */}
             <button
               onClick={triggerCmdK}
-              className="px-2.5 py-1.5 text-xs font-mono text-white/60 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 rounded-lg flex items-center gap-1.5 transition"
+              className="px-3 py-1.5 text-xs font-mono text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 border border-slate-200 rounded-lg flex items-center gap-1.5 transition font-semibold"
               title="Search Systemiq (Cmd+K)"
             >
-              <Command className="w-3.5 h-3.5 text-[#7AE7FF]" />
+              <Command className="w-3.5 h-3.5 text-blue-600" />
               <span className="hidden xl:inline">Search</span>
-              <kbd className="text-[10px] text-white/40">⌘K</kbd>
+              <kbd className="text-[10px] text-slate-400 bg-white px-1 rounded border border-slate-200">⌘K</kbd>
             </button>
 
             {/* Workflow Audit CTA */}
             <button
               onClick={() => setIsAuditModalOpen(true)}
-              className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#4F7CFF] to-[#3B62E6] hover:from-[#5C86FF] hover:to-[#4F7CFF] text-xs font-semibold text-white flex items-center gap-1.5 transition-all shadow-md shadow-[#4F7CFF]/20"
+              className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-xs font-bold text-white flex items-center gap-1.5 transition-all shadow-md shadow-blue-500/20"
             >
               <span>Book Free Audit</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white" />
@@ -127,14 +127,14 @@ export default function Navbar() {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={triggerCmdK}
-              className="p-2 text-white/60 hover:text-white bg-white/05 rounded-lg border border-white/10"
+              className="p-2 text-slate-600 hover:text-slate-900 bg-slate-100 rounded-lg border border-slate-200"
               aria-label="Search"
             >
-              <Command className="w-4 h-4 text-[#7AE7FF]" />
+              <Command className="w-4 h-4 text-blue-600" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-white/80 hover:text-white bg-white/05 rounded-lg border border-white/10"
+              className="p-2 text-slate-800 hover:text-slate-900 bg-slate-100 rounded-lg border border-slate-200"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -151,7 +151,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[65px] z-[80] lg:hidden glass-panel bg-[#0d0e12]/98 border-b border-white/10 px-6 py-6 shadow-2xl"
+            className="fixed inset-x-0 top-[65px] z-[80] lg:hidden bg-white/98 border-b border-slate-200 px-6 py-6 shadow-xl"
           >
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
@@ -159,22 +159,22 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`text-sm font-medium py-2.5 px-3 rounded-lg transition ${
+                  className={`text-sm font-semibold py-2.5 px-3 rounded-lg transition ${
                     pathname === link.href
-                      ? 'bg-[#4F7CFF]/15 text-[#7AE7FF] border border-[#4F7CFF]/30 font-semibold'
-                      : 'text-white/70 hover:text-white hover:bg-white/05'
+                      ? 'bg-blue-50 text-blue-600 border border-blue-200'
+                      : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+              <div className="pt-4 border-t border-slate-200 flex flex-col gap-3">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setIsAuditModalOpen(true);
                   }}
-                  className="w-full py-3 rounded-lg bg-gradient-to-r from-[#4F7CFF] to-[#3B62E6] text-white text-sm font-semibold flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full py-3 rounded-xl bg-blue-600 text-white text-sm font-bold flex items-center justify-center gap-2 shadow-lg"
                 >
                   <span>Book Free Workflow Audit</span>
                   <ArrowUpRight className="w-4 h-4" />

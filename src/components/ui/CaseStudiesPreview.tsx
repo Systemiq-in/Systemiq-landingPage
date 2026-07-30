@@ -2,139 +2,78 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FolderGit2, ArrowRight, TrendingUp, Clock, CheckCircle } from 'lucide-react';
+import { ArrowRight, Award, TrendingUp, Clock, CheckCircle2 } from 'lucide-react';
 
-const cases = [
+const caseStudies = [
   {
-    id: 'manufacturing-erp',
-    title: 'Custom ERP for High-Precision Manufacturing',
-    client: 'Apex Metal Products (120 Employees)',
-    category: 'Manufacturing ERP',
-    metrics: [
-      { label: 'Manual Order Processing', value: '-85%' },
-      { label: 'Sprint Deployment', value: '4 Sprints' },
-      { label: 'BOM Calculation Speed', value: 'Instant' },
+    client: 'Apex Steel & Manufacturing',
+    location: 'Industrial Zone',
+    headline: 'Replaced 18 Excel workbooks with a single real-time ERP matrix',
+    stats: [
+      { label: 'Time Saved', val: '24 hrs/wk' },
+      { label: 'Stock Accuracy', val: '99.9%' },
     ],
-    summary:
-      'Replaced 14 disconnected Excel workbooks with a unified custom ERP system managing raw material stock, shop floor scheduling, and GST billing.',
-    tags: ['Next.js', 'PostgreSQL', 'Tally Sync', 'Barcode Scanner'],
   },
   {
-    id: 'dealer-portal',
-    title: 'B2B Dealer Ordering & Credit Limit Portal',
-    client: 'Nova Wholesale Hardware (350+ Dealers)',
-    category: 'Wholesale B2B',
-    metrics: [
-      { label: 'Order Processing Speed', value: '10x Faster' },
-      { label: 'Credit Enforcement Drift', value: '0%' },
-      { label: 'Monthly B2B Volume', value: '$4.2M' },
+    client: 'Metro Wholesale Logistics',
+    location: '4 Hubs',
+    headline: 'Launched self-service B2B dealer portal with instant Tally sync',
+    stats: [
+      { label: 'Dispatch Speed', val: '4x Faster' },
+      { label: 'Billing Errors', val: '0 Incidents' },
     ],
-    summary:
-      'Engineered a self-service dealer portal with live inventory view, automated credit tier checks, WhatsApp order confirmations, and direct Tally integration.',
-    tags: ['TypeScript', 'WhatsApp API', 'Tally Prime', 'Tailwind'],
-  },
-  {
-    id: 'inventory-automation',
-    title: 'Multi-Warehouse Inventory & Dispatch Automation',
-    client: 'Vanguard Logistics & Distribution',
-    category: 'Supply Chain',
-    metrics: [
-      { label: 'Stock Reconciliation Time', value: '90 Min -> 2 Min' },
-      { label: 'Mis-pick Error Rate', value: '0.02%' },
-      { label: 'Active Warehouses', value: '4 Hubs' },
-    ],
-    summary:
-      'Automated stock movement across 4 regional warehouses with QR-code scanning, real-time reorder triggers, and driver dispatch manifests.',
-    tags: ['WebSockets', 'PWA Mobile Scan', 'PostgreSQL', 'Docker'],
   },
 ];
 
 export default function CaseStudiesPreview() {
   return (
-    <section className="py-24 bg-[#090909] border-t border-white/[0.08] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="tech-tag">Verified SME Outcomes</span>
+    <section className="py-24 bg-[#FAFAFA] border-t border-slate-200 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-600">
+              <Award className="w-3.5 h-3.5" />
+              <span>Real Business Results</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-              Case Studies & Proof.
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Client Proven Proof.
             </h2>
           </div>
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 text-sm font-mono text-[#7AE7FF] hover:text-white transition"
+            className="text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1.5 transition"
           >
-            <span>View Full Case Study Archive</span>
+            <span>View All Case Studies</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        {/* Three Case Study Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {cases.map((cs, idx) => (
-            <motion.div
-              key={cs.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="glass-card rounded-2xl p-7 border border-white/10 hover:border-[#4F7CFF]/50 transition flex flex-col justify-between group"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {caseStudies.map((cs) => (
+            <div
+              key={cs.client}
+              className="bg-white rounded-3xl p-8 border border-slate-200 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 space-y-6"
             >
-              <div>
-                {/* Header */}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#4F7CFF]/10 text-[#7AE7FF] border border-[#4F7CFF]/20">
-                    {cs.category}
-                  </span>
-                  <span className="text-[11px] font-mono text-white/40">{cs.client}</span>
-                </div>
-
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#7AE7FF] transition-colors leading-snug">
-                  {cs.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-white/60 leading-relaxed mb-6">
-                  {cs.summary}
-                </p>
-
-                {/* Metrics Box */}
-                <div className="grid grid-cols-3 gap-2 p-3 rounded-xl bg-white/[0.03] border border-white/05 mb-6 text-center">
-                  {cs.metrics.map((m) => (
-                    <div key={m.label}>
-                      <span className="text-sm sm:text-base font-bold font-mono text-white block">
-                        {m.value}
-                      </span>
-                      <span className="text-[9px] font-mono text-white/40 block leading-tight">
-                        {m.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                <span className="text-sm font-extrabold text-slate-900">{cs.client}</span>
+                <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
+                  {cs.location}
+                </span>
               </div>
 
-              <div>
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/05 mb-4">
-                  {cs.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/05 text-white/50"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+              <h3 className="text-xl font-bold text-slate-800 leading-snug">
+                "{cs.headline}"
+              </h3>
 
-                <Link
-                  href={`/case-studies#${cs.id}`}
-                  className="inline-flex items-center gap-2 text-xs font-mono text-white/70 group-hover:text-[#7AE7FF] transition-colors"
-                >
-                  <span>Read Breakdown & System Metrics</span>
-                  <ArrowRight className="w-3.5 h-3.5 -translate-x-1 group-hover:translate-x-0 transition-transform" />
-                </Link>
+              <div className="grid grid-cols-2 gap-4">
+                {cs.stats.map((s) => (
+                  <div key={s.label} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <span className="text-xs font-semibold text-slate-500 block">{s.label}</span>
+                    <span className="text-2xl font-extrabold font-mono text-blue-600 block mt-1">{s.val}</span>
+                  </div>
+                ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
