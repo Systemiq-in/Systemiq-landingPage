@@ -44,17 +44,17 @@ const pillars = [
 
 export default function WhySystemiq() {
   return (
-    <section className="py-24 bg-[#FAFAFA] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-600">
+    <section className="py-20 lg:py-24 bg-[#FAFAFA] border-t border-slate-200/80 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold text-blue-600">
             <Shield className="w-3.5 h-3.5" />
             <span>The Systemiq Studio Edge</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
             Why Growing Businesses Choose Systemiq.
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
             We operate as your dedicated external software systems studio—delivering enterprise precision without agency bloat.
           </p>
         </div>
@@ -67,8 +67,8 @@ export default function WhySystemiq() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="bg-white rounded-3xl p-8 border border-slate-200 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              transition={{ duration: 0.3, delay: idx * 0.05 }}
+              className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-6">
@@ -80,7 +80,7 @@ export default function WhySystemiq() {
                 <h3 className="text-2xl font-extrabold text-slate-900 mb-3 tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed mb-6 font-normal">
+                <p className="text-xs text-slate-600 leading-relaxed mb-6 font-normal">
                   {item.description}
                 </p>
               </div>

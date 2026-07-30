@@ -29,21 +29,21 @@ const industries = [
 
 export default function FeaturedIndustries() {
   return (
-    <section className="py-24 bg-[#FAFAFA] border-t border-slate-200 relative">
+    <section className="py-20 lg:py-24 bg-[#FAFAFA] border-t border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-600">
+          <div className="space-y-3 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold text-blue-600">
               <Building2 className="w-3.5 h-3.5" />
               <span>Tailored Industry Modules</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Industries We Serve.
             </h2>
           </div>
           <Link
             href="/industries"
-            className="text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1.5 transition"
+            className="text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1.5 transition shrink-0"
           >
             <span>View All Vertical Solutions</span>
             <ArrowRight className="w-4 h-4" />
@@ -57,8 +57,8 @@ export default function FeaturedIndustries() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="bg-white rounded-3xl p-6 border border-slate-200 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 space-y-4 flex flex-col justify-between"
+              transition={{ duration: 0.3, delay: idx * 0.05 }}
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-blue-500/50 transition-all duration-300 space-y-4 flex flex-col justify-between"
             >
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4">

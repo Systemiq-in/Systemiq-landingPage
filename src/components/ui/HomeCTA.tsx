@@ -10,27 +10,27 @@ export default function HomeCTA() {
 
   return (
     <>
-      <section className="py-24 bg-[#FAFAFA] relative border-t border-slate-200">
+      <section className="py-20 lg:py-24 bg-[#FAFAFA] relative border-t border-slate-200/80">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="bg-white rounded-3xl p-10 sm:p-16 border border-slate-200 shadow-xl space-y-8 relative overflow-hidden">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-600">
+          <div className="bg-white rounded-3xl p-8 sm:p-14 border border-slate-200/80 shadow-md space-y-6 relative overflow-hidden">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold text-blue-600">
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>Free 30-Minute Workflow Consultation</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Ready to Upgrade Your <br />
               <span className="text-blue-600">Business Systems?</span>
             </h2>
 
-            <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
               Book a 30-minute Workflow Audit with our Senior System Architects. We will analyze your spreadsheets and map out a clear software solution.
             </p>
 
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2 group"
               >
                 <Calendar className="w-4 h-4 text-white" />
                 <span>Book Free Workflow Audit</span>

@@ -35,10 +35,10 @@ export default function SpreadsheetVsSystemiq() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section className="py-24 bg-[#FAFAFA] border-t border-slate-200 relative">
+    <section className="py-20 lg:py-24 bg-[#FAFAFA] border-t border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-600">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold text-blue-600">
             <Sparkles className="w-3.5 h-3.5" />
             <span>OPERATIONAL TRANSFORM MATRIX</span>
           </div>
@@ -46,7 +46,7 @@ export default function SpreadsheetVsSystemiq() {
             The Spreadsheet Chaos vs. <br />
             <span className="text-blue-600">The Systemiq Engine.</span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base font-normal leading-relaxed">
             Compare how growing SMEs operate before and after replacing legacy manual processes with custom software.
           </p>
         </div>
@@ -63,17 +63,17 @@ export default function SpreadsheetVsSystemiq() {
                   onClick={() => setActiveIdx(idx)}
                   className={`p-5 rounded-2xl border cursor-pointer transition-all duration-300 ${
                     isSelected
-                      ? 'bg-white border-blue-600 shadow-md shadow-blue-500/10'
-                      : 'bg-white/60 border-slate-200 hover:border-slate-300'
+                      ? 'bg-white border-blue-600 shadow-md'
+                      : 'bg-white/80 border-slate-200/80 hover:border-slate-300'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-blue-600">Module 0{idx + 1}</span>
-                    <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                    <span className="text-xs font-bold text-blue-600 font-mono">Module 0{idx + 1}</span>
+                    <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
                       {item.impact}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mt-1">{item.category}</h3>
+                  <h3 className="text-base font-extrabold text-slate-900 mt-1">{item.category}</h3>
                 </div>
               );
             })}
@@ -87,36 +87,36 @@ export default function SpreadsheetVsSystemiq() {
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 space-y-8 shadow-xl relative overflow-hidden"
+                transition={{ duration: 0.2 }}
+                className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 space-y-6 shadow-md relative overflow-hidden"
               >
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                  <span className="text-base font-extrabold text-slate-900">{comparisonData[activeIdx].category}</span>
+                  <span className="text-lg font-extrabold text-slate-900">{comparisonData[activeIdx].category}</span>
                   <span className="text-xs font-bold px-3 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-200">
-                    Target Outcome: {comparisonData[activeIdx].impact}
+                    Target: {comparisonData[activeIdx].impact}
                   </span>
                 </div>
 
                 {/* Old Way vs Systemiq Way Split */}
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {/* The Old Way */}
-                  <div className="p-5 rounded-2xl bg-red-50 border border-red-200 space-y-2">
+                  <div className="p-5 rounded-2xl bg-red-50 border border-red-200 space-y-1.5">
                     <div className="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider">
                       <AlertTriangle className="w-4 h-4" />
                       <span>The Spreadsheet Chaos (Before)</span>
                     </div>
-                    <p className="text-sm text-slate-700 leading-relaxed font-medium">
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                       {comparisonData[activeIdx].oldWay}
                     </p>
                   </div>
 
                   {/* The Systemiq Way */}
-                  <div className="p-5 rounded-2xl bg-blue-50/80 border border-blue-200 space-y-2">
+                  <div className="p-5 rounded-2xl bg-blue-50 border border-blue-200 space-y-1.5">
                     <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">
                       <ShieldCheck className="w-4 h-4" />
                       <span>The Systemiq Engine (After)</span>
                     </div>
-                    <p className="text-sm text-slate-900 leading-relaxed font-semibold">
+                    <p className="text-xs sm:text-sm text-slate-900 leading-relaxed font-semibold">
                       {comparisonData[activeIdx].systemiqWay}
                     </p>
                   </div>
