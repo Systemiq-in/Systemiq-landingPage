@@ -158,7 +158,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Rahul Sharma"
-                      className="w-full px-3.5 py-2.5 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] text-[#1D1D1F] placeholder-[#86868B] text-sm focus:outline-none focus:border-[#0071E3]"
+                      className="flex h-11 w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
                     />
                   </div>
                   <div>
@@ -172,7 +172,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="rahul@company.com"
-                      className="w-full px-3.5 py-2.5 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] text-[#1D1D1F] placeholder-[#86868B] text-sm focus:outline-none focus:border-[#0071E3]"
+                      className="flex h-11 w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
                     />
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 98765 43210"
-                      className="w-full px-3.5 py-2.5 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] text-[#1D1D1F] placeholder-[#86868B] text-sm focus:outline-none focus:border-[#0071E3]"
+                      className="flex h-11 w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
                     />
                   </div>
                   <div>
@@ -201,7 +201,7 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="e.g. Apex Industrial"
-                      className="w-full px-3.5 py-2.5 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] text-[#1D1D1F] placeholder-[#86868B] text-sm focus:outline-none focus:border-[#0071E3]"
+                      className="flex h-11 w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
                     />
                   </div>
                 </div>
@@ -217,14 +217,14 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Describe your current business operations or project goals..."
-                    className="w-full px-3.5 py-2.5 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] text-[#1D1D1F] placeholder-[#86868B] text-sm focus:outline-none focus:border-[#0071E3] resize-none"
+                    className="flex min-h-[80px] w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-sm transition disabled:opacity-50 hover:scale-[1.01]"
+                  className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:pointer-events-none disabled:opacity-50 bg-[#1D1D1F] text-white hover:bg-black h-11 px-8 w-full gap-2 shadow-sm"
                 >
                   {isSubmitting ? (
                     <>

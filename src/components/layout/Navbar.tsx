@@ -144,7 +144,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] z-[80] lg:hidden bg-white/98 border-b border-black/[0.08] px-6 py-6 shadow-xl"
+            className="fixed inset-x-0 top-[60px] z-[100] lg:hidden bg-white/98 border-b border-black/[0.08] px-6 py-6 shadow-xl max-h-[calc(100vh-60px)] overflow-y-auto"
           >
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (

@@ -63,8 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable} dark`}>
-      <body className="bg-[#090909] text-white antialiased selection:bg-[#4F7CFF]/30 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+      <body className="bg-[#F5F5F7] text-[#1D1D1F] antialiased selection:bg-[#0071E3]/30 selection:text-black min-h-screen flex flex-col relative overflow-x-hidden">
         <ScrollProgress />
         <Navbar />
         <CommandMenu />
