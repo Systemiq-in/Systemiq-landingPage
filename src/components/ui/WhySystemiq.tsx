@@ -45,6 +45,8 @@ const pillars = [
 export default function WhySystemiq() {
   return (
     <section className="py-24 lg:py-32 bg-transparent border-t border-white/[0.08] relative overflow-hidden">
+      {/* Localized Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#0071E3]/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">

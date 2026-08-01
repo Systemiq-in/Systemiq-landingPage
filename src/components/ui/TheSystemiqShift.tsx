@@ -108,17 +108,27 @@ export default function TheSystemiqShift() {
             </div>
 
             {/* The Systemiq Way - Glowing Data Flow Graphics */}
-            <div className="absolute right-0 bottom-0 opacity-20 pointer-events-none w-80 h-80 overflow-hidden">
+            <div className="absolute right-0 bottom-0 opacity-30 pointer-events-none w-80 h-80 overflow-hidden">
               <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,80 Q25,80 50,50 T100,20" fill="none" stroke="#FFFFFF" strokeWidth="2" />
-                <path d="M0,60 Q25,60 50,30 T100,0" fill="none" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.5" />
+                {/* Background track */}
+                <path d="M0,80 Q25,80 50,50 T100,20" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="2" />
+                <path d="M0,60 Q25,60 50,30 T100,0" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+                
+                {/* Animated Flowing Line */}
+                <motion.path 
+                  d="M0,80 Q25,80 50,50 T100,20" 
+                  fill="none" 
+                  stroke="#FFFFFF" 
+                  strokeWidth="3"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", repeatType: "loop" }}
+                  style={{ filter: "drop-shadow(0 0 8px rgba(255,255,255,0.8))" }}
+                />
+                
+                {/* Connection Nodes */}
                 <circle cx="50" cy="50" r="4" fill="#FFFFFF" className="animate-pulse" />
                 <circle cx="100" cy="20" r="4" fill="#FFFFFF" className="animate-pulse" />
-                <motion.circle 
-                  cx="0" cy="80" r="3" fill="#FFFFFF" 
-                  animate={{ cx: [0, 50, 100], cy: [80, 50, 20] }} 
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} 
-                />
               </svg>
             </div>
           </motion.div>
