@@ -22,6 +22,7 @@ interface BrandCard {
   tag: string;
   description: string;
   outcomes: string[];
+  ctaText: string;
 }
 
 const brandCards: BrandCard[] = [
@@ -34,6 +35,7 @@ const brandCards: BrandCard[] = [
     description:
       'One central software for orders, inventory, raw materials, and finances. Built specifically around your actual daily business steps.',
     outcomes: ['Zero manual copy-pasting', 'Multi-branch visibility', 'Role permission controls'],
+    ctaText: 'View ERP Blueprint',
   },
   {
     id: 'inventory',
@@ -44,6 +46,7 @@ const brandCards: BrandCard[] = [
     description:
       'Know your exact inventory counts across all stores and warehouses in real-time. Automatic reorder alerts before items run out.',
     outcomes: ['Prevents stockouts', 'Batch & serial tracking', 'Automated reorder triggers'],
+    ctaText: 'View Inventory Blueprint',
   },
   {
     id: 'warehouse',
@@ -54,6 +57,7 @@ const brandCards: BrandCard[] = [
     description:
       'Equip warehouse staff with fast mobile scanner apps. Speed up picking, packing, and dispatch with 99.9% accuracy.',
     outcomes: ['99.9% pick accuracy', 'Fast mobile scanning', 'Instant dispatch manifests'],
+    ctaText: 'View Scanner Blueprint',
   },
   {
     id: 'dealer-portals',
@@ -64,6 +68,7 @@ const brandCards: BrandCard[] = [
     description:
       'Give wholesale dealers a self-service portal to view live prices, check credit limits, and place bulk orders anytime.',
     outcomes: ['Automatic credit enforcement', 'Dealer tier pricing', '24/7 order placement'],
+    ctaText: 'View Portal Blueprint',
   },
   {
     id: 'crm',
@@ -74,6 +79,7 @@ const brandCards: BrandCard[] = [
     description:
       'Track sales leads, generate professional PDF quotes in 3 seconds, and ensure your sales team follows up on time.',
     outcomes: ['3-second PDF quotes', 'Lead follow-up reminders', 'Sales manager dashboards'],
+    ctaText: 'View CRM Blueprint',
   },
   {
     id: 'whatsapp',
@@ -84,6 +90,7 @@ const brandCards: BrandCard[] = [
     description:
       'Post invoices straight to Tally Prime without re-typing. Text customers order updates & receipts on WhatsApp automatically.',
     outcomes: ['Direct Tally Prime sync', 'Automated WhatsApp receipts', 'Zero double entry'],
+    ctaText: 'View Sync Blueprint',
   },
 ];
 
@@ -123,7 +130,7 @@ export default function InteractiveWhatWeBuild() {
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: idx * 0.05 }}
               onClick={() => handleCardClick(item.title)}
-              className="bg-[#F5F5F7] rounded-3xl p-8 cursor-pointer flex flex-col justify-between border border-black/[0.06] hover:border-[#0071E3]/40 shadow-sm hover:shadow-md transition-all duration-300 group"
+              className="bg-[#F5F5F7] rounded-3xl p-8 cursor-pointer flex flex-col justify-between border border-black/[0.06] hover:border-[#0071E3]/40 shadow-sm hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
@@ -157,7 +164,7 @@ export default function InteractiveWhatWeBuild() {
                 </div>
 
                 <div className="flex items-center justify-between text-xs font-semibold text-[#0071E3]">
-                  <span>Inspect Blueprint</span>
+                  <span>{item.ctaText}</span>
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

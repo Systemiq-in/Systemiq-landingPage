@@ -145,7 +145,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
-                <span>+1 (800) SYSTEMIQ</span>
+                <span>+91 98765 43210</span>
               </li>
             </ul>
           </div>
@@ -158,10 +158,10 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="/contact" className="hover:text-[#1D1D1F] transition">
+            <Link href="/legal/privacy" className="hover:text-[#1D1D1F] transition">
               Privacy Policy
             </Link>
-            <Link href="/contact" className="hover:text-[#1D1D1F] transition">
+            <Link href="/legal/terms" className="hover:text-[#1D1D1F] transition">
               Terms of Service
             </Link>
           </div>

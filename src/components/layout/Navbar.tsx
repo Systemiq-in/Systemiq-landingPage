@@ -15,7 +15,6 @@ const navLinks = [
   { name: 'Methodology', href: '/process' },
   { name: 'Case Studies', href: '/case-studies' },
   { name: 'About', href: '/about' },
-  { name: 'Careers', href: '/careers' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -111,7 +110,7 @@ export default function Navbar() {
               onClick={() => setIsAuditModalOpen(true)}
               className="px-5 py-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-xs font-semibold text-white flex items-center gap-1.5 transition-all shadow-sm hover:scale-[1.02]"
             >
-              <span>Book Audit</span>
+              <span>Book Workflow Audit</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white" />
             </button>
           </div>

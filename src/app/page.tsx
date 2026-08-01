@@ -108,7 +108,7 @@ export default function HomePage() {
               onClick={() => setIsAuditModalOpen(true)}
               className="px-10 py-5 rounded-full bg-[#1D1D1F] hover:bg-black text-white font-semibold text-base transition-all shadow-xl hover:shadow-2xl hover:scale-[1.02] flex items-center gap-3"
             >
-              <span>Experience Systemiq</span>
+              <span>Book 30-Min Audit</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
@@ -116,7 +116,7 @@ export default function HomePage() {
               href="/solutions"
               className="text-[#1D1D1F] font-semibold text-base hover:text-[#0071E3] transition-colors flex items-center gap-1 group"
             >
-              <span>View the Collection</span>
+              <span>Explore Solutions</span>
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
@@ -156,9 +156,6 @@ export default function HomePage() {
 
       {/* ---------------- ARCHITECTURE DIAGRAM ---------------- */}
       <ArchitectureDiagram />
-
-      {/* ---------------- BUILDER NETWORK SECTION ---------------- */}
-      <BuilderNetworkSection />
 
       {/* ---------------- CASE STUDIES PREVIEW ---------------- */}
       <CaseStudiesPreview />
