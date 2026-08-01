@@ -21,9 +21,21 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://systemiq.tech'),
   title: {
     default: 'Systemiq Technologies | Business Systems Studio',
     template: '%s | Systemiq Technologies',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   description:
     'Systemiq Technologies is a Business Systems Studio engineering custom software systems, ERPs, CRMs, and internal tools for growing SMEs. Engineering systems that scale businesses.',
