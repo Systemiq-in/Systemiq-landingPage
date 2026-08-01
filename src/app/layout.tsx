@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
@@ -64,10 +65,6 @@ export const metadata: Metadata = {
     title: 'Systemiq Technologies | Business Systems Studio',
     description: 'Custom Software. Engineered Around Your Business.',
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
 };
 
 export default function RootLayout({
@@ -77,6 +74,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${mono.variable} dark`}>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NV4HPRRLMK"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-NV4HPRRLMK');
+          `}
+        </Script>
+      </head>
       <body className="bg-[#090A0C] text-white/90 antialiased selection:bg-[#0071E3]/30 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
         <GlobalBackground />
         <ScrollProgress />
