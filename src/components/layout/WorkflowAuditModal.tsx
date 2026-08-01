@@ -190,7 +190,7 @@ export default function WorkflowAuditModal({
                               onChange={handleChange}
                               onKeyDown={handleKeyDown}
                               placeholder="Your full name"
-                              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-black/[0.08] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
+                              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
                             />
                           </div>
                           <div className="relative">
@@ -202,7 +202,7 @@ export default function WorkflowAuditModal({
                               onChange={handleChange}
                               onKeyDown={handleKeyDown}
                               placeholder="Your work email"
-                              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-black/[0.08] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
+                              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
                             />
                           </div>
                         </div>
@@ -234,7 +234,7 @@ export default function WorkflowAuditModal({
                               onChange={handleChange}
                               onKeyDown={handleKeyDown}
                               placeholder="Company Name"
-                              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-black/[0.08] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
+                              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
                             />
                           </div>
                           
@@ -285,7 +285,7 @@ export default function WorkflowAuditModal({
                               value={formData.description}
                               onChange={handleChange}
                               placeholder="e.g. We are stuck using 5 different spreadsheets to manage warehouse inventory and Tally billing..."
-                              className="w-full pl-12 pr-4 py-5 rounded-2xl bg-white border border-black/[0.08] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm resize-none"
+                              className="w-full pl-12 pr-4 py-5 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm resize-none"
                             />
                           </div>
                         </div>
