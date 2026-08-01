@@ -39,103 +39,89 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="fixed top-0 inset-x-0 z-[100]">
-        {/* Full Horizontal Branding Strip (Light Mode) */}
-        <div className="w-full bg-[#F5F5F7] border-b border-black/10 py-3 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative group-hover:scale-105 transition-transform duration-200">
-                <Image
-                  src="/logo_without_bg.png"
-                  alt="Systemiq Logo"
-                  width={24}
-                  height={24}
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <span className="font-bold text-[15px] tracking-tight text-[#1D1D1F] flex items-center gap-1">
-                SYSTEMIQ
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0071E3]" />
-              </span>
-            </Link>
-            
-            <div className="text-[11px] font-semibold tracking-widest text-[#1D1D1F]/50 uppercase hidden sm:block">
-              Business Systems Studio
+      <div className="fixed top-0 sm:top-4 inset-x-0 z-[100] flex justify-center px-4 transition-all duration-500">
+        <div 
+          className={`flex items-center justify-between w-full lg:w-auto transition-all duration-300 ${
+            isScrolled 
+              ? 'bg-white/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 border border-white/20' 
+              : 'bg-white/90 backdrop-blur-xl shadow-xl rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 border border-white/10'
+          }`}
+        >
+          {/* Brand Logo */}
+          <Link href="/" className="flex items-center gap-3 group mr-8">
+            <div className="relative group-hover:scale-105 transition-transform duration-200">
+              <Image
+                src="/logo_without_bg.png"
+                alt="Systemiq Logo"
+                width={22}
+                height={22}
+                className="object-contain"
+                priority
+              />
             </div>
+            <span className="font-bold text-[14px] tracking-tight text-[#1D1D1F] flex items-center gap-1 hidden sm:flex">
+              SYSTEMIQ
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0071E3]" />
+            </span>
+          </Link>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 mr-6">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-4 py-2 text-[13px] font-medium transition-all duration-200 rounded-full ${
+                    isActive
+                      ? 'text-[#0071E3] font-semibold bg-black/5 shadow-sm'
+                      : 'text-[#1D1D1F]/70 hover:text-[#1D1D1F] hover:bg-black/5'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Action Buttons */}
+          <div className="hidden sm:flex items-center gap-3">
+            <button
+              onClick={triggerCmdK}
+              className="px-3 py-2 text-xs font-medium text-[#1D1D1F]/60 hover:text-[#1D1D1F] bg-black/5 hover:bg-black/10 rounded-full flex items-center gap-2 transition-all shadow-sm"
+              title="Search Systemiq (Cmd+K)"
+            >
+              <Command className="w-3.5 h-3.5 text-[#0071E3]" />
+              <span className="hidden xl:inline">Search</span>
+              <kbd className="text-[10px] text-[#1D1D1F]/50 bg-black/10 px-1.5 py-0.5 rounded">⌘K</kbd>
+            </button>
+
+            <button
+              onClick={() => setIsAuditModalOpen(true)}
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0071E3] to-[#00A3FF] text-xs font-semibold text-white flex items-center gap-1.5 transition-all shadow-[0_4px_20px_rgba(0,113,227,0.3)] hover:shadow-[0_8px_30px_rgba(0,113,227,0.5)] hover:scale-105"
+            >
+              <span>Book Audit</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-white" />
+            </button>
           </div>
-        </div>
 
-        {/* Floating Navigation Pill (Dark Mode) */}
-        <div className="w-full flex justify-center mt-4 px-4 transition-transform duration-500">
-          <div 
-            className={`flex items-center justify-between w-full lg:w-auto transition-all duration-300 ${
-              isScrolled 
-                ? 'bg-[#13151A]/80 backdrop-blur-2xl border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.4)] rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5' 
-                : 'bg-[#13151A]/95 backdrop-blur-xl border border-white/5 shadow-xl rounded-2xl sm:rounded-full px-4 sm:px-6 py-3'
-            }`}
-          >
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2 mr-6">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`px-4 py-2 text-[13px] font-medium transition-all duration-200 rounded-full ${
-                      isActive
-                        ? 'text-white font-semibold bg-white/10 shadow-sm'
-                        : 'text-white/60 hover:text-white hover:bg-white/5'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-            </nav>
-
-            {/* Action Buttons */}
-            <div className="hidden sm:flex items-center gap-3">
-              <button
-                onClick={triggerCmdK}
-                className="px-3 py-2 text-xs font-medium text-white/60 hover:text-white bg-white/5 hover:bg-white/10 border border-white/5 rounded-full flex items-center gap-2 transition-all shadow-sm"
-                title="Search Systemiq (Cmd+K)"
-              >
-                <Command className="w-3.5 h-3.5 text-[#00A3FF]" />
-                <span className="hidden xl:inline">Search</span>
-                <kbd className="text-[10px] text-white/50 bg-black/20 px-1.5 py-0.5 rounded border border-white/10">⌘K</kbd>
-              </button>
-
-              <button
-                onClick={() => setIsAuditModalOpen(true)}
-                className="px-5 py-2 rounded-full bg-gradient-to-r from-[#0071E3] to-[#00A3FF] text-xs font-semibold text-white flex items-center gap-1.5 transition-all shadow-[0_0_20px_rgba(0,113,227,0.3)] hover:shadow-[0_0_30px_rgba(0,113,227,0.5)] border border-white/10 hover:scale-105"
-              >
-                <span>Book Audit</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-white" />
-              </button>
-            </div>
-
-            {/* Mobile Hamburger Button */}
-            <div className="flex items-center justify-between w-full lg:hidden">
-              <span className="text-white text-sm font-semibold tracking-wide">Menu</span>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={triggerCmdK}
-                  className="p-2 text-white bg-white/10 rounded-full border border-white/5"
-                  aria-label="Search"
-                >
-                  <Command className="w-4 h-4 text-[#00A3FF]" />
-                </button>
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="p-2 text-white bg-white/10 rounded-full border border-white/5"
-                  aria-label="Toggle menu"
-                >
-                  {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                </button>
-              </div>
-            </div>
+          {/* Mobile Hamburger Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={triggerCmdK}
+              className="p-2 text-[#1D1D1F] bg-black/5 rounded-full"
+              aria-label="Search"
+            >
+              <Command className="w-4 h-4 text-[#0071E3]" />
+            </button>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-[#1D1D1F] bg-black/5 rounded-full"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
       </div>
