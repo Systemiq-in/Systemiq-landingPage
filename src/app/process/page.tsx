@@ -16,17 +16,17 @@ export default function ProcessPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] pt-32 pb-20 antialiased">
+    <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
             Engineering Methodology
           </span>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
             Predictable Software Sprints.
           </h1>
-          <p className="text-base sm:text-lg text-[#86868B] leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal">
             No endless timelines or unpredictable scope creep. We engineer software in disciplined 2 to 4-week sprint cycles with guaranteed deliverables.
           </p>
         </div>
@@ -38,11 +38,11 @@ export default function ProcessPage() {
               key={g.title}
               whileHover={{ y: -3 }}
               transition={{ duration: 0.2 }}
-              className="bg-white rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-3"
+              className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.1)] hover:-translate-y-1 space-y-3 transition-all"
             >
               <CheckCircle2 className="w-6 h-6 text-[#0071E3] mb-2" />
-              <h3 className="text-xl font-bold text-[#1D1D1F] tracking-tight">{g.title}</h3>
-              <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed font-normal">{g.desc}</p>
+              <h3 className="text-xl font-bold text-white tracking-tight">{g.title}</h3>
+              <p className="text-xs sm:text-sm text-white/50 leading-relaxed font-normal">{g.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -51,9 +51,9 @@ export default function ProcessPage() {
         <HowWeWork />
 
         {/* CTA */}
-        <div className="bg-white rounded-3xl p-10 sm:p-14 border border-black/[0.08] text-center space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1D1D1F] tracking-tight">Ready to Start Sprint 01?</h2>
-          <p className="text-base text-[#86868B] max-w-xl mx-auto font-normal">
+        <div className="bg-[#13151A]/80 rounded-3xl p-10 sm:p-14 border border-white/[0.04] text-center space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Ready to Start Sprint 01?</h2>
+          <p className="text-base text-white/50 max-w-xl mx-auto font-normal">
             Book a 30-minute Workflow Audit with our Senior System Architects.
           </p>
           <button

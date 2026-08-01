@@ -12,7 +12,7 @@ const stats = [
 
 export default function TrustedSection() {
   return (
-    <section className="py-12 bg-white border-y border-black/[0.08] relative z-10">
+    <section className="py-12 bg-transparent border-y border-white/[0.08] relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
           {stats.map((stat, idx) => (
@@ -22,15 +22,15 @@ export default function TrustedSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: idx * 0.05 }}
-              className="flex flex-col items-center p-6 rounded-3xl bg-[#F5F5F7] border border-black/[0.04] shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_8px_16px_rgba(0,0,0,0.04)]"
+              className="flex flex-col items-center p-6 rounded-3xl bg-[#13151A]/80 border border-white/[0.04] shadow-[0_2px_8px_rgba(0,0,0,0.2)] transition-all hover:bg-[#13151A] hover:border-white/[0.08]"
             >
-              <div className="w-10 h-10 mb-4 rounded-xl bg-white border border-black/[0.06] shadow-sm flex items-center justify-center">
+              <div className="w-10 h-10 mb-4 rounded-xl bg-[#090A0C] border border-white/[0.08] shadow-sm flex items-center justify-center">
                 {stat.icon}
               </div>
-              <span className="text-3xl sm:text-4xl font-extrabold text-[#1D1D1F] block tracking-tight">
+              <span className="text-3xl sm:text-4xl font-extrabold text-white block tracking-tight">
                 {stat.value}
               </span>
-              <span className="text-xs font-semibold text-[#86868B] block mt-1.5 uppercase tracking-wide">
+              <span className="text-xs font-semibold text-white/50 block mt-1.5 uppercase tracking-wide">
                 {stat.label}
               </span>
             </motion.div>

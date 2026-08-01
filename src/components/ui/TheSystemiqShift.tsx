@@ -16,17 +16,17 @@ export default function TheSystemiqShift() {
   return (
     <section 
       ref={containerRef}
-      className="py-24 lg:py-32 bg-transparent relative overflow-hidden border-t border-black/[0.08]"
+      className="py-24 lg:py-32 bg-transparent relative overflow-hidden border-t border-white/[0.08]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <div className="text-center max-w-4xl mx-auto space-y-4">
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
             The Paradigm Shift
           </span>
-          <h2 className="text-4xl sm:text-6xl font-extrabold text-[#1D1D1F] tracking-tighter leading-tight">
+          <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tighter leading-tight">
             Stop forcing your business into rigid, generic software.
           </h2>
-          <p className="text-lg sm:text-2xl text-[#86868B] font-medium leading-relaxed">
+          <p className="text-lg sm:text-2xl text-white/50 font-medium leading-relaxed">
             Off-the-shelf tools, fragmented apps, and endless spreadsheets drain your momentum. We build the exact system your workflow actually needs.
           </p>
         </div>
@@ -35,15 +35,15 @@ export default function TheSystemiqShift() {
           {/* The Old Way */}
           <motion.div 
             whileHover={{ scale: 0.98 }}
-            className="rounded-[2.5rem] bg-[#FAFAFA] border border-black/[0.06] p-10 sm:p-14 flex flex-col justify-between overflow-hidden relative group"
+            className="rounded-[2.5rem] bg-[#13151A]/80 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.2)] p-10 sm:p-14 flex flex-col justify-between overflow-hidden relative group"
           >
-            <div className="absolute top-0 left-0 w-full h-1 bg-red-500/20" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-red-500/30" />
             <div className="space-y-8 relative z-10">
               <div className="flex items-center gap-3 text-red-500 font-semibold tracking-wide uppercase text-sm">
                 <AlertCircle className="w-5 h-5" />
                 The Old Way
               </div>
-              <h3 className="text-3xl font-bold text-[#1D1D1F] tracking-tight">Fragmented & Manual</h3>
+              <h3 className="text-3xl font-bold text-white tracking-tight">Fragmented & Manual</h3>
               <ul className="space-y-6">
                 {[
                   'Dozens of spreadsheets crashing with too much data.',
@@ -51,12 +51,24 @@ export default function TheSystemiqShift() {
                   'Manual data entry between Tally, CRM, and Inventory.',
                   'No real-time visibility into branch operations.',
                 ].map((text, i) => (
-                  <li key={i} className="flex items-start gap-4 text-[#86868B] text-lg font-medium leading-snug">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 shrink-0" />
+                  <li key={i} className="flex items-start gap-4 text-white/60 text-lg font-medium leading-snug">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2.5 shrink-0 shadow-[0_0_8px_rgba(239,68,68,0.5)]" />
                     {text}
                   </li>
                 ))}
               </ul>
+            </div>
+            
+            {/* The Old Way - Glitch/Broken Graphics */}
+            <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none w-64 h-64 overflow-hidden">
+              <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,90 L30,50 L50,70 L90,10" fill="none" stroke="#FF0000" strokeWidth="2" strokeDasharray="5,5" />
+                <circle cx="30" cy="50" r="3" fill="#FF0000" />
+                <circle cx="50" cy="70" r="3" fill="#FF0000" />
+                <circle cx="90" cy="10" r="3" fill="#FF0000" />
+                <text x="40" y="40" fill="#FF0000" fontSize="8" transform="rotate(-15 40,40)">ERR_SYNC</text>
+                <text x="60" y="80" fill="#FF0000" fontSize="8" transform="rotate(15 60,80)">TIMEOUT</text>
+              </svg>
             </div>
           </motion.div>
 
@@ -93,6 +105,21 @@ export default function TheSystemiqShift() {
               <span className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-4 transition-all cursor-pointer">
                 See How We Build It <ArrowRight className="w-4 h-4" />
               </span>
+            </div>
+
+            {/* The Systemiq Way - Glowing Data Flow Graphics */}
+            <div className="absolute right-0 bottom-0 opacity-20 pointer-events-none w-80 h-80 overflow-hidden">
+              <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,80 Q25,80 50,50 T100,20" fill="none" stroke="#FFFFFF" strokeWidth="2" />
+                <path d="M0,60 Q25,60 50,30 T100,0" fill="none" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.5" />
+                <circle cx="50" cy="50" r="4" fill="#FFFFFF" className="animate-pulse" />
+                <circle cx="100" cy="20" r="4" fill="#FFFFFF" className="animate-pulse" />
+                <motion.circle 
+                  cx="0" cy="80" r="3" fill="#FFFFFF" 
+                  animate={{ cx: [0, 50, 100], cy: [80, 50, 20] }} 
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} 
+                />
+              </svg>
             </div>
           </motion.div>
         </div>

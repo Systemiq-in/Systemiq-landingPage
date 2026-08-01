@@ -100,17 +100,17 @@ export default function CareersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] pt-32 pb-20 antialiased">
+    <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
             Engineering Fellowship
           </span>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
             Build Real Production Systems.
           </h1>
-          <p className="text-base sm:text-lg text-[#86868B] leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal">
             The Systemiq Builder Network is a paid engineering fellowship for computer science talent. Work on production software, receive senior code reviews, and ship features that power growing businesses.
           </p>
         </div>
@@ -119,19 +119,19 @@ export default function CareersPage() {
         <div className="space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">Fellowship Structure</span>
-            <h2 className="text-3xl font-extrabold text-[#1D1D1F] tracking-tight">
+            <h2 className="text-3xl font-extrabold text-white tracking-tight">
               Why Join the Builder Network
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {fellowshipPerks.map((p) => (
-              <div key={p.title} className="bg-white rounded-3xl p-6 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] flex items-center justify-center">
+              <div key={p.title} className="bg-[#13151A]/80 rounded-3xl p-6 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-3">
+                <div className="w-10 h-10 rounded-2xl bg-transparent border border-white/[0.06] flex items-center justify-center">
                   {p.icon}
                 </div>
-                <h3 className="text-lg font-bold text-[#1D1D1F] tracking-tight">{p.title}</h3>
-                <p className="text-xs text-[#86868B] leading-relaxed font-normal">{p.desc}</p>
+                <h3 className="text-lg font-bold text-white tracking-tight">{p.title}</h3>
+                <p className="text-xs text-white/50 leading-relaxed font-normal">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -141,28 +141,28 @@ export default function CareersPage() {
         <div className="space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">Selection Process</span>
-            <h2 className="text-3xl font-extrabold text-[#1D1D1F] tracking-tight">
+            <h2 className="text-3xl font-extrabold text-white tracking-tight">
               4 Steps to Join
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {programPhases.map((phase) => (
-              <div key={phase.step} className="bg-white rounded-3xl p-6 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-2">
+              <div key={phase.step} className="bg-[#13151A]/80 rounded-3xl p-6 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-2">
                 <span className="text-2xl font-bold font-mono text-[#0071E3]">{phase.step}</span>
-                <h3 className="text-base font-bold text-[#1D1D1F]">{phase.title}</h3>
-                <p className="text-xs text-[#86868B] leading-relaxed font-normal">{phase.desc}</p>
+                <h3 className="text-base font-bold text-white">{phase.title}</h3>
+                <p className="text-xs text-white/50 leading-relaxed font-normal">{phase.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Application Form */}
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-black/[0.08] max-w-2xl mx-auto space-y-8 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+        <div className="bg-[#13151A]/80 rounded-3xl p-8 sm:p-12 border border-white/[0.04] max-w-2xl mx-auto space-y-8 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
           <div className="text-center space-y-2">
             <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">Fellowship Application</span>
-            <h2 className="text-3xl font-extrabold text-[#1D1D1F] tracking-tight">Apply to the Builder Network</h2>
-            <p className="text-xs sm:text-sm text-[#86868B]">
+            <h2 className="text-3xl font-extrabold text-white tracking-tight">Apply to the Builder Network</h2>
+            <p className="text-xs sm:text-sm text-white/50">
               Share your GitHub profile and top projects. Applications are reviewed on a rolling basis.
             </p>
           </div>
@@ -172,13 +172,13 @@ export default function CareersPage() {
               <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
-              <h3 className="text-2xl font-bold text-[#1D1D1F]">Application Submitted! 🎉</h3>
-              <p className="text-sm text-[#86868B] max-w-md mx-auto font-normal">
-                Thank you, <span className="text-[#1D1D1F] font-semibold">{formData.name}</span>. Our engineering leads will review your application and contact you via email within 48 hours.
+              <h3 className="text-2xl font-bold text-white">Application Submitted! 🎉</h3>
+              <p className="text-sm text-white/50 max-w-md mx-auto font-normal">
+                Thank you, <span className="text-white font-semibold">{formData.name}</span>. Our engineering leads will review your application and contact you via email within 48 hours.
               </p>
               <button
                 onClick={() => setIsSubmitted(false)}
-                className="px-6 py-2.5 rounded-full bg-[#F5F5F7] border border-black/[0.06] text-[#1D1D1F] font-semibold text-xs transition"
+                className="px-6 py-2.5 rounded-full bg-transparent border border-white/[0.06] text-white font-semibold text-xs transition"
               >
                 Submit Another Application
               </button>
@@ -193,7 +193,7 @@ export default function CareersPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#1D1D1F] mb-1">Full Name *</label>
+                  <label className="block text-xs font-semibold text-white mb-1">Full Name *</label>
                   <input
                     type="text"
                     name="name"
@@ -201,11 +201,11 @@ export default function CareersPage() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="e.g. Alex Chen"
-                    className="flex h-11 w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
+                    className="flex h-11 w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#1D1D1F] mb-1">Email Address *</label>
+                  <label className="block text-xs font-semibold text-white mb-1">Email Address *</label>
                   <input
                     type="email"
                     name="email"
@@ -213,14 +213,14 @@ export default function CareersPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="alex@university.edu"
-                    className="flex h-11 w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
+                    className="flex h-11 w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#1D1D1F] mb-1">GitHub / Portfolio URL *</label>
+                  <label className="block text-xs font-semibold text-white mb-1">GitHub / Portfolio URL *</label>
                   <input
                     type="url"
                     name="github"
@@ -228,11 +228,11 @@ export default function CareersPage() {
                     value={formData.github}
                     onChange={handleChange}
                     placeholder="https://github.com/username"
-                    className="flex h-11 w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
+                    className="flex h-11 w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#1D1D1F] mb-1">University & Graduation Year *</label>
+                  <label className="block text-xs font-semibold text-white mb-1">University & Graduation Year *</label>
                   <input
                     type="text"
                     name="university"
@@ -240,39 +240,39 @@ export default function CareersPage() {
                     value={formData.university}
                     onChange={handleChange}
                     placeholder="e.g. BS Computer Science '26"
-                    className="flex h-11 w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
+                    className="flex h-11 w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#1D1D1F] mb-1">Primary Tech Stack</label>
+                <label className="block text-xs font-semibold text-white mb-1">Primary Tech Stack</label>
                 <input
                   type="text"
                   name="techStack"
                   value={formData.techStack}
                   onChange={handleChange}
                   placeholder="e.g. TypeScript, React, Next.js, Node.js, PostgreSQL"
-                  className="w-full px-3.5 py-2.5 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] text-[#1D1D1F] placeholder-[#86868B] text-sm focus:outline-none focus:border-[#0071E3]"
+                  className="w-full px-3.5 py-2.5 rounded-2xl bg-transparent border border-white/[0.06] text-white placeholder-[#86868B] text-sm focus:outline-none focus:border-[#0071E3]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#1D1D1F] mb-1">Highlighted Project or Feature</label>
+                <label className="block text-xs font-semibold text-white mb-1">Highlighted Project or Feature</label>
                 <textarea
                   name="whyJoin"
                   rows={3}
                   value={formData.whyJoin}
                   onChange={handleChange}
                   placeholder="Briefly describe a project you built or a technical problem you solved..."
-                  className="flex min-h-[80px] w-full rounded-md border border-black/[0.08] bg-white px-3 py-2 text-sm placeholder:text-[#86868B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow resize-none"
+                  className="flex min-h-[80px] w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:pointer-events-none disabled:opacity-50 bg-[#1D1D1F] text-white hover:bg-black h-11 px-8 w-full gap-2 shadow-sm"
+                className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-[#0071E3] to-[#00A3FF] text-white hover:opacity-90 h-11 px-8 w-full gap-2 shadow-[0_0_20px_rgba(0,113,227,0.3)] border border-white/10"
               >
                 {isSubmitting ? (
                   <>

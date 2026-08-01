@@ -11,6 +11,7 @@ import {
   ChevronRight,
   CheckCircle2,
   Users,
+  ArrowRight,
 } from 'lucide-react';
 import WorkflowAuditModal from '../layout/WorkflowAuditModal';
 
@@ -104,18 +105,18 @@ export default function InteractiveWhatWeBuild() {
   };
 
   return (
-    <section className="py-16 lg:py-20 bg-white/40 backdrop-blur-2xl border-t border-black/[0.08]">
+    <section className="py-16 lg:py-20 bg-transparent border-t border-white/[0.08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
             <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
               Solutions Catalog
             </span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
               What We Engineer.
             </h2>
           </div>
-          <p className="text-[#86868B] text-sm sm:text-base font-normal max-w-md leading-relaxed">
+          <p className="text-white/50 text-sm sm:text-base font-normal max-w-md leading-relaxed">
             Select a solution module to view its architecture and request a customized sprint blueprint.
           </p>
         </div>
@@ -130,42 +131,45 @@ export default function InteractiveWhatWeBuild() {
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: idx * 0.05 }}
               onClick={() => handleCardClick(item.title)}
-              className="bg-[#F5F5F7] rounded-3xl p-8 cursor-pointer flex flex-col justify-between border border-black/[0.06] hover:border-[#0071E3]/40 shadow-sm hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 group"
+              className="group flex flex-col justify-between rounded-[2rem] bg-[#13151A]/80 border border-white/[0.06] p-8 md:p-10 relative overflow-hidden transition-all duration-300 hover:border-[#0071E3]/30 hover:bg-[#13151A] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,113,227,0.12)] cursor-pointer"
             >
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-sm border border-black/[0.06]">
+              {/* Subtle Glow on Hover */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-[#0071E3]/0 to-[#0071E3]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="relative z-10 flex flex-col justify-between h-full space-y-12">
+                <div className="flex justify-between items-start">
+                  <div className="w-12 h-12 rounded-2xl bg-[#090A0C] border border-white/[0.08] shadow-sm flex items-center justify-center text-[#0071E3] group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
                   </div>
-                  <span className="px-3 py-1 rounded-full bg-white border border-black/[0.06] text-[11px] font-semibold text-[#86868B]">
+                  <span className="text-xs font-semibold px-3 py-1 bg-white/[0.04] text-white/50 rounded-full border border-white/[0.06]">
                     {item.tag}
                   </span>
                 </div>
 
-                <span className="text-xs font-semibold text-[#0071E3] uppercase tracking-wider block mb-1">
-                  {item.category}
-                </span>
-                <h3 className="text-xl font-bold text-[#1D1D1F] tracking-tight mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed font-normal mb-6">
-                  {item.description}
-                </p>
-              </div>
+                <div>
+                  <span className="text-xs font-semibold text-[#0071E3] uppercase tracking-wider block mb-1">
+                    {item.category}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white tracking-tight mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm font-medium text-white/60 leading-relaxed mb-6">
+                    {item.description}
+                  </p>
+                  
+                  <div className="space-y-2 pt-4 border-t border-white/[0.06] mb-6">
+                    {item.outcomes.map((oc) => (
+                      <div key={oc} className="flex items-center gap-2 text-xs font-medium text-white/70">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
+                        <span>{oc}</span>
+                      </div>
+                    ))}
+                  </div>
 
-              <div>
-                <div className="space-y-2 pt-4 border-t border-black/[0.06] mb-6">
-                  {item.outcomes.map((oc) => (
-                    <div key={oc} className="flex items-center gap-2 text-xs font-medium text-[#1D1D1F]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
-                      <span>{oc}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between text-xs font-semibold text-[#0071E3]">
-                  <span>{item.ctaText}</span>
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#0071E3] uppercase tracking-wide opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                    {item.ctaText}
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
                 </div>
               </div>
             </motion.div>

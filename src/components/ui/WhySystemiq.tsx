@@ -44,48 +44,43 @@ const pillars = [
 
 export default function WhySystemiq() {
   return (
-    <section className="py-16 lg:py-20 bg-transparent border-t border-black/[0.08]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+    <section className="py-24 lg:py-32 bg-transparent border-t border-white/[0.08] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
             The Studio Edge
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#1D1D1F] tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
             Why Growing SMEs Choose Systemiq.
           </h2>
-          <p className="text-[#86868B] text-base sm:text-lg font-normal leading-relaxed">
-            We operate as your dedicated external software systems studio—delivering enterprise precision without agency complexity.
+          <p className="text-lg text-white/50 font-medium leading-relaxed">
+            We don't sell generic software. We engineer exact digital replicas of your business processes.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {pillars.map((item, idx) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: idx * 0.05 }}
-              className="bg-white rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all flex flex-col justify-between"
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="group flex flex-col items-start p-8 rounded-3xl bg-[#13151A]/80 border border-white/[0.04] hover:bg-[#13151A] hover:border-white/[0.1] hover:shadow-[0_8px_32px_rgba(0,113,227,0.1)] transition-all duration-300"
             >
-              <div>
-                <div className="w-10 h-10 rounded-2xl bg-[#F5F5F7] flex items-center justify-center mb-5 border border-black/[0.06]">
-                  {item.icon}
-                </div>
-                <span className="text-xs font-semibold text-[#0071E3] block mb-1">
-                  {item.subtitle}
-                </span>
-                <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 tracking-tight">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mb-6 font-normal">
-                  {item.description}
-                </p>
+              <div className="w-14 h-14 rounded-2xl bg-[#090A0C] border border-white/[0.08] shadow-sm flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                {item.icon}
               </div>
-
-              <div className="pt-4 border-t border-black/[0.06] space-y-2">
+              <h3 className="text-xl font-bold text-white mb-3 tracking-tight">
+                {item.title}
+              </h3>
+              <p className="text-sm text-white/50 leading-relaxed font-medium mb-6">
+                {item.description}
+              </p>
+              
+              <div className="mt-auto pt-6 border-t border-white/[0.06] space-y-2">
                 {item.points.map((pt) => (
-                  <div key={pt} className="flex items-center gap-2 text-xs font-medium text-[#1D1D1F]">
+                  <div key={pt} className="flex items-center gap-2 text-xs font-medium text-white/70">
                     <Check className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
                     <span>{pt}</span>
                   </div>

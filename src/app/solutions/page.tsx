@@ -75,17 +75,17 @@ export default function SolutionsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] pt-32 pb-20 antialiased">
+    <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
             Solutions Catalog
           </span>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
             Engineered For Growing SMEs.
           </h1>
-          <p className="text-base sm:text-lg text-[#86868B] leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal">
             Modular business software components designed to replace manual spreadsheets and automate daily workflows.
           </p>
         </div>
@@ -98,25 +98,25 @@ export default function SolutionsPage() {
               whileHover={{ y: -3 }}
               transition={{ duration: 0.2 }}
               onClick={() => handleModuleClick(item.title)}
-              className="bg-white rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-6"
+              className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.15)] transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-6 hover:bg-[#13151A] hover:border-[#0071E3]/30"
             >
               <div className="space-y-4">
-                <div className="w-10 h-10 rounded-2xl bg-[#F5F5F7] border border-black/[0.06] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-[#090A0C] border border-white/[0.08] flex items-center justify-center">
                   {item.icon}
                 </div>
                 <div>
                   <span className="text-xs font-semibold text-[#0071E3] uppercase tracking-wider block mb-1">
                     {item.category}
                   </span>
-                  <h2 className="text-2xl font-bold text-[#1D1D1F] tracking-tight">{item.title}</h2>
+                  <h2 className="text-2xl font-bold text-white tracking-tight">{item.title}</h2>
                 </div>
-                <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed font-normal">{item.desc}</p>
+                <p className="text-xs sm:text-sm text-white/50 leading-relaxed font-normal">{item.desc}</p>
               </div>
 
-              <div className="space-y-4 pt-4 border-t border-black/[0.06]">
+              <div className="space-y-4 pt-4 border-t border-white/[0.06]">
                 <div className="space-y-2">
                   {item.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2 text-xs font-medium text-[#1D1D1F]">
+                    <div key={f} className="flex items-center gap-2 text-xs font-medium text-white/70">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
                       <span>{f}</span>
                     </div>
