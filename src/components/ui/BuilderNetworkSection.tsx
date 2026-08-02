@@ -13,13 +13,15 @@ export default function BuilderNetworkSection() {
       <motion.div 
         animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.1, 1] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"
+        className="absolute top-0 right-0 w-[40vw] h-[40vw] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 60%)', willChange: 'transform, opacity' }}
       />
       
       <motion.div 
         animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.2, 1] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"
+        className="absolute bottom-0 left-0 w-[40vw] h-[40vw] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 60%)', willChange: 'transform, opacity' }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

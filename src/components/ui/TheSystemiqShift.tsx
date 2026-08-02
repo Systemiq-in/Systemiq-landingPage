@@ -78,7 +78,7 @@ export default function TheSystemiqShift() {
             className="rounded-[2.5rem] bg-[#0071E3] text-white p-10 sm:p-14 flex flex-col justify-between overflow-hidden relative group shadow-[0_20px_60px_rgba(0,113,227,0.2)]"
           >
             {/* Ambient Background Glow inside the blue card */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute top-0 right-0 w-64 h-64 rounded-full translate-x-1/2 -translate-y-1/2" style={{ background: 'radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%)' }} />
             
             <div className="space-y-8 relative z-10">
               <div className="flex items-center gap-3 text-white/80 font-semibold tracking-wide uppercase text-sm">
