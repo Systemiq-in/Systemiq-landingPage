@@ -145,8 +145,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
-                <a href="mailto:contact@systemiq.tech" className="hover:text-white transition underline">
-                  contact@systemiq.tech
+                <a href="mailto:contact@systemiq.in" className="hover:text-white transition underline">
+                  contact@systemiq.in
                 </a>
               </li>
               <li className="flex items-center gap-2">

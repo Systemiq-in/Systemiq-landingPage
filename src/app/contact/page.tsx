@@ -92,8 +92,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-white/50 block">Email Inquiry</span>
-                    <a href="mailto:contact@systemiq.tech" className="text-sm font-semibold text-[#0071E3] underline">
-                      contact@systemiq.tech
+                    <a href="mailto:contact@systemiq.in" className="text-sm font-semibold text-[#0071E3] underline">
+                      contact@systemiq.in
                     </a>
                   </div>
                 </div>

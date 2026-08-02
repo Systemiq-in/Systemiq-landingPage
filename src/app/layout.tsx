@@ -22,7 +22,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://systemiq.tech'),
+  metadataBase: new URL('https://systemiq.in'),
   title: {
     default: 'Systemiq Technologies | Business Systems Studio',
     template: '%s | Systemiq Technologies',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://systemiq.tech',
+    url: 'https://systemiq.in',
     title: 'Systemiq Technologies | Engineering Systems That Scale Businesses',
     description:
       'We replace spreadsheets, disconnected tools, and manual workflows with custom business systems for growing SMEs.',
