@@ -42,7 +42,7 @@ export default function HeroGraphics() {
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[25%] left-[8%] w-28 h-28 rounded-[2rem] bg-white/[0.02] backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex items-center justify-center rotate-12 group hover:border-[#0071E3]/50 transition-colors"
+          className="absolute top-[25%] left-[8%] w-28 h-28 rounded-[2rem] bg-[#13151A]/80 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex items-center justify-center rotate-12 group hover:border-[#0071E3]/50 transition-colors"
         >
           <div className="w-14 h-14 rounded-full border-[3px] border-[#0071E3]/20 border-t-[#00A3FF] animate-spin" style={{ animationDuration: '4s' }} />
         </motion.div>
@@ -51,7 +51,7 @@ export default function HeroGraphics() {
         <motion.div
           animate={{ y: [0, 30, 0], rotate: [0, -8, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-[20%] right-[10%] w-36 h-36 rounded-full bg-white/[0.02] backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex items-center justify-center -rotate-6"
+          className="absolute top-[20%] right-[10%] w-36 h-36 rounded-full bg-[#13151A]/80 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex items-center justify-center -rotate-6"
         >
           <div className="grid grid-cols-2 gap-2">
             {[1,2,3,4].map(i => (
@@ -69,7 +69,7 @@ export default function HeroGraphics() {
         <motion.div
           animate={{ y: [0, -15, 0], x: [0, 15, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[22%] left-[15%] w-48 h-20 rounded-2xl bg-white/[0.02] backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] p-4 flex flex-col justify-center gap-2.5"
+          className="absolute bottom-[22%] left-[15%] w-48 h-20 rounded-2xl bg-[#13151A]/80 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] p-4 flex flex-col justify-center gap-2.5"
         >
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.8)] animate-pulse" />

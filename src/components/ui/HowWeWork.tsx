@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   FileSearch,
   FileCode2,
@@ -16,7 +16,7 @@ const steps = [
     step: '01',
     title: 'Workflow Audit',
     subtitle: 'Process Mapping',
-    icon: <FileSearch className="w-6 h-6 text-[#0071E3]" />,
+    icon: <FileSearch className="w-6 h-6 text-[#00A3FF]" />,
     description:
       'We sit down with your team to review your current spreadsheets, manual workarounds, and daily pain points.',
   },
@@ -24,7 +24,7 @@ const steps = [
     step: '02',
     title: 'System Blueprint',
     subtitle: 'Wireframes & Specs',
-    icon: <FileCode2 className="w-6 h-6 text-[#0071E3]" />,
+    icon: <FileCode2 className="w-6 h-6 text-[#00A3FF]" />,
     description:
       'We design visual screen mockups and database architecture before any coding begins so you see the exact UI.',
   },
@@ -32,7 +32,7 @@ const steps = [
     step: '03',
     title: 'Development Sprint',
     subtitle: 'Agile 2-Week Builds',
-    icon: <Cpu className="w-6 h-6 text-[#0071E3]" />,
+    icon: <Cpu className="w-6 h-6 text-[#00A3FF]" />,
     description:
       'Our studio builds your software in focused 2-week sprints. You test real working features every fortnight.',
   },
@@ -40,7 +40,7 @@ const steps = [
     step: '04',
     title: 'Staff Training',
     subtitle: 'QA & Onboarding',
-    icon: <ShieldCheck className="w-6 h-6 text-[#0071E3]" />,
+    icon: <ShieldCheck className="w-6 h-6 text-[#00A3FF]" />,
     description:
       'We test edge cases and onboard your team step-by-step to make software adoption completely frictionless.',
   },
@@ -48,7 +48,7 @@ const steps = [
     step: '05',
     title: 'Smooth Go-Live',
     subtitle: 'Data Migration',
-    icon: <Rocket className="w-6 h-6 text-[#0071E3]" />,
+    icon: <Rocket className="w-6 h-6 text-[#00A3FF]" />,
     description:
       'We import all your historical Excel data and launch your live software system with zero business disruption.',
   },
@@ -56,101 +56,116 @@ const steps = [
     step: '06',
     title: 'Continuous Support',
     subtitle: 'SLA & Upgrades',
-    icon: <Headphones className="w-6 h-6 text-[#0071E3]" />,
+    icon: <Headphones className="w-6 h-6 text-[#00A3FF]" />,
     description:
       'Ongoing technical support, automatic daily cloud backups, and feature upgrades as your SME expands.',
   },
 ];
 
 export default function HowWeWork() {
-  const [activeStep, setActiveStep] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start center', 'end center'],
+  });
+
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <section className="py-12 lg:py-16 bg-transparent border-t border-white/[0.08]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase">
-            Progressive Methodology
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            How We Work.
-          </h2>
-          <p className="text-white/50 text-base font-normal leading-relaxed">
-            From spreadsheet audit to live software deployment in focused 2 to 4-week sprint cycles.
-          </p>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-10 mt-12 bento-card p-6 md:p-10">
-          {/* Stepper Navigation */}
-          <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-3 lg:w-1/3 pb-4 lg:pb-0 scrollbar-hide">
-            {steps.map((item, idx) => {
-              const isActive = activeStep === idx;
-              return (
-                <button
-                  key={item.step}
-                  onClick={() => setActiveStep(idx)}
-                  className={`flex items-center gap-4 p-4 rounded-2xl text-left transition-all min-w-[240px] lg:min-w-0 flex-shrink-0 ${
-                    isActive
-                      ? 'bg-white/[0.05] border border-white/10 shadow-sm'
-                      : 'hover:bg-white/[0.02] border border-transparent'
-                  }`}
-                >
-                  <span
-                    className={`text-sm font-bold font-mono transition-colors ${
-                      isActive ? 'text-[#00A3FF]' : 'text-white/40'
-                    }`}
-                  >
-                    {item.step}
-                  </span>
-                  <div>
-                    <span
-                      className={`block font-semibold text-sm transition-colors ${
-                        isActive ? 'text-white' : 'text-white/60'
-                      }`}
-                    >
-                      {item.title}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
+    <section ref={containerRef} className="py-24 relative bg-transparent">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
+          
+          {/* Sticky Left Column */}
+          <div className="lg:w-1/3 lg:sticky lg:top-40 h-fit space-y-6 z-10">
+            <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase block">
+              Progressive Methodology
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              How We Work.
+            </h2>
+            <p className="text-white/50 text-base font-normal leading-relaxed">
+              From spreadsheet audit to live software deployment in focused sprint cycles. 
+              Scroll down to explore our precise engineering process.
+            </p>
           </div>
 
-          {/* Stepper Content Display */}
-          <div className="lg:w-2/3 bg-white/[0.02] rounded-3xl p-8 sm:p-12 border border-white/10 flex items-center shadow-inner relative overflow-hidden min-h-[300px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeStep}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-6 max-w-xl z-10"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center shadow-sm">
-                  {steps[activeStep].icon}
-                </div>
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">
-                    {steps[activeStep].title}
-                  </h3>
-                  <span className="text-sm font-semibold text-[#00A3FF] tracking-widest uppercase">
-                    {steps[activeStep].subtitle}
-                  </span>
-                </div>
-                <p className="text-base text-white/70 leading-relaxed font-normal">
-                  {steps[activeStep].description}
-                </p>
-              </motion.div>
-            </AnimatePresence>
+          {/* Scrolling Right Column (Timeline) */}
+          <div className="lg:w-2/3 relative pt-10 lg:pt-0">
+            {/* Timeline Line (Background) */}
+            <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-white/[0.05] hidden md:block" />
             
-            {/* Background Watermark */}
-            <div className="absolute -bottom-10 -right-10 text-[180px] font-black text-white/[0.02] select-none pointer-events-none">
-              {steps[activeStep].step}
+            {/* Timeline Line (Animated Fill) */}
+            <motion.div 
+              className="absolute left-8 top-0 w-[2px] bg-gradient-to-b from-[#0071E3] to-[#0EA5E9] hidden md:block origin-top"
+              style={{ height: lineHeight }}
+            />
+
+            <div className="space-y-16 lg:space-y-32">
+              {steps.map((item, index) => (
+                <StepCard key={item.step} item={item} index={index} />
+              ))}
             </div>
           </div>
+          
         </div>
       </div>
     </section>
+  );
+}
+
+function StepCard({ item, index }: { item: typeof steps[0], index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ['start 80%', 'center center'],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+  const xOffset = useTransform(scrollYProgress, [0, 1], [20, 0]);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      style={{ opacity, scale, x: xOffset }}
+      className="relative flex items-start gap-8"
+    >
+      {/* Node on Timeline */}
+      <div className="hidden md:flex relative z-10 flex-col items-center justify-center shrink-0 mt-6">
+        <motion.div 
+          style={{ opacity, scale }}
+          className="w-16 h-16 rounded-full bg-[#13151A] border-2 border-[#0071E3] shadow-[0_0_20px_rgba(0,113,227,0.3)] flex items-center justify-center"
+        >
+          <span className="text-[#00A3FF] font-mono font-bold">{item.step}</span>
+        </motion.div>
+      </div>
+
+      {/* Card Content */}
+      <div className="flex-1 bg-[#13151A]/80 rounded-3xl p-8 sm:p-10 border border-white/[0.04] shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:border-white/10 transition-colors group relative overflow-hidden">
+        {/* Background Number */}
+        <div className="absolute -right-4 -bottom-6 text-[120px] font-black text-white/[0.02] select-none pointer-events-none group-hover:text-white/[0.04] transition-colors">
+          {item.step}
+        </div>
+        
+        <div className="space-y-6 relative z-10">
+          <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center shadow-sm">
+            {item.icon}
+          </div>
+          <div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">
+              {item.title}
+            </h3>
+            <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase block mb-4">
+              {item.subtitle}
+            </span>
+            <p className="text-base text-white/60 leading-relaxed font-normal">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
   );
 }
