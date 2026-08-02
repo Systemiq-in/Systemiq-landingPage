@@ -16,11 +16,11 @@ export default function TheSystemiqShift() {
   return (
     <section 
       ref={containerRef}
-      className="py-24 lg:py-32 bg-transparent relative overflow-hidden border-t border-white/[0.08]"
+      className="py-12 lg:py-16 bg-transparent relative overflow-hidden border-t border-white/[0.08]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        <div className="text-center max-w-4xl mx-auto space-y-4">
-          <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="text-center max-w-4xl mx-auto space-y-3">
+          <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase">
             The Paradigm Shift
           </span>
           <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tighter leading-tight">

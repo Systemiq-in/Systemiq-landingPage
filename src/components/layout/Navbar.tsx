@@ -130,39 +130,66 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] z-[100] lg:hidden bg-[#090A0C]/98 backdrop-blur-3xl border-b border-white/[0.08] px-6 py-6 shadow-xl max-h-[calc(100vh-60px)] overflow-y-auto"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-x-0 top-[60px] z-[100] lg:hidden bg-[#090A0C]/90 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl overflow-hidden"
           >
-            <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-sm font-medium py-2.5 px-3 rounded-xl transition ${
-                    pathname === link.href
-                      ? 'bg-[#13151A] text-[#0071E3] font-semibold border border-white/[0.08]'
-                      : 'text-white/80 hover:bg-[#13151A]/50'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="pt-4 border-t border-white/[0.06] flex flex-col gap-3">
+            <div className="px-6 py-8 flex flex-col space-y-4">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: { staggerChildren: 0.1 }
+                  }
+                }}
+                className="flex flex-col space-y-2"
+              >
+                {navLinks.map((link) => (
+                  <motion.div
+                    key={link.href}
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`block text-lg font-semibold py-3 px-4 rounded-xl transition-all ${
+                        pathname === link.href
+                          ? 'bg-white/[0.05] text-[#00A3FF] border border-white/10'
+                          : 'text-white/80 hover:bg-white/[0.03] hover:text-white'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="pt-6 mt-2 border-t border-white/[0.06] flex flex-col gap-3"
+              >
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setIsAuditModalOpen(true);
                   }}
-                  className="w-full py-3 rounded-full bg-[#0071E3] text-white text-sm font-semibold flex items-center justify-center gap-2 shadow-sm"
+                  className="w-full py-4 rounded-full bg-white text-black text-sm font-semibold flex items-center justify-center gap-2 shadow-sm transition-all hover:scale-[1.02]"
                 >
                   <span>Book Free Workflow Audit</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

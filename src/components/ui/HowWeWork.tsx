@@ -66,10 +66,10 @@ export default function HowWeWork() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="py-16 lg:py-24 bg-transparent border-t border-white/[0.08]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
+    <section className="py-12 lg:py-16 bg-transparent border-t border-white/[0.08]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase">
             Progressive Methodology
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
@@ -117,7 +117,7 @@ export default function HowWeWork() {
           </div>
 
           {/* Stepper Content Display */}
-          <div className="lg:w-2/3 bg-[#090A0C]/50 rounded-3xl p-8 sm:p-12 border border-white/[0.06] flex items-center shadow-inner relative overflow-hidden min-h-[300px]">
+          <div className="lg:w-2/3 bg-white/[0.02] rounded-3xl p-8 sm:p-12 border border-white/10 flex items-center shadow-inner relative overflow-hidden min-h-[300px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStep}
@@ -127,14 +127,14 @@ export default function HowWeWork() {
                 transition={{ duration: 0.3 }}
                 className="space-y-6 max-w-xl z-10"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[#13151A] border border-white/[0.06] flex items-center justify-center shadow-sm">
+                <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center shadow-sm">
                   {steps[activeStep].icon}
                 </div>
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">
                     {steps[activeStep].title}
                   </h3>
-                  <span className="text-sm font-semibold text-[#0071E3] tracking-wide uppercase">
+                  <span className="text-sm font-semibold text-[#00A3FF] tracking-widest uppercase">
                     {steps[activeStep].subtitle}
                   </span>
                 </div>

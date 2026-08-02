@@ -5,21 +5,21 @@ import { Database, Layout, MessageSquare } from 'lucide-react';
 
 export default function ArchitectureDiagram() {
   return (
-    <section className="py-16 lg:py-20 bg-transparent border-t border-white/[0.08]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
+    <section className="py-12 lg:py-16 bg-transparent border-t border-white/[0.08]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="text-center max-w-3xl mx-auto space-y-2">
+          <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase">
             Cloud Infrastructure
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
             Built On Modern Architecture.
           </h2>
-          <p className="text-white/50 text-base sm:text-lg font-normal leading-relaxed">
+          <p className="text-white/50 text-base sm:text-lg font-normal leading-relaxed mt-4">
             Your software runs on dedicated cloud servers with real-time backups, sub-second speed, and complete database privacy.
           </p>
         </div>
 
-        <div className="relative pt-10">
+        <div className="relative pt-6">
           {/* Animated Pipeline Graphic */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-32 hidden md:block pointer-events-none">
             <svg width="100%" height="100%" viewBox="0 0 800 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,9 +49,9 @@ export default function ArchitectureDiagram() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 md:mt-24">
-            <div className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.1)] hover:-translate-y-1 transition-all duration-300 space-y-3 relative group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#0071E3]/5 blur-[40px] rounded-full group-hover:bg-[#0071E3]/20 transition-colors" />
-              <div className="w-10 h-10 rounded-2xl bg-[#090A0C] text-[#0071E3] flex items-center justify-center border border-white/[0.08] relative z-10">
+            <div className="bento-card group p-8 space-y-4">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#00A3FF]/5 blur-[40px] rounded-full group-hover:bg-[#00A3FF]/10 transition-colors" />
+              <div className="w-10 h-10 rounded-2xl bg-white/[0.03] text-white flex items-center justify-center border border-white/10 group-hover:bg-[#0071E3] group-hover:border-[#00A3FF] transition-all duration-300 relative z-10">
                 <Layout className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-white relative z-10">1. Ultra-Fast Interface</h3>
@@ -60,9 +60,9 @@ export default function ArchitectureDiagram() {
               </p>
             </div>
 
-            <div className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.1)] hover:-translate-y-1 transition-all duration-300 space-y-3 relative group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#0071E3]/5 blur-[40px] rounded-full group-hover:bg-[#0071E3]/20 transition-colors" />
-              <div className="w-10 h-10 rounded-2xl bg-[#090A0C] text-[#0071E3] flex items-center justify-center border border-white/[0.08] relative z-10">
+            <div className="bento-card group p-8 space-y-4">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#00A3FF]/5 blur-[40px] rounded-full group-hover:bg-[#00A3FF]/10 transition-colors" />
+              <div className="w-10 h-10 rounded-2xl bg-white/[0.03] text-white flex items-center justify-center border border-white/10 group-hover:bg-[#0071E3] group-hover:border-[#00A3FF] transition-all duration-300 relative z-10">
                 <Database className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-white relative z-10">2. Secure Dedicated DB</h3>
@@ -71,9 +71,9 @@ export default function ArchitectureDiagram() {
               </p>
             </div>
 
-            <div className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.1)] hover:-translate-y-1 transition-all duration-300 space-y-3 relative group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#0071E3]/5 blur-[40px] rounded-full group-hover:bg-[#0071E3]/20 transition-colors" />
-              <div className="w-10 h-10 rounded-2xl bg-[#090A0C] text-[#0071E3] flex items-center justify-center border border-white/[0.08] relative z-10">
+            <div className="bento-card group p-8 space-y-4">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#00A3FF]/5 blur-[40px] rounded-full group-hover:bg-[#00A3FF]/10 transition-colors" />
+              <div className="w-10 h-10 rounded-2xl bg-white/[0.03] text-white flex items-center justify-center border border-white/10 group-hover:bg-[#0071E3] group-hover:border-[#00A3FF] transition-all duration-300 relative z-10">
                 <MessageSquare className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-white relative z-10">3. Direct API Connectors</h3>

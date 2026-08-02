@@ -33,17 +33,29 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t, idx) => (
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15 }
+            }
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {testimonials.map((t) => (
             <motion.div
               key={t.author}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="bg-[#13151A]/80 border border-white/[0.04] p-8 rounded-3xl hover:bg-[#13151A] hover:border-white/[0.08] transition-all flex flex-col justify-between h-full"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+              }}
+              className="bento-card group p-6 sm:p-8 flex flex-col justify-between h-full"
             >
-              <div className="flex text-[#0071E3] mb-6 gap-1">
+              <div className="flex text-[#00A3FF] mb-6 gap-1">
                 {[1, 2, 3, 4, 5].map((s) => (
                   <Star key={s} className="w-4 h-4 fill-current" />
                 ))}
@@ -52,17 +64,17 @@ export default function Testimonials() {
                 "{t.quote}"
               </blockquote>
               <div className="flex items-center gap-4 pt-6 border-t border-white/[0.06]">
-                <div className="w-12 h-12 rounded-full bg-[#090A0C] border border-white/[0.08] flex items-center justify-center text-white/50 font-bold text-lg">
+                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center text-white/50 font-bold text-lg group-hover:bg-[#0071E3] group-hover:text-white transition-colors duration-300">
                   {t.author.charAt(0)}
                 </div>
                 <div>
                   <div className="font-bold text-white tracking-tight">{t.author}</div>
-                  <div className="text-sm font-medium text-[#0071E3]">{t.role}</div>
+                  <div className="text-sm font-medium text-[#0071E3] group-hover:text-[#00A3FF] transition-colors">{t.role}</div>
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

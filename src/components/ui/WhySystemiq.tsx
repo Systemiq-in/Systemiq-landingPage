@@ -44,12 +44,12 @@ const pillars = [
 
 export default function WhySystemiq() {
   return (
-    <section className="py-24 lg:py-32 bg-transparent border-t border-white/[0.08] relative overflow-hidden">
+    <section className="py-12 lg:py-16 bg-transparent border-t border-white/[0.08] relative overflow-hidden">
       {/* Localized Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(0, 113, 227, 0.05) 0%, transparent 60%)' }} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase">
             The Studio Edge
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
@@ -60,15 +60,27 @@ export default function WhySystemiq() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pillars.map((item, idx) => (
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15 }
+            }
+          }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {pillars.map((item) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="bento-card group flex flex-col items-start p-8"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+              }}
+              className="bento-card group p-6 sm:p-8 flex flex-col space-y-4"
             >
               <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 shadow-inner flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-[#0071E3] transition-all duration-300">
                 {item.icon}

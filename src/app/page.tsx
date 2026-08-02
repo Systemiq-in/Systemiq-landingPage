@@ -34,7 +34,7 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen bg-transparent text-white/90 antialiased selection:bg-[#0071E3] selection:text-white">
       {/* ---------------- IMMERSIVE BRAND HERO ---------------- */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-24">
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-16">
         
         <HeroGraphics />
 
@@ -47,7 +47,7 @@ export default function HomePage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.03] backdrop-blur-xl border border-white/10 text-xs font-semibold text-white/90 tracking-wide mb-10 shadow-[0_4px_24px_rgba(0,0,0,0.2)]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.03] backdrop-blur-xl border border-white/10 text-xs font-semibold text-white/90 tracking-wide mb-8 shadow-[0_4px_24px_rgba(0,0,0,0.2)]"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#00A3FF]" />
             <span>The Premium Business Studio</span>
@@ -58,9 +58,9 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[4rem] sm:text-[6rem] lg:text-[7.5rem] font-extrabold tracking-[-0.04em] text-white leading-[0.9] text-balance pb-2"
+            className="text-5xl sm:text-7xl lg:text-[8rem] font-extrabold tracking-[-0.04em] text-white leading-[0.95] sm:leading-[0.9] text-balance pb-2"
           >
-            Software that <br />
+            Software that <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-[#00A3FF]">
               feels like magic.
             </span>
@@ -71,9 +71,9 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 text-xl sm:text-2xl lg:text-3xl text-white/60 max-w-3xl mx-auto font-medium leading-snug tracking-tight text-balance"
+            className="mt-6 text-lg sm:text-2xl lg:text-3xl text-white/60 max-w-3xl mx-auto font-medium leading-relaxed sm:leading-snug tracking-tight text-balance px-4 sm:px-0"
           >
-            Systemiq engineers bespoke software systems that silently orchestrate your entire business. 
+            Systemiq engineers stunning websites, dynamic web apps, and bespoke software solutions that silently orchestrate your entire business. 
             No spreadsheets. No chaos. Just clarity.
           </motion.p>
 
@@ -82,11 +82,11 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-5"
+            className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto px-6 sm:px-0"
           >
             <button
               onClick={() => setIsAuditModalOpen(true)}
-              className="px-10 py-5 rounded-full bg-white text-black font-semibold text-base transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] hover:-translate-y-1 flex items-center gap-3 border border-transparent"
+              className="px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-white text-black font-semibold text-base transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] hover:-translate-y-1 flex items-center justify-center gap-3 border border-transparent"
             >
               <span>Book 30-Min Audit</span>
               <ArrowRight className="w-4 h-4" />
@@ -94,7 +94,7 @@ export default function HomePage() {
 
             <Link
               href="/solutions"
-              className="px-10 py-5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white font-semibold text-base transition-all flex items-center gap-2 group backdrop-blur-xl"
+              className="px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white font-semibold text-base transition-all flex items-center justify-center gap-2 group backdrop-blur-xl"
             >
               <span>Explore Solutions</span>
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-white/50" />
@@ -107,10 +107,10 @@ export default function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="mt-20 flex flex-col items-center gap-3 text-white/40 pb-10"
+          className="mt-12 flex flex-col items-center gap-3 text-white/40 pb-6"
         >
           <span className="text-[10px] uppercase tracking-widest font-semibold">Scroll to explore</span>
-          <div className="w-[1px] h-16 bg-gradient-to-b from-white/40 to-transparent" />
+          <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
         </motion.div>
       </section>
 

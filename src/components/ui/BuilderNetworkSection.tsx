@@ -6,9 +6,9 @@ import { Terminal, Code2, ArrowRight, Zap } from 'lucide-react';
 
 export default function BuilderNetworkSection() {
   return (
-    <section className="py-24 lg:py-32 bg-[#0A0A0A] border-y border-black text-white relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-[#0A0A0A] border-y border-black text-white relative overflow-hidden">
       {/* Advanced Animated Grid & Glowing Orbs */}
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem]" style={{ maskImage: 'radial-gradient(circle at center, #000 40%, transparent 100%)' }} />
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] sm:bg-[size:48px_48px]" style={{ maskImage: 'radial-gradient(circle at center, #000 40%, transparent 100%)' }} />
       
       <motion.div 
         animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.1, 1] }}
