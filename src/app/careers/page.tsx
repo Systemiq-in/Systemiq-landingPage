@@ -1,24 +1,25 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Target, Users, BookOpen, Rocket, CheckCircle2 } from 'lucide-react';
-import Link from 'next/link';
+import { Target, Users, BookOpen, Rocket, CheckCircle2, Zap } from 'lucide-react';
+import FellowshipModal from '@/components/layout/FellowshipModal';
 
 const principles = [
   {
-    title: 'Autonomy & Mastery',
+    title: 'Skip the Entry-Level Grind',
     icon: <Target className="w-6 h-6 text-[#00A3FF]" />,
-    desc: 'You own your modules. We provide the architecture and spec, you write the code. No micro-management.',
+    desc: 'Don\'t spend your junior year fixing CSS bugs for a massive corp. Build and ship entire scalable modules yourself.',
   },
   {
-    title: 'Bounty-Based Sprints',
+    title: 'Bounty-Based Execution',
     icon: <Rocket className="w-6 h-6 text-[#00A3FF]" />,
-    desc: 'Ship production code, get paid per module. High-speed, high-reward execution for talented engineers.',
+    desc: 'Ship production code, get paid per module. High-speed, high-reward execution for talented college developers.',
   },
   {
-    title: 'Principal Mentorship',
-    icon: <Users className="w-6 h-6 text-[#00A3FF]" />,
-    desc: 'Direct code reviews and systems design mentorship from senior architects who have built enterprise ERPs.',
+    title: 'AI-Native Workflow',
+    icon: <Zap className="w-6 h-6 text-[#00A3FF]" />,
+    desc: 'We expect you to use Claude, ChatGPT, and Antigravity. Write logic, let AI write the boilerplate. Ship 10x faster.',
   },
   {
     title: 'Real-World Scale',
@@ -28,6 +29,8 @@ const principles = [
 ];
 
 export default function CareersPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
@@ -41,7 +44,7 @@ export default function CareersPage() {
             Engineering Fellowship.
           </h1>
           <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal max-w-2xl mx-auto">
-            The Systemiq Fellowship is an elite network for top-tier student engineers. Ship production features alongside senior architects and get paid for your execution.
+            The Systemiq Fellowship is an elite network for top-tier college engineers. Ship production features alongside senior architects, leverage AI agents, and get paid for your raw execution.
           </p>
         </div>
 
@@ -85,12 +88,12 @@ export default function CareersPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 pt-4">
-            <Link 
-              href="/contact"
+            <button 
+              onClick={() => setIsModalOpen(true)}
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#00A3FF] text-white font-bold text-sm transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,113,227,0.4)]"
             >
               Apply for Fellowship
-            </Link>
+            </button>
           </div>
           
           <div className="flex items-center justify-center gap-6 pt-8 text-xs font-medium text-white/40 relative z-10">
@@ -103,13 +106,18 @@ export default function CareersPage() {
               <span>Node.js / Express</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-              <span>PostgreSQL</span>
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#00A3FF]" />
+              <span>AI Engineering</span>
             </div>
           </div>
         </div>
         
       </div>
+
+      <FellowshipModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
