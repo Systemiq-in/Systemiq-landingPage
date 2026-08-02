@@ -193,7 +193,7 @@ export default function InteractiveWhatWeBuild() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
 
       <WorkflowAuditModal

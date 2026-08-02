@@ -102,7 +102,7 @@ export default function WhySystemiq() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
