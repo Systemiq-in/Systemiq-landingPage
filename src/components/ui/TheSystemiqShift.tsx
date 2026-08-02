@@ -35,7 +35,7 @@ export default function TheSystemiqShift() {
           {/* The Old Way */}
           <motion.div 
             whileHover={{ scale: 0.98 }}
-            className="rounded-[2.5rem] bg-[#13151A]/80 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.2)] p-10 sm:p-14 flex flex-col justify-between overflow-hidden relative group"
+            className="bento-card group p-10 sm:p-14 flex flex-col justify-between"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-red-500/30" />
             <div className="space-y-8 relative z-10">
@@ -75,7 +75,7 @@ export default function TheSystemiqShift() {
           {/* The Systemiq Way */}
           <motion.div 
             whileHover={{ scale: 1.02 }}
-            className="rounded-[2.5rem] bg-[#0071E3] text-white p-10 sm:p-14 flex flex-col justify-between overflow-hidden relative group shadow-[0_20px_60px_rgba(0,113,227,0.2)]"
+            className="bento-card group p-10 sm:p-14 flex flex-col justify-between bg-[#0071E3]/20 border-[#00A3FF]/30 hover:border-[#00A3FF]/60 shadow-[0_20px_60px_rgba(0,113,227,0.15)]"
           >
             {/* Ambient Background Glow inside the blue card */}
             <div className="absolute top-0 right-0 w-64 h-64 rounded-full translate-x-1/2 -translate-y-1/2" style={{ background: 'radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%)' }} />

@@ -80,7 +80,7 @@ export default function HowWeWork() {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-10 mt-12 bg-[#13151A]/50 rounded-3xl p-6 md:p-10 border border-white/[0.04] shadow-sm">
+        <div className="flex flex-col lg:flex-row gap-10 mt-12 bento-card p-6 md:p-10">
           {/* Stepper Navigation */}
           <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-3 lg:w-1/3 pb-4 lg:pb-0 scrollbar-hide">
             {steps.map((item, idx) => {
@@ -91,13 +91,13 @@ export default function HowWeWork() {
                   onClick={() => setActiveStep(idx)}
                   className={`flex items-center gap-4 p-4 rounded-2xl text-left transition-all min-w-[240px] lg:min-w-0 flex-shrink-0 ${
                     isActive
-                      ? 'bg-[#13151A] border border-white/[0.08] shadow-sm'
-                      : 'hover:bg-[#13151A]/50 border border-transparent'
+                      ? 'bg-white/[0.05] border border-white/10 shadow-sm'
+                      : 'hover:bg-white/[0.02] border border-transparent'
                   }`}
                 >
                   <span
                     className={`text-sm font-bold font-mono transition-colors ${
-                      isActive ? 'text-[#0071E3]' : 'text-white/40'
+                      isActive ? 'text-[#00A3FF]' : 'text-white/40'
                     }`}
                   >
                     {item.step}
@@ -117,7 +117,7 @@ export default function HowWeWork() {
           </div>
 
           {/* Stepper Content Display */}
-          <div className="lg:w-2/3 bg-[#090A0C] rounded-3xl p-8 sm:p-12 border border-white/[0.06] flex items-center shadow-inner relative overflow-hidden min-h-[300px]">
+          <div className="lg:w-2/3 bg-[#090A0C]/50 rounded-3xl p-8 sm:p-12 border border-white/[0.06] flex items-center shadow-inner relative overflow-hidden min-h-[300px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStep}

@@ -121,59 +121,66 @@ export default function InteractiveWhatWeBuild() {
           </p>
         </div>
 
-        {/* Apple Style Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {brandCards.map((item, idx) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: idx * 0.05 }}
-              onClick={() => handleCardClick(item.title)}
-              className="group flex flex-col justify-between rounded-[2rem] bg-[#13151A]/80 border border-white/[0.06] p-8 md:p-10 relative overflow-hidden transition-all duration-300 hover:border-[#0071E3]/30 hover:bg-[#13151A] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,113,227,0.12)] cursor-pointer"
-            >
-              {/* Subtle Glow on Hover */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-[#0071E3]/0 to-[#0071E3]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-3xl pointer-events-none" />
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-[minmax(320px,auto)]">
+          {brandCards.map((item, idx) => {
+            const isWide = idx === 0 || idx === 3; // Make 1st and 4th card wider for bento effect on desktop
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                onClick={() => handleCardClick(item.title)}
+                className={`bento-card group flex flex-col justify-between p-8 md:p-10 cursor-pointer ${
+                  isWide ? 'xl:col-span-2' : 'xl:col-span-1'
+                }`}
+              >
+                {/* Spotlight effect placeholder (implemented in bento-card via hover, but we can enhance with background) */}
+                <div className="absolute top-0 right-0 w-[80%] h-[80%] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(0, 113, 227, 0.08) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }} />
 
-              <div className="relative z-10 flex flex-col justify-between h-full space-y-12">
-                <div className="flex justify-between items-start">
-                  <div className="w-12 h-12 rounded-2xl bg-[#090A0C] border border-white/[0.08] shadow-sm flex items-center justify-center text-[#0071E3] group-hover:scale-110 transition-transform duration-300">
-                    {item.icon}
+                <div className="relative z-10 flex flex-col justify-between h-full space-y-10">
+                  <div className="flex justify-between items-start">
+                    <div className="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/10 shadow-inner flex items-center justify-center text-white group-hover:bg-[#0071E3] group-hover:border-[#00A3FF] transition-colors duration-500">
+                      {item.icon}
+                    </div>
+                    <span className="text-[10px] font-bold px-3 py-1.5 bg-white/[0.05] text-white/70 rounded-full border border-white/[0.05] tracking-widest">
+                      {item.tag}
+                    </span>
                   </div>
-                  <span className="text-xs font-semibold px-3 py-1 bg-white/[0.04] text-white/50 rounded-full border border-white/[0.06]">
-                    {item.tag}
-                  </span>
+
+                  <div className={`flex flex-col h-full ${isWide ? 'xl:flex-row xl:items-end xl:justify-between xl:gap-8' : ''}`}>
+                    <div className="flex-1">
+                      <span className="text-xs font-semibold text-[#00A3FF] uppercase tracking-widest block mb-2">
+                        {item.category}
+                      </span>
+                      <h3 className="text-2xl font-bold text-white tracking-tight mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm font-medium text-white/50 leading-relaxed mb-6">
+                        {item.description}
+                      </p>
+                    </div>
+                    
+                    <div className={`space-y-3 pt-4 border-t border-white/10 mb-6 flex-1 ${isWide ? 'xl:border-t-0 xl:pt-0 xl:border-l xl:pl-8' : ''}`}>
+                      {item.outcomes.map((oc) => (
+                        <div key={oc} className="flex items-center gap-2 text-[13px] font-medium text-white/70">
+                          <CheckCircle2 className="w-4 h-4 text-[#0071E3] shrink-0" />
+                          <span>{oc}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-[11px] font-bold text-white uppercase tracking-widest opacity-50 group-hover:opacity-100 transition-all duration-300">
+                    <span>{item.ctaText}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-
-                <div>
-                  <span className="text-xs font-semibold text-[#0071E3] uppercase tracking-wider block mb-1">
-                    {item.category}
-                  </span>
-                  <h3 className="text-2xl font-bold text-white tracking-tight mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm font-medium text-white/60 leading-relaxed mb-6">
-                    {item.description}
-                  </p>
-                  
-                  <div className="space-y-2 pt-4 border-t border-white/[0.06] mb-6">
-                    {item.outcomes.map((oc) => (
-                      <div key={oc} className="flex items-center gap-2 text-xs font-medium text-white/70">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
-                        <span>{oc}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-2 text-xs font-bold text-[#0071E3] uppercase tracking-wide opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                    {item.ctaText}
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 

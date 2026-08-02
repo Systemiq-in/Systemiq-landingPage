@@ -43,23 +43,23 @@ export default function Navbar() {
         <div 
           className={`flex items-center justify-between w-full lg:w-auto transition-all duration-300 ${
             isScrolled 
-              ? 'bg-white/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 border border-white/20' 
-              : 'bg-white/90 backdrop-blur-xl shadow-xl rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 border border-white/10'
+              ? 'bg-[#090A0C]/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 border border-white/[0.08]' 
+              : 'bg-[#090A0C]/60 backdrop-blur-md shadow-xl rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 border border-white/[0.05]'
           }`}
         >
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group mr-8">
-            <div className="relative group-hover:scale-105 transition-transform duration-200">
+            <div className="relative group-hover:scale-105 transition-transform duration-200 bg-white p-1 rounded-md">
               <Image
                 src="/logo_without_bg.png"
                 alt="Systemiq Logo"
-                width={22}
-                height={22}
+                width={20}
+                height={20}
                 className="object-contain"
                 priority
               />
             </div>
-            <span className="font-bold text-[14px] tracking-tight text-[#1D1D1F] flex items-center gap-1 hidden sm:flex">
+            <span className="font-bold text-[14px] tracking-tight text-white flex items-center gap-1 hidden sm:flex">
               SYSTEMIQ
               <span className="w-1.5 h-1.5 rounded-full bg-[#0071E3]" />
             </span>
@@ -75,8 +75,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`px-4 py-2 text-[13px] font-medium transition-all duration-200 rounded-full ${
                     isActive
-                      ? 'text-[#0071E3] font-semibold bg-black/5 shadow-sm'
-                      : 'text-[#1D1D1F]/70 hover:text-[#1D1D1F] hover:bg-black/5'
+                      ? 'text-white font-semibold bg-white/10 shadow-sm border border-white/5'
+                      : 'text-white/60 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {link.name}
@@ -89,12 +89,12 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={triggerCmdK}
-              className="px-3 py-2 text-xs font-medium text-[#1D1D1F]/60 hover:text-[#1D1D1F] bg-black/5 hover:bg-black/10 rounded-full flex items-center gap-2 transition-all shadow-sm"
+              className="px-3 py-2 text-xs font-medium text-white/60 hover:text-white bg-white/5 hover:bg-white/10 rounded-full flex items-center gap-2 transition-all shadow-sm border border-transparent hover:border-white/5"
               title="Search Systemiq (Cmd+K)"
             >
-              <Command className="w-3.5 h-3.5 text-[#0071E3]" />
+              <Command className="w-3.5 h-3.5 text-[#00A3FF]" />
               <span className="hidden xl:inline">Search</span>
-              <kbd className="text-[10px] text-[#1D1D1F]/50 bg-black/10 px-1.5 py-0.5 rounded">⌘K</kbd>
+              <kbd className="text-[10px] text-white/40 bg-white/5 px-1.5 py-0.5 rounded border border-white/5">⌘K</kbd>
             </button>
 
             <button
@@ -110,14 +110,14 @@ export default function Navbar() {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={triggerCmdK}
-              className="p-2 text-[#1D1D1F] bg-black/5 rounded-full"
+              className="p-2 text-white/80 hover:text-white bg-white/5 rounded-full"
               aria-label="Search"
             >
-              <Command className="w-4 h-4 text-[#0071E3]" />
+              <Command className="w-4 h-4 text-[#00A3FF]" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#1D1D1F] bg-black/5 rounded-full"
+              className="p-2 text-white/80 hover:text-white bg-white/5 rounded-full"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

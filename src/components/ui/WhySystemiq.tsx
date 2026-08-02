@@ -68,9 +68,9 @@ export default function WhySystemiq() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group flex flex-col items-start p-8 rounded-3xl bg-[#13151A]/80 border border-white/[0.04] hover:bg-[#13151A] hover:border-white/[0.1] hover:shadow-[0_8px_32px_rgba(0,113,227,0.1)] transition-all duration-300"
+              className="bento-card group flex flex-col items-start p-8"
             >
-              <div className="w-14 h-14 rounded-2xl bg-[#090A0C] border border-white/[0.08] shadow-sm flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 shadow-inner flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-[#0071E3] transition-all duration-300">
                 {item.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-3 tracking-tight">
