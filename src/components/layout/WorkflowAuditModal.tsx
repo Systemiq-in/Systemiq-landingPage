@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, ArrowRight, Loader2, ArrowLeft, Building2, User, Mail, MessageSquare } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { X, CheckCircle2, ArrowRight, Loader2, ArrowLeft, Building2, User, Mail, MessageSquare, Rocket } from 'lucide-react';
 
 interface WorkflowAuditModalProps {
   isOpen: boolean;
@@ -60,12 +59,6 @@ export default function WorkflowAuditModal({
 
       if (response.ok) {
         setIsSubmitted(true);
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ['#0071E3', '#4F46E5', '#0EA5E9'],
-        });
       } else {
         const data = await response.json();
         setErrorMsg(data.error || 'Failed to submit. Please try again.');
@@ -302,7 +295,7 @@ export default function WorkflowAuditModal({
                       >
                         <div className="space-y-4">
                           <div className="w-16 h-16 rounded-2xl bg-[#0071E3]/10 flex items-center justify-center mx-auto mb-6">
-                            <span className="text-3xl">🚀</span>
+                            <Rocket className="w-8 h-8 text-[#0071E3]" />
                           </div>
                           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1D1D1F]">
                             Ready to transform?

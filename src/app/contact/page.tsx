@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
-import confetti from 'canvas-confetti';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -42,12 +41,6 @@ export default function ContactPage() {
 
       if (response.ok) {
         setIsSubmitted(true);
-        confetti({
-          particleCount: 80,
-          spread: 60,
-          origin: { y: 0.6 },
-          colors: ['#0071E3', '#4F46E5', '#0EA5E9'],
-        });
       } else {
         const data = await response.json();
         setErrorMsg(data.error || 'Failed to send message. Please try again.');
@@ -158,7 +151,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Rahul Sharma"
-                      className="flex h-11 w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
+                      className="flex h-11 w-full rounded-md border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 px-4 py-2 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00A3FF] focus:ring-1 focus:ring-[#00A3FF]/50 transition-all shadow-inner"
                     />
                   </div>
                   <div>
@@ -172,7 +165,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="rahul@company.com"
-                      className="flex h-11 w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
+                      className="flex h-11 w-full rounded-md border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 px-4 py-2 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00A3FF] focus:ring-1 focus:ring-[#00A3FF]/50 transition-all shadow-inner"
                     />
                   </div>
                 </div>
@@ -188,7 +181,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 98765 43210"
-                      className="flex h-11 w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
+                      className="flex h-11 w-full rounded-md border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 px-4 py-2 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00A3FF] focus:ring-1 focus:ring-[#00A3FF]/50 transition-all shadow-inner"
                     />
                   </div>
                   <div>
@@ -201,7 +194,7 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="e.g. Apex Industrial"
-                      className="flex h-11 w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow"
+                      className="flex h-11 w-full rounded-md border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 px-4 py-2 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00A3FF] focus:ring-1 focus:ring-[#00A3FF]/50 transition-all shadow-inner"
                     />
                   </div>
                 </div>
@@ -217,7 +210,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Describe your current business operations or project goals..."
-                    className="flex min-h-[80px] w-full rounded-md border border-white/[0.04] bg-[#13151A]/80 px-3 py-2 text-sm placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:cursor-not-allowed disabled:opacity-50 transition-shadow resize-none"
+                    className="flex min-h-[100px] w-full rounded-md border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 px-4 py-3 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00A3FF] focus:ring-1 focus:ring-[#00A3FF]/50 transition-all shadow-inner resize-none"
                   />
                 </div>
 
