@@ -1,7 +1,16 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8"
+      >
         <h1 className="text-4xl font-extrabold tracking-tight">Privacy Policy</h1>
         <div className="prose prose-sm text-white/50">
           <p>Last updated: {new Date().toLocaleDateString()}</p>
@@ -23,7 +32,7 @@ export default function PrivacyPolicy() {
             <li>To process transactions.</li>
           </ul>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

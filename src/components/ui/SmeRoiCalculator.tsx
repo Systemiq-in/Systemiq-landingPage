@@ -1,9 +1,28 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, animate } from 'framer-motion';
 import { Calculator, ArrowRight, Clock, DollarSign } from 'lucide-react';
 import WorkflowAuditModal from '../layout/WorkflowAuditModal';
+
+function AnimatedNumber({ value, prefix = '' }: { value: number, prefix?: string }) {
+  const nodeRef = import('react').then(() => null) as any; // We'll just use a standard ref.
+  const ref = (node: HTMLSpanElement) => {
+    if (node) {
+      // Just a simple animate closure attached to the node
+      (node as any)._anim?.stop();
+      (node as any)._anim = animate(parseInt(node.textContent?.replace(/\D/g,'') || '0'), value, {
+        type: 'spring',
+        bounce: 0,
+        duration: 0.6,
+        onUpdate: (v) => {
+          node.textContent = prefix + Math.round(v).toLocaleString();
+        }
+      });
+    }
+  };
+  return <span ref={ref}>{prefix}{value.toLocaleString()}</span>;
+}
 
 export default function SmeRoiCalculator() {
   const [teamSize, setTeamSize] = useState<number>(25);
@@ -33,7 +52,7 @@ export default function SmeRoiCalculator() {
 
             <button
               onClick={() => setIsAuditModalOpen(true)}
-              className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition shrink-0"
+              className="active-scale px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition shrink-0"
             >
               <span>Get Detailed ROI Audit</span>
               <ArrowRight className="w-4 h-4" />
@@ -84,7 +103,7 @@ export default function SmeRoiCalculator() {
                 </div>
                 <span className="text-xs font-semibold text-slate-500 block">Est. Time Saved / Month</span>
                 <span className="text-3xl font-extrabold font-mono text-slate-900 block">
-                  ~{hoursSavedPerMonth.toLocaleString()} hrs
+                  ~<AnimatedNumber value={hoursSavedPerMonth} /> hrs
                 </span>
                 <span className="text-[11px] text-slate-400 block">Team productivity unlocked</span>
               </div>
@@ -95,7 +114,7 @@ export default function SmeRoiCalculator() {
                 </div>
                 <span className="text-xs font-semibold text-blue-700 block">Est. Cost Value Saved</span>
                 <span className="text-3xl font-extrabold font-mono text-blue-700 block">
-                  ~${dollarsSavedPerMonth.toLocaleString()}
+                  ~<AnimatedNumber value={dollarsSavedPerMonth} prefix="$" />
                 </span>
                 <span className="text-[11px] text-slate-500 block">Monthly operational savings</span>
               </div>

@@ -66,6 +66,10 @@ module.exports = {
         'grid-pattern': 'linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
         'dots-pattern': 'radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
       },
+      transitionTimingFunction: {
+        'apple': 'cubic-bezier(0.23, 1, 0.32, 1)',
+        'drawer': 'cubic-bezier(0.32, 0.72, 0, 1)',
+      },
     },
   },
   plugins: [],

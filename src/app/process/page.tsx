@@ -19,7 +19,12 @@ export default function ProcessPage() {
     <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center space-y-4"
+        >
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
             Engineering Methodology
           </span>
@@ -29,16 +34,19 @@ export default function ProcessPage() {
           <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal">
             No endless timelines or unpredictable scope creep. We engineer software in disciplined 2 to 4-week sprint cycles with guaranteed deliverables.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3 Sprint Guarantees */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {sprintGuarantees.map((g) => (
+          {sprintGuarantees.map((g, i) => (
             <motion.div
               key={g.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ type: "spring", bounce: 0, duration: 0.8, delay: i * 0.1 }}
               whileHover={{ y: -3 }}
-              transition={{ duration: 0.2 }}
-              className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.1)] hover:-translate-y-1 space-y-3 transition-all"
+              className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.1)] space-y-3 transition-shadow"
             >
               <CheckCircle2 className="w-6 h-6 text-[#0071E3] mb-2" />
               <h3 className="text-xl font-bold text-white tracking-tight">{g.title}</h3>
@@ -51,18 +59,24 @@ export default function ProcessPage() {
         <HowWeWork />
 
         {/* CTA */}
-        <div className="bg-[#13151A]/80 rounded-3xl p-10 sm:p-14 border border-white/[0.04] text-center space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="bg-[#13151A]/80 rounded-3xl p-10 sm:p-14 border border-white/[0.04] text-center space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.2)]"
+        >
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Ready to Start Sprint 01?</h2>
           <p className="text-base text-white/50 max-w-xl mx-auto font-normal">
             Book a 30-minute Workflow Audit with our Senior System Architects.
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm transition shadow-sm hover:scale-[1.02]"
+            className="active-scale px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm transition shadow-sm"
           >
             Book Free Workflow Audit
           </button>
-        </div>
+        </motion.div>
       </div>
 
       <WorkflowAuditModal

@@ -83,7 +83,12 @@ export default function AboutPage() {
     <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center space-y-4"
+        >
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
             About Systemiq Technologies
           </span>
@@ -93,10 +98,16 @@ export default function AboutPage() {
           <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal">
             Systemiq is a specialized Business Systems Studio that engineers custom software systems, ERPs, and internal operational portals for growing SMEs.
           </p>
-        </div>
+        </motion.div>
 
         {/* Mission & Vision Split */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           <div className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-4">
             <div className="w-10 h-10 rounded-2xl bg-transparent text-[#0071E3] flex items-center justify-center border border-white/[0.06]">
               <Target className="w-5 h-5" />
@@ -122,10 +133,16 @@ export default function AboutPage() {
               To become the global standard for business software craftsmanship—where every growing company operates on clean, custom-built software infrastructure.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Studio Values */}
-        <div className="space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="space-y-8"
+        >
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">Engineering Ethos</span>
             <h2 className="text-3xl font-extrabold text-white tracking-tight">
@@ -144,10 +161,16 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Studio Timeline */}
-        <div className="space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="space-y-8"
+        >
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">Studio Journey</span>
             <h2 className="text-3xl font-extrabold text-white tracking-tight">
@@ -164,10 +187,16 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Team Placeholders */}
-        <div className="space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="space-y-8"
+        >
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">Leadership & Network</span>
             <h2 className="text-3xl font-extrabold text-white tracking-tight">
@@ -189,21 +218,27 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* CTA Banner */}
-        <div className="bg-[#13151A]/80 rounded-3xl p-10 sm:p-14 border border-white/[0.04] text-center space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="bg-[#13151A]/80 rounded-3xl p-10 sm:p-14 border border-white/[0.04] text-center space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.03)]"
+        >
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Work With Systemiq Studio</h2>
           <p className="text-base text-white/50 max-w-xl mx-auto font-normal">
             Ready to replace manual spreadsheets with engineered software systems?
           </p>
           <button
             onClick={() => setIsAuditModalOpen(true)}
-            className="px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm transition shadow-sm hover:scale-[1.02]"
+            className="active-scale px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm transition shadow-sm"
           >
             Book Free Workflow Audit
           </button>
-        </div>
+        </motion.div>
       </div>
 
       <WorkflowAuditModal

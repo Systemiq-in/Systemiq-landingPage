@@ -102,15 +102,15 @@ export default function WorkflowAuditModal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={resetForm}
-            className="fixed inset-0 bg-white/80 backdrop-blur-xl"
+            className="fixed inset-0 bg-[#090A0C]/40 backdrop-apple"
           />
 
           {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
             className="relative w-full max-w-3xl bg-white rounded-[2rem] border border-black/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.08)] z-10 flex flex-col h-[500px]"
           >
             {/* Header */}
@@ -123,7 +123,7 @@ export default function WorkflowAuditModal({
               </div>
               <button
                 onClick={resetForm}
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-[#F5F5F7] hover:bg-[#E5E5EA] text-[#1D1D1F] transition-colors"
+                className="active-scale w-8 h-8 flex items-center justify-center rounded-full bg-[#F5F5F7] hover:bg-[#E5E5EA] text-[#1D1D1F] transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -150,7 +150,7 @@ export default function WorkflowAuditModal({
                   </div>
                   <button
                     onClick={resetForm}
-                    className="px-8 py-3 rounded-full bg-[#1D1D1F] hover:bg-black text-white font-semibold text-sm transition-transform hover:scale-[1.02]"
+                    className="active-scale px-8 py-3 rounded-full bg-[#1D1D1F] hover:bg-black text-white font-semibold text-sm transition-transform"
                   >
                     Close Window
                   </button>
@@ -239,7 +239,7 @@ export default function WorkflowAuditModal({
                                   setFormData({ ...formData, employees: size });
                                   setTimeout(handleNext, 300);
                                 }}
-                                className={`py-3 rounded-xl border font-semibold text-sm transition-all ${
+                                className={`active-scale py-3 rounded-xl border font-semibold text-sm transition-all ${
                                   formData.employees === size
                                     ? 'bg-[#0071E3] text-white border-[#0071E3]'
                                     : 'bg-white text-[#1D1D1F] border-black/[0.08] hover:border-[#0071E3]/50'
@@ -314,7 +314,7 @@ export default function WorkflowAuditModal({
                         <button
                           onClick={handleSubmit}
                           disabled={isSubmitting}
-                          className="px-10 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-lg flex items-center justify-center gap-3 shadow-[0_8px_24px_rgba(0,113,227,0.3)] transition-all hover:scale-[1.02] disabled:opacity-50 disabled:scale-100"
+                          className="active-scale px-10 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-lg flex items-center justify-center gap-3 shadow-[0_8px_24px_rgba(0,113,227,0.3)] transition-all disabled:opacity-50"
                         >
                           {isSubmitting ? (
                             <>
@@ -358,7 +358,7 @@ export default function WorkflowAuditModal({
                   {step > 1 && (
                     <button
                       onClick={handlePrev}
-                      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#F5F5F7] hover:bg-[#E5E5EA] text-[#1D1D1F] transition-colors"
+                      className="active-scale w-10 h-10 flex items-center justify-center rounded-full bg-[#F5F5F7] hover:bg-[#E5E5EA] text-[#1D1D1F] transition-colors"
                     >
                       <ArrowLeft className="w-4 h-4" />
                     </button>
@@ -370,7 +370,7 @@ export default function WorkflowAuditModal({
                         (step === 1 && (!formData.name || !formData.email)) ||
                         (step === 2 && !formData.company)
                       }
-                      className="px-5 h-10 flex items-center justify-center rounded-full bg-[#1D1D1F] hover:bg-black text-white font-semibold text-sm transition-colors disabled:opacity-30 gap-2"
+                      className="active-scale px-5 h-10 flex items-center justify-center rounded-full bg-[#1D1D1F] hover:bg-black text-white font-semibold text-sm transition-colors disabled:opacity-30 gap-2"
                     >
                       <span>Next</span>
                       <ArrowRight className="w-4 h-4" />

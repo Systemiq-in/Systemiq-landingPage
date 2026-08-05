@@ -28,7 +28,7 @@ export default function HomeCTA() {
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm transition-all shadow-sm flex items-center justify-center gap-2 group hover:scale-[1.02]"
+                className="active-scale w-full sm:w-auto px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm transition-all shadow-sm flex items-center justify-center gap-2 group hover:scale-[1.02]"
               >
                 <Calendar className="w-4 h-4 text-white" />
                 <span>Book Free Workflow Audit</span>

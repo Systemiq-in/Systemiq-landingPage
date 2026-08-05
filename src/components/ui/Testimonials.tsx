@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
+import TiltCard from './TiltCard';
 
 const testimonials = [
   {
@@ -53,25 +54,27 @@ export default function Testimonials() {
                 hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
               }}
-              className="bento-card group p-6 sm:p-8 flex flex-col justify-between h-full"
+              className="h-full"
             >
-              <div className="flex text-[#00A3FF] mb-6 gap-1">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={s} className="w-4 h-4 fill-current" />
-                ))}
-              </div>
-              <blockquote className="text-base sm:text-lg text-white/80 font-medium leading-relaxed mb-8 flex-1">
-                "{t.quote}"
-              </blockquote>
-              <div className="flex items-center gap-4 pt-6 border-t border-white/[0.06]">
-                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center text-white/50 font-bold text-lg group-hover:bg-[#0071E3] group-hover:text-white transition-colors duration-300">
-                  {t.author.charAt(0)}
+              <TiltCard className="bento-card group p-6 sm:p-8 flex flex-col justify-between h-full" tiltOffset={15}>
+                <div className="flex text-[#00A3FF] mb-6 gap-1">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={s} className="w-4 h-4 fill-current" />
+                  ))}
                 </div>
-                <div>
-                  <div className="font-bold text-white tracking-tight">{t.author}</div>
-                  <div className="text-sm font-medium text-[#0071E3] group-hover:text-[#00A3FF] transition-colors">{t.role}</div>
+                <blockquote className="text-base sm:text-lg text-white/80 font-medium leading-relaxed mb-8 flex-1">
+                  "{t.quote}"
+                </blockquote>
+                <div className="flex items-center gap-4 pt-6 border-t border-white/[0.06]">
+                  <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center text-white/50 font-bold text-lg group-hover:bg-[#0071E3] group-hover:text-white transition-colors duration-300">
+                    {t.author.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-bold text-white tracking-tight">{t.author}</div>
+                    <div className="text-sm font-medium text-[#0071E3] group-hover:text-[#00A3FF] transition-colors">{t.role}</div>
+                  </div>
                 </div>
-              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

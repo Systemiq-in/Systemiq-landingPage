@@ -56,7 +56,12 @@ export default function ContactPage() {
     <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center space-y-4"
+        >
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
             Direct Studio Contact
           </span>
@@ -66,12 +71,18 @@ export default function ContactPage() {
           <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal">
             Have questions about custom software, system integrations, or sprint quotes? Connect directly with our Senior Engineering Leads.
           </p>
-        </div>
+        </motion.div>
 
         {/* Contact Split Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Contact Details */}
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+            className="lg:col-span-5 space-y-6"
+          >
             <div className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6">
               <h2 className="text-2xl font-bold text-white tracking-tight">Studio Information</h2>
 
@@ -109,10 +120,16 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-7 bg-[#13151A]/80 rounded-3xl p-8 sm:p-10 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.1 }}
+            className="lg:col-span-7 bg-[#13151A]/80 rounded-3xl p-8 sm:p-10 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6"
+          >
             <h2 className="text-2xl font-bold text-white tracking-tight">Send Us a Message</h2>
 
             {isSubmitted ? (
@@ -126,7 +143,7 @@ export default function ContactPage() {
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-2.5 rounded-full bg-transparent border border-white/[0.06] text-white font-semibold text-xs transition"
+                  className="active-scale px-6 py-2.5 rounded-full bg-transparent border border-white/[0.06] text-white font-semibold text-xs transition"
                 >
                   Send Another Message
                 </button>
@@ -217,7 +234,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:pointer-events-none disabled:opacity-50 bg-[#1D1D1F] text-white hover:bg-black h-11 px-8 w-full gap-2 shadow-sm"
+                  className="active-scale inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]/20 disabled:pointer-events-none disabled:opacity-50 bg-[#1D1D1F] text-white hover:bg-black h-11 px-8 w-full gap-2 shadow-sm"
                 >
                   {isSubmitting ? (
                     <>
@@ -233,7 +250,7 @@ export default function ContactPage() {
                 </button>
               </form>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

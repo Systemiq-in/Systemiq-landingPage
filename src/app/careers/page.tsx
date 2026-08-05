@@ -36,7 +36,12 @@ export default function CareersPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center space-y-6"
+        >
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[#00A3FF] text-xs font-semibold tracking-widest uppercase">
             Systemiq Builder Network
           </span>
@@ -46,7 +51,7 @@ export default function CareersPage() {
           <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal max-w-2xl mx-auto">
             The Systemiq Fellowship is an elite network for top-tier college engineers. Ship production features alongside senior architects, leverage AI agents, and get paid for your raw execution.
           </p>
-        </div>
+        </motion.div>
 
         {/* Culture Grid */}
         <div className="space-y-8">
@@ -62,8 +67,8 @@ export default function CareersPage() {
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ type: "spring", bounce: 0, duration: 0.8, delay: i * 0.1 }}
                 className="bg-[#13151A]/80 rounded-[2rem] p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:bg-white/[0.02] transition-colors duration-300"
               >
                 <div className="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center mb-6">
@@ -77,7 +82,13 @@ export default function CareersPage() {
         </div>
 
         {/* Application CTA */}
-        <div className="bg-[#13151A]/90 backdrop-blur-xl rounded-[2.5rem] p-10 sm:p-16 border border-white/10 text-center space-y-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)] max-w-4xl mx-auto relative overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="bg-[#13151A]/90 backdrop-blur-xl rounded-[2.5rem] p-10 sm:p-16 border border-white/10 text-center space-y-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)] max-w-4xl mx-auto relative overflow-hidden"
+        >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#0071E3]/20 blur-[100px] pointer-events-none" />
           
           <div className="space-y-4 relative z-10">
@@ -90,7 +101,7 @@ export default function CareersPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 pt-4">
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#00A3FF] text-white font-bold text-sm transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,113,227,0.4)]"
+              className="active-scale w-full sm:w-auto px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#00A3FF] text-white font-bold text-sm transition-all shadow-[0_0_20px_rgba(0,113,227,0.4)]"
             >
               Apply for Fellowship
             </button>
@@ -110,7 +121,7 @@ export default function CareersPage() {
               <span>AI Engineering</span>
             </div>
           </div>
-        </div>
+        </motion.div>
         
       </div>
 

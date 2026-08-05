@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import TiltCard from './TiltCard';
 
 const caseStudies = [
   {
@@ -53,63 +54,67 @@ export default function CaseStudiesPreview() {
               key={cs.client}
               whileHover={{ y: -3 }}
               transition={{ duration: 0.2 }}
-              className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.06] hover:border-[#0071E3]/40 shadow-sm hover:shadow-md transition-all duration-300 space-y-6 group"
             >
-              <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
-                <span className="text-base font-bold text-white">{cs.client}</span>
-                <span className="text-xs font-semibold text-[#0071E3] bg-[#090A0C] px-3 py-1 rounded-full border border-white/[0.06]">
-                  {cs.location}
-                </span>
-              </div>
+              <TiltCard 
+                className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.06] hover:border-[#0071E3]/40 shadow-sm hover:shadow-md transition-all duration-300 space-y-6 group h-full"
+                tiltOffset={20}
+              >
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+                  <span className="text-base font-bold text-white">{cs.client}</span>
+                  <span className="text-xs font-semibold text-[#0071E3] bg-[#090A0C] px-3 py-1 rounded-full border border-white/[0.06]">
+                    {cs.location}
+                  </span>
+                </div>
 
-              <h3 className="text-xl font-bold text-white leading-snug">
-                "{cs.headline}"
-              </h3>
-              
-              {/* Mock UI Visual Proof */}
-              <div className="h-32 w-full bg-[#090A0C] rounded-2xl border border-white/[0.06] shadow-sm overflow-hidden flex flex-col relative">
-                {/* Mac-like Header */}
-                <div className="h-6 bg-[#13151A] border-b border-white/[0.06] flex items-center px-3 gap-1.5 shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-rose-500" />
-                  <div className="w-2 h-2 rounded-full bg-amber-500" />
-                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                  <div className="mx-auto h-2 w-16 bg-white/[0.04] rounded-full" />
-                </div>
-                {/* Mock Content */}
-                <div className="p-3 flex-1 flex flex-col gap-2">
-                  <div className="flex gap-2 mb-1">
-                    <div className="h-3 w-12 bg-[#0071E3]/40 rounded-sm" />
-                    <div className="h-3 w-8 bg-white/[0.06] rounded-sm" />
-                    <div className="h-3 w-16 bg-white/[0.06] rounded-sm" />
-                  </div>
-                  <div className="h-1.5 w-full bg-white/[0.04] rounded-full" />
-                  <div className="h-1.5 w-5/6 bg-white/[0.04] rounded-full" />
-                  <div className="h-1.5 w-full bg-white/[0.04] rounded-full" />
-                  
-                  <div className="mt-auto flex justify-between items-end">
-                    <div className="w-10 h-6 bg-emerald-500/10 border border-emerald-500/20 rounded-md flex items-center justify-center">
-                      <div className="h-1.5 w-6 bg-emerald-500 rounded-full" />
-                    </div>
-                    <div className="w-16 h-6 bg-[#0071E3]/20 rounded-md flex items-center justify-center">
-                      <div className="h-1.5 w-10 bg-[#0071E3] rounded-full" />
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-white leading-snug">
+                  "{cs.headline}"
+                </h3>
                 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-[#0071E3]/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                  <span className="text-[10px] font-bold text-white bg-[#0071E3] px-3 py-1.5 rounded-full shadow-lg border border-[#0071E3]/20 uppercase tracking-wider">Inspect UI</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {cs.stats.map((s) => (
-                  <div key={s.label} className="p-4 rounded-2xl bg-[#090A0C] border border-white/[0.06] group-hover:border-[#0071E3]/20 transition-colors">
-                    <span className="text-xs font-medium text-white/50 block uppercase tracking-wider">{s.label}</span>
-                    <span className="text-2xl font-bold text-[#0071E3] block mt-1">{s.val}</span>
+                {/* Mock UI Visual Proof */}
+                <div className="h-32 w-full bg-[#090A0C] rounded-2xl border border-white/[0.06] shadow-sm overflow-hidden flex flex-col relative" style={{ transform: "translateZ(10px)" }}>
+                  {/* Mac-like Header */}
+                  <div className="h-6 bg-[#13151A] border-b border-white/[0.06] flex items-center px-3 gap-1.5 shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-rose-500" />
+                    <div className="w-2 h-2 rounded-full bg-amber-500" />
+                    <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                    <div className="mx-auto h-2 w-16 bg-white/[0.04] rounded-full" />
                   </div>
-                ))}
-              </div>
+                  {/* Mock Content */}
+                  <div className="p-3 flex-1 flex flex-col gap-2">
+                    <div className="flex gap-2 mb-1">
+                      <div className="h-3 w-12 bg-[#0071E3]/40 rounded-sm" />
+                      <div className="h-3 w-8 bg-white/[0.06] rounded-sm" />
+                      <div className="h-3 w-16 bg-white/[0.06] rounded-sm" />
+                    </div>
+                    <div className="h-1.5 w-full bg-white/[0.04] rounded-full" />
+                    <div className="h-1.5 w-5/6 bg-white/[0.04] rounded-full" />
+                    <div className="h-1.5 w-full bg-white/[0.04] rounded-full" />
+                    
+                    <div className="mt-auto flex justify-between items-end">
+                      <div className="w-10 h-6 bg-emerald-500/10 border border-emerald-500/20 rounded-md flex items-center justify-center">
+                        <div className="h-1.5 w-6 bg-emerald-500 rounded-full" />
+                      </div>
+                      <div className="w-16 h-6 bg-[#0071E3]/20 rounded-md flex items-center justify-center">
+                        <div className="h-1.5 w-10 bg-[#0071E3] rounded-full" />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-[#0071E3]/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                    <span className="text-[10px] font-bold text-white bg-[#0071E3] px-3 py-1.5 rounded-full shadow-lg border border-[#0071E3]/20 uppercase tracking-wider">Inspect UI</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  {cs.stats.map((s) => (
+                    <div key={s.label} className="p-4 rounded-2xl bg-[#090A0C] border border-white/[0.06] group-hover:border-[#0071E3]/20 transition-colors">
+                      <span className="text-xs font-medium text-white/50 block uppercase tracking-wider">{s.label}</span>
+                      <span className="text-2xl font-bold text-[#0071E3] block mt-1">{s.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

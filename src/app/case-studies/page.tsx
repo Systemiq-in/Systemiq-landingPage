@@ -43,7 +43,12 @@ export default function CaseStudiesPage() {
     <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center space-y-6"
+        >
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[#00A3FF] text-xs font-semibold tracking-widest uppercase">
             Proven Results
           </span>
@@ -53,7 +58,7 @@ export default function CaseStudiesPage() {
           <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal max-w-2xl mx-auto">
             Discover how growing SMEs eliminated manual spreadsheets and scaled their daily business operations with custom software infrastructure.
           </p>
-        </div>
+        </motion.div>
 
         {/* Case Studies Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -61,11 +66,11 @@ export default function CaseStudiesPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ type: "spring", bounce: 0, duration: 0.8, delay: i * 0.1 }}
               key={cs.client}
               onClick={() => handleStudyClick(cs.client)}
-              className="group bg-[#13151A]/80 rounded-[2rem] p-8 sm:p-10 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:border-white/10 hover:shadow-[0_12px_32px_rgba(0,113,227,0.15)] transition-all duration-500 cursor-pointer flex flex-col justify-between overflow-hidden relative"
+              className="active-scale group bg-[#13151A]/80 rounded-[2rem] p-8 sm:p-10 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:border-white/10 hover:shadow-[0_12px_32px_rgba(0,113,227,0.15)] transition-all duration-500 cursor-pointer flex flex-col justify-between overflow-hidden relative"
             >
               <div className="space-y-8 relative z-10">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/[0.06] pb-6 gap-4 sm:gap-0">

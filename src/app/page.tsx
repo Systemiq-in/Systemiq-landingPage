@@ -40,7 +40,7 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.2 }}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.03] backdrop-blur-xl border border-white/10 text-xs font-semibold text-white/90 tracking-wide mb-8 shadow-[0_4px_24px_rgba(0,0,0,0.2)]"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#00A3FF]" />
@@ -48,9 +48,9 @@ export default function HomePage() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-7xl lg:text-[8rem] font-extrabold tracking-[-0.04em] text-white leading-[0.95] sm:leading-[0.9] text-balance pb-2"
           >
             Software that <br className="hidden sm:block" />
@@ -60,9 +60,9 @@ export default function HomePage() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.4 }}
             className="mt-6 text-lg sm:text-2xl lg:text-3xl text-white/60 max-w-3xl mx-auto font-medium leading-relaxed sm:leading-snug tracking-tight text-balance px-4 sm:px-0"
           >
             Systemiq engineers stunning websites, dynamic web apps, and bespoke software solutions that silently orchestrate your entire business. 
@@ -70,14 +70,14 @@ export default function HomePage() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.6 }}
             className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto px-6 sm:px-0"
           >
             <button
               onClick={() => setIsAuditModalOpen(true)}
-              className="px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-white text-black font-semibold text-base transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] hover:-translate-y-1 flex items-center justify-center gap-3 border border-transparent"
+              className="active-scale px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-white text-black font-semibold text-base transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] flex items-center justify-center gap-3 border border-transparent"
             >
               <span>Book 30-Min Audit</span>
               <ArrowRight className="w-4 h-4" />
@@ -85,7 +85,7 @@ export default function HomePage() {
 
             <Link
               href="/solutions"
-              className="px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white font-semibold text-base transition-all flex items-center justify-center gap-2 group backdrop-blur-xl"
+              className="active-scale px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white font-semibold text-base transition-all flex items-center justify-center gap-2 group backdrop-blur-xl"
             >
               <span>Explore Solutions</span>
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-white/50" />
@@ -108,7 +108,7 @@ export default function HomePage() {
       <TrustedSection />
 
       {/* ---------------- THE PARADIGM SHIFT ---------------- */}
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}>
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.1 }}>
         <TheSystemiqShift />
       </motion.div>
 
@@ -116,17 +116,17 @@ export default function HomePage() {
       <InteractiveWhatWeBuild />
 
       {/* ---------------- WHY SYSTEMIQ ---------------- */}
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut" }}>
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", bounce: 0, duration: 0.8 }}>
         <WhySystemiq />
       </motion.div>
 
       {/* ---------------- ARCHITECTURE DIAGRAM ---------------- */}
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}>
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.1 }}>
         <ArchitectureDiagram />
       </motion.div>
 
       {/* ---------------- HOME CTA ---------------- */}
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}>
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.1 }}>
         <HomeCTA />
       </motion.div>
 

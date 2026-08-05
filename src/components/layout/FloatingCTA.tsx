@@ -27,16 +27,16 @@ export default function FloatingCTA() {
       <AnimatePresence>
         {isVisible && (
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.9 }}
-            transition={{ duration: 0.25 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
             className="fixed bottom-6 right-6 z-[80] hidden sm:block"
           >
             <div className="relative group">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="relative px-5 py-3 rounded-full bg-white border border-slate-200 text-slate-900 flex items-center gap-3 shadow-xl hover:border-blue-600 hover:shadow-2xl transition-all"
+                className="active-scale relative px-5 py-3 rounded-full bg-white border border-slate-200 text-slate-900 flex items-center gap-3 shadow-xl hover:border-blue-600 hover:shadow-2xl transition-all"
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse" />
                 <div className="flex flex-col text-left">

@@ -78,7 +78,13 @@ export default function HowWeWork() {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
           
           {/* Sticky Left Column */}
-          <div className="lg:w-1/3 lg:sticky lg:top-40 h-fit space-y-6 z-10">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+            className="lg:w-1/3 lg:sticky lg:top-40 h-fit space-y-6 z-10"
+          >
             <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase block">
               Progressive Methodology
             </span>
@@ -89,7 +95,7 @@ export default function HowWeWork() {
               From spreadsheet audit to live software deployment in focused sprint cycles. 
               Scroll down to explore our precise engineering process.
             </p>
-          </div>
+          </motion.div>
 
           {/* Scrolling Right Column (Timeline) */}
           <div className="lg:w-2/3 relative pt-10 lg:pt-0">

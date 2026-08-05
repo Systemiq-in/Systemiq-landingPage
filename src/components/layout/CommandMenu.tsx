@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Search,
   Home,
@@ -160,24 +160,17 @@ export default function CommandMenu() {
 
   return (
     <>
-      <AnimatePresence>
+      <>
         {isOpen && (
           <div className="fixed inset-0 z-[150] flex items-start justify-center pt-20 sm:pt-28 p-4">
             {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+            <div
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-[#090A0C]/80 backdrop-blur-md"
+              className="fixed inset-0 bg-[#090A0C]/80 backdrop-apple"
             />
 
             {/* Command Palette Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: -10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: -10 }}
-              transition={{ duration: 0.15 }}
+            <div
               className="relative w-full max-w-xl bg-[#13151A]/90 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-10 overflow-hidden"
             >
               {/* Input Header */}
@@ -208,7 +201,7 @@ export default function CommandMenu() {
                       <button
                         key={cmd.id}
                         onClick={() => handleSelect(cmd)}
-                        className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm text-white/70 hover:text-white hover:bg-white/[0.04] transition group"
+                        className="active-scale w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm text-white/70 hover:text-white hover:bg-white/[0.04] transition group"
                       >
                         <div className="flex items-center gap-3">
                           <div className="p-1.5 rounded-lg bg-white/[0.02] border border-white/10 group-hover:border-[#0071E3]/50 transition">
@@ -236,10 +229,10 @@ export default function CommandMenu() {
                 </span>
                 <span>Press ESC to exit</span>
               </div>
-            </motion.div>
+            </div>
           </div>
         )}
-      </AnimatePresence>
+      </>
 
       <WorkflowAuditModal
         isOpen={isAuditModalOpen}

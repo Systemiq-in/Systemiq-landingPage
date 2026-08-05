@@ -10,8 +10,24 @@ interface FellowshipModalProps {
   onClose: () => void;
 }
 
+const stepVariants = {
+  enter: (direction: number) => ({
+    opacity: 0,
+    x: direction * 50
+  }),
+  center: {
+    opacity: 1,
+    x: 0
+  },
+  exit: (direction: number) => ({
+    opacity: 0,
+    x: direction * -50
+  })
+};
+
 export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProps) {
   const [step, setStep] = useState(1);
+  const [direction, setDirection] = useState(1);
   const [formData, setFormData] = useState({
     name: '',
     github: '',
@@ -24,11 +40,17 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
   if (!isOpen) return null;
 
   const handleNext = () => {
-    if (step < 3) setStep(step + 1);
+    if (step < 3) {
+      setDirection(1);
+      setStep(step + 1);
+    }
   };
 
   const handleBack = () => {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) {
+      setDirection(-1);
+      setStep(step - 1);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -72,9 +94,11 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
 
         {/* Modal Container */}
         <motion.div
+          layout
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          transition={{ type: "spring", bounce: 0, duration: 0.4 }}
           className="relative w-full max-w-2xl bg-[#13151A] rounded-3xl border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.6)] overflow-hidden"
         >
           {/* Header */}
@@ -98,7 +122,7 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
 
           {/* Body */}
           <div className="p-8">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
               
               {isSuccess ? (
                 <motion.div
@@ -116,9 +140,12 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
               ) : step === 1 ? (
                 <motion.div
                   key="step1"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  custom={direction}
+                  variants={stepVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ type: "spring", bounce: 0, duration: 0.4 }}
                   className="space-y-6"
                 >
                   <div className="space-y-2">
@@ -154,9 +181,12 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
               ) : step === 2 ? (
                 <motion.div
                   key="step2"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  custom={direction}
+                  variants={stepVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ type: "spring", bounce: 0, duration: 0.4 }}
                   className="space-y-6"
                 >
                   <div className="space-y-2">
@@ -196,9 +226,12 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
               ) : (
                 <motion.div
                   key="step3"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  custom={direction}
+                  variants={stepVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ type: "spring", bounce: 0, duration: 0.4 }}
                   className="space-y-6"
                 >
                   <div className="space-y-2">
@@ -227,7 +260,7 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
               {step > 1 ? (
                 <button
                   onClick={handleBack}
-                  className="px-6 py-2.5 rounded-full text-white/70 hover:text-white font-semibold text-sm transition-colors"
+                  className="active-scale px-6 py-2.5 rounded-full text-white/70 hover:text-white font-semibold text-sm transition-colors"
                 >
                   Back
                 </button>
@@ -237,7 +270,7 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
                 <button
                   onClick={handleNext}
                   disabled={step === 1 && (!formData.name || !formData.github)}
-                  className="px-8 py-2.5 rounded-full bg-white text-black hover:bg-[#F5F5F7] font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="active-scale px-8 py-2.5 rounded-full bg-white text-black hover:bg-[#F5F5F7] font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
                   <span>Continue</span>
                   <ArrowRight className="w-4 h-4" />
@@ -246,7 +279,7 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
                 <button
                   onClick={handleSubmit}
                   disabled={!formData.hardestProject || isSubmitting}
-                  className="px-8 py-2.5 rounded-full bg-[#0071E3] hover:bg-[#00A3FF] text-white font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-[0_0_20px_rgba(0,113,227,0.4)]"
+                  className="active-scale px-8 py-2.5 rounded-full bg-[#0071E3] hover:bg-[#00A3FF] text-white font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-[0_0_20px_rgba(0,113,227,0.4)]"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">

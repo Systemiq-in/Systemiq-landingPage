@@ -49,7 +49,12 @@ export default function IndustriesPage() {
     <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center space-y-6"
+        >
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[#00A3FF] text-xs font-semibold tracking-widest uppercase">
             Vertical Architecture
           </span>
@@ -59,7 +64,7 @@ export default function IndustriesPage() {
           <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal max-w-2xl mx-auto">
             Every vertical operates with unique challenges. We engineer software modules around your industry's specific workflow requirements.
           </p>
-        </div>
+        </motion.div>
 
         {/* Industry Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -68,10 +73,10 @@ export default function IndustriesPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+              transition={{ type: "spring", bounce: 0, duration: 0.8, delay: i * 0.1 }}
               key={v.title}
               onClick={() => handleVerticalClick(v.title)}
-              className="group bg-[#13151A]/80 rounded-[2rem] p-8 sm:p-10 border border-white/[0.04] hover:border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.15)] transition-all duration-500 cursor-pointer flex flex-col justify-between overflow-hidden relative"
+              className="active-scale group bg-[#13151A]/80 rounded-[2rem] p-8 sm:p-10 border border-white/[0.04] hover:border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.15)] transition-all duration-500 cursor-pointer flex flex-col justify-between overflow-hidden relative"
             >
               {/* Background Glow */}
               <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${v.gradient} blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-full transform translate-x-1/3 -translate-y-1/3`} />

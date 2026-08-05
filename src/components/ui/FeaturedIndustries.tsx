@@ -42,7 +42,7 @@ export default function FeaturedIndustries() {
           </div>
           <Link
             href="/industries"
-            className="text-xs sm:text-sm font-semibold text-[#00A3FF] hover:underline flex items-center gap-1 shrink-0"
+            className="active-scale text-xs sm:text-sm font-semibold text-[#00A3FF] hover:underline flex items-center gap-1 shrink-0"
           >
             <span>View All Industries</span>
             <ChevronRight className="w-4 h-4" />
@@ -73,7 +73,7 @@ export default function FeaturedIndustries() {
 
               <Link
                 href="/industries"
-                className="text-xs font-semibold text-[#0071E3] hover:underline flex items-center gap-1 pt-3 border-t border-white/[0.06]"
+                className="active-scale text-xs font-semibold text-[#0071E3] hover:underline flex items-center gap-1 pt-3 border-t border-white/[0.06]"
               >
                 <span>Read Blueprint</span>
                 <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

@@ -43,7 +43,7 @@ export default function Navbar() {
         <div 
           className={`flex items-center justify-between w-full lg:w-auto transition-all duration-300 ${
             isScrolled 
-              ? 'bg-[#090A0C]/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 border border-white/[0.08]' 
+              ? 'bg-[#090A0C]/40 backdrop-apple shadow-[0_8px_32px_rgba(0,0,0,0.5)] rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 border border-white/[0.08]' 
               : 'bg-[#090A0C]/60 backdrop-blur-md shadow-xl rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 border border-white/[0.05]'
           }`}
         >
@@ -89,7 +89,7 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={triggerCmdK}
-              className="px-3 py-2 text-xs font-medium text-white/60 hover:text-white bg-white/5 hover:bg-white/10 rounded-full flex items-center gap-2 transition-all shadow-sm border border-transparent hover:border-white/5"
+              className="active-scale px-3 py-2 text-xs font-medium text-white/60 hover:text-white bg-white/5 hover:bg-white/10 rounded-full flex items-center gap-2 transition-all shadow-sm border border-transparent hover:border-white/5"
               title="Search Systemiq (Cmd+K)"
             >
               <Command className="w-3.5 h-3.5 text-[#00A3FF]" />
@@ -99,7 +99,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsAuditModalOpen(true)}
-              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0071E3] to-[#00A3FF] text-xs font-semibold text-white flex items-center gap-1.5 transition-all shadow-[0_4px_20px_rgba(0,113,227,0.3)] hover:shadow-[0_8px_30px_rgba(0,113,227,0.5)] hover:scale-105"
+              className="active-scale px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0071E3] to-[#00A3FF] text-xs font-semibold text-white flex items-center gap-1.5 shadow-[0_4px_20px_rgba(0,113,227,0.3)] hover:shadow-[0_8px_30px_rgba(0,113,227,0.5)]"
             >
               <span>Book Audit</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white" />
@@ -110,14 +110,14 @@ export default function Navbar() {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={triggerCmdK}
-              className="p-2 text-white/80 hover:text-white bg-white/5 rounded-full"
+              className="active-scale p-2 text-white/80 hover:text-white bg-white/5 rounded-full"
               aria-label="Search"
             >
               <Command className="w-4 h-4 text-[#00A3FF]" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-white/80 hover:text-white bg-white/5 rounded-full"
+              className="active-scale p-2 text-white/80 hover:text-white bg-white/5 rounded-full"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -161,7 +161,7 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`block text-lg font-semibold py-3 px-4 rounded-xl transition-all ${
+                      className={`active-scale block text-lg font-semibold py-3 px-4 rounded-xl transition-all ${
                         pathname === link.href
                           ? 'bg-white/[0.05] text-[#00A3FF] border border-white/10'
                           : 'text-white/80 hover:bg-white/[0.03] hover:text-white'
@@ -184,7 +184,7 @@ export default function Navbar() {
                     setMobileMenuOpen(false);
                     setIsAuditModalOpen(true);
                   }}
-                  className="w-full py-4 rounded-full bg-white text-black text-sm font-semibold flex items-center justify-center gap-2 shadow-sm transition-all hover:scale-[1.02]"
+                  className="active-scale w-full py-4 rounded-full bg-white text-black text-sm font-semibold flex items-center justify-center gap-2 shadow-sm transition-all"
                 >
                   <span>Book Free Workflow Audit</span>
                   <ArrowUpRight className="w-4 h-4" />

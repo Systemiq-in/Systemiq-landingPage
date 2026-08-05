@@ -59,19 +59,29 @@ export default function SpreadsheetVsSystemiq() {
                 <div
                   key={item.category}
                   onClick={() => setActiveIdx(idx)}
-                  className={`p-5 rounded-2xl cursor-pointer transition-all duration-300 border ${
+                  className={`relative p-5 rounded-2xl cursor-pointer transition-colors duration-300 border ${
                     isSelected
-                      ? 'bg-white border-[#0071E3] shadow-[0_4px_20px_rgba(0,0,0,0.06)]'
-                      : 'bg-white/60 border-black/[0.06] hover:bg-white hover:border-black/[0.12]'
+                      ? 'border-[#0071E3] shadow-[0_4px_20px_rgba(0,0,0,0.06)]'
+                      : 'border-transparent hover:border-black/[0.12] bg-white/40'
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-[#86868B]">Module 0{idx + 1}</span>
-                    <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F5F5F7] text-[#0071E3]">
-                      {item.impact}
-                    </span>
+                  {isSelected && (
+                    <motion.div
+                      layoutId="activeModuleBg"
+                      className="absolute inset-0 bg-white rounded-2xl z-0"
+                      initial={false}
+                      transition={{ type: "spring", bounce: 0.1, duration: 0.5 }}
+                    />
+                  )}
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-medium text-[#86868B]">Module 0{idx + 1}</span>
+                      <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F5F5F7] text-[#0071E3]">
+                        {item.impact}
+                      </span>
+                    </div>
+                    <h3 className="text-base font-bold text-[#1D1D1F] mt-1">{item.category}</h3>
                   </div>
-                  <h3 className="text-base font-bold text-[#1D1D1F] mt-1">{item.category}</h3>
                 </div>
               );
             })}

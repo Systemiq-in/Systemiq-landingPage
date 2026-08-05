@@ -141,13 +141,13 @@ export default function InteractiveWhatWeBuild() {
               <motion.div
                 key={item.id}
                 variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+                  hidden: { opacity: 0, y: 15 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.23, 1, 0.32, 1] } }
                 }}
                 onClick={() => handleCardClick(item.title)}
-                className={`bento-card group flex flex-col justify-between p-6 sm:p-8 cursor-pointer ${
+                className={`active-scale bento-card group flex flex-col justify-between p-6 sm:p-8 cursor-pointer ${
                   isWide ? 'xl:col-span-2' : 'xl:col-span-1'
-                } hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,113,227,0.15)] transition-all duration-500`}
+                } hover:shadow-[0_8px_32px_rgba(0,113,227,0.15)] transition-all duration-500`}
               >
                 {/* Spotlight effect placeholder */}
                 <div className="absolute top-0 right-0 w-[80%] h-[80%] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(0, 113, 227, 0.12) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }} />

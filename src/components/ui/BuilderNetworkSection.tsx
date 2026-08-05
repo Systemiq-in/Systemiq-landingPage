@@ -46,7 +46,7 @@ export default function BuilderNetworkSection() {
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/careers"
-                className="w-full sm:w-auto px-8 py-4 rounded-md bg-white text-black font-bold text-sm transition-all hover:bg-[#F5F5F7] flex items-center justify-center gap-2 group"
+                className="active-scale w-full sm:w-auto px-8 py-4 rounded-md bg-white text-black font-bold text-sm transition-all hover:bg-[#F5F5F7] flex items-center justify-center gap-2 group"
               >
                 <span>Apply for Fellowship</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

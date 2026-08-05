@@ -91,7 +91,12 @@ export default function SolutionsPage() {
     <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center space-y-6"
+        >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[#00A3FF] text-xs font-semibold tracking-widest uppercase">
             <Zap className="w-3.5 h-3.5" />
             Capabilities Matrix
@@ -102,7 +107,7 @@ export default function SolutionsPage() {
           <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal">
             From cinematic landing pages to AI-driven enterprise software, we build digital infrastructure that scales.
           </p>
-        </div>
+        </motion.div>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -111,10 +116,10 @@ export default function SolutionsPage() {
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ type: "spring", bounce: 0, duration: 0.8, delay: i * 0.1 }}
               onClick={() => handleModuleClick(item.title)}
-              className={`group bg-[#13151A]/80 rounded-[2rem] p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.15)] hover:border-white/10 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden relative ${item.colSpan}`}
+              className={`active-scale group bg-[#13151A]/80 rounded-[2rem] p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,113,227,0.15)] hover:border-white/10 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden relative ${item.colSpan}`}
             >
               {/* Background gradient on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
