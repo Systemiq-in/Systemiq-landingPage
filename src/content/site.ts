@@ -36,6 +36,11 @@ export const site = {
     responseTime: "within one business day",
   },
 
+  /** Only real, live profiles. Never add a placeholder link here. */
+  social: {
+    instagram: "https://www.instagram.com/systemiq.in/",
+  },
+
   /** Verifiable facts only. Nothing here should require a client's permission to state. */
   facts: [
     { value: "8", label: "Systems already engineered" },

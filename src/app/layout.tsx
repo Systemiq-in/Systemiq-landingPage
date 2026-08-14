@@ -86,6 +86,7 @@ const structuredData = {
       url: site.domain,
       email: site.contact.email,
       telephone: site.contact.phoneRaw,
+      sameAs: [site.social.instagram],
       founder: { '@id': `${site.domain}/#operator` },
       areaServed: ['IN', 'OM', 'QA', 'AE'],
       address: {

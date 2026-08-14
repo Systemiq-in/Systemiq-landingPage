@@ -69,7 +69,8 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 1.5rem;
+  /* Must match .bento-card's radius, or the gradient ring sits inside the corners. */
+  border-radius: inherit;
   padding: 1px;
   background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -82,6 +83,31 @@ body {
   .bento-card:hover {
     border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 113, 227, 0.1);
+  }
+}
+
+/* Keyboard focus — visible on every interactive element, never on mouse click. */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respect the OS "reduce motion" setting. Framer Motion reads this too, but
+   CSS transitions, the smooth-scroll behaviour and any ambient loops need
+   switching off explicitly. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
