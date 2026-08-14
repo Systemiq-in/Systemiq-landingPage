@@ -10,9 +10,8 @@ import {
   Sparkles,
 } from 'lucide-react';
 import TrustedSection from '@/components/ui/TrustedSection';
-import InteractiveWhatWeBuild from '@/components/ui/InteractiveWhatWeBuild';
 import FrictionLedger from '@/components/ui/FrictionLedger';
-import WhySystemiq from '@/components/ui/WhySystemiq';
+import Objections from '@/components/ui/Objections';
 import ArchitectureDiagram from '@/components/ui/ArchitectureDiagram';
 import HomeCTA from '@/components/ui/HomeCTA';
 import SystemLineup from '@/components/ui/SystemLineup';
@@ -66,9 +65,9 @@ export default function HomePage() {
             transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.4 }}
             className="mt-6 text-lg sm:text-2xl lg:text-3xl text-white/60 max-w-3xl mx-auto font-medium leading-relaxed sm:leading-snug tracking-tight text-balance px-4 sm:px-0"
           >
-            Custom ERP, inventory, billing and dealer portals — built around how your
-            business already runs. Starting from eight systems that already work, so
-            yours launches in weeks.
+            You have outgrown spreadsheets and off-the-shelf tools — but a system of your
+            own sounds like a six-month project. It is not, when it starts from one that
+            already works.
           </motion.p>
 
           <motion.div
@@ -114,15 +113,12 @@ export default function HomePage() {
         <FrictionLedger />
       </motion.div>
 
-      {/* ---------------- WHAT WE BUILD ---------------- */}
-      <InteractiveWhatWeBuild />
-
       {/* ---------------- THE SYSTEM LINEUP ---------------- */}
       <SystemLineup variant="compact" />
 
-      {/* ---------------- WHY SYSTEMIQ ---------------- */}
+      {/* ---------------- OBJECTIONS ---------------- */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", bounce: 0, duration: 0.8 }}>
-        <WhySystemiq />
+        <Objections />
       </motion.div>
 
       {/* ---------------- ARCHITECTURE DIAGRAM ---------------- */}

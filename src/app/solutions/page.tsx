@@ -32,7 +32,7 @@ const solutionModules = [
     category: 'Marketing',
     icon: <LayoutTemplate className="w-5 h-5 text-white" />,
     iconBg: 'bg-emerald-500',
-    desc: 'Stunning, cinematic websites engineered for raw speed and SEO. Like the one you are looking at right now.',
+    desc: 'Fast, well-built marketing sites that load quickly and rank. Like the one you are reading right now.',
     features: ['Sub-second load times', 'Advanced scroll animations', 'Technical SEO built-in'],
     colSpan: 'md:col-span-1 lg:col-span-1'
   },

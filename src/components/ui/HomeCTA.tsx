@@ -13,12 +13,12 @@ export default function HomeCTA() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-[#13151A]/80 rounded-3xl p-10 sm:p-14 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.2)] space-y-6">
             <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
-              Free 30-Minute Consultation
+              Free 45-minute call
             </span>
 
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Ready to Upgrade Your <br />
-              <span className="text-[#0071E3]">Business Operating System?</span>
+              One call, and you will know <br />
+              <span className="text-[#0071E3]">if this is worth doing.</span>
             </h2>
 
             <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
@@ -41,7 +41,7 @@ export default function HomeCTA() {
                 <ShieldCheck className="w-4 h-4 text-[#0071E3]" /> No commitment required
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#0071E3]" /> Direct talk with Senior Leads
+                <CheckCircle2 className="w-4 h-4 text-[#0071E3]" /> You talk to the engineer
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-[#0071E3]" /> Custom blueprint provided
