@@ -41,7 +41,7 @@ export default function Footer() {
               {site.tagline} I replace manual spreadsheets and disconnected tools with software
               built around how your business actually runs.
             </p>
-            <div className="flex items-center gap-2 pt-1">
+            <div className="flex flex-wrap items-center gap-2 pt-1">
               <a
                 href={site.contact.whatsapp}
                 target="_blank"
