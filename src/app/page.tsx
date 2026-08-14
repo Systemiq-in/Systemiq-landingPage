@@ -81,7 +81,7 @@ export default function HomePage() {
               onClick={() => setIsAuditModalOpen(true)}
               className="active-scale px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-white text-black font-semibold text-base transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] flex items-center justify-center gap-3 border border-transparent"
             >
-              <span>Book 30-Min Audit</span>
+              <span>Book a workflow audit</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 

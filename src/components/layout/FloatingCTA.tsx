@@ -41,9 +41,9 @@ export default function FloatingCTA() {
                 <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse" />
                 <div className="flex flex-col text-left">
                   <span className="text-xs font-extrabold tracking-tight text-slate-900 flex items-center gap-1">
-                    Book Free Audit <ArrowUpRight className="w-3.5 h-3.5 text-blue-600" />
+                    Book a workflow audit <ArrowUpRight className="w-3.5 h-3.5 text-blue-600" />
                   </span>
-                  <span className="text-[10px] font-semibold text-slate-500">Free 30-min system blueprint</span>
+                  <span className="text-[10px] font-semibold text-slate-500">Free 30-minute call</span>
                 </div>
               </button>
             </div>

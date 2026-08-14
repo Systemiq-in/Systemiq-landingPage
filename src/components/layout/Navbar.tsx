@@ -102,7 +102,7 @@ export default function Navbar() {
               onClick={() => setIsAuditModalOpen(true)}
               className="active-scale px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0071E3] to-[#00A3FF] text-xs font-semibold text-white flex items-center gap-1.5 shadow-[0_4px_20px_rgba(0,113,227,0.3)] hover:shadow-[0_8px_30px_rgba(0,113,227,0.5)]"
             >
-              <span>Book Audit</span>
+              <span>Book audit</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white" />
             </button>
           </div>
@@ -187,7 +187,7 @@ export default function Navbar() {
                   }}
                   className="active-scale w-full py-4 rounded-full bg-white text-black text-sm font-semibold flex items-center justify-center gap-2 shadow-sm transition-all"
                 >
-                  <span>Book Free Workflow Audit</span>
+                  <span>Book a workflow audit</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
               </motion.div>

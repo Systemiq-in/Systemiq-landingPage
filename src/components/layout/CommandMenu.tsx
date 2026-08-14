@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { useScrollLock } from '@/hooks/useScrollLock';
 import {
   Search,
   Home,
@@ -37,6 +38,8 @@ export default function CommandMenu() {
   const [query, setQuery] = useState('');
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
   const router = useRouter();
+
+  useScrollLock(isOpen);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -112,7 +115,7 @@ export default function CommandMenu() {
     },
     {
       id: 'audit-action',
-      title: 'Book Free Workflow Audit',
+      title: 'Book a workflow audit',
       category: 'Actions',
       icon: <Calendar className="w-4 h-4 text-[#0071E3]" />,
       action: () => {

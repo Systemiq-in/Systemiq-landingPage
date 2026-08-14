@@ -74,7 +74,7 @@ export default function ProcessPage() {
             onClick={() => setIsModalOpen(true)}
             className="active-scale px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm transition shadow-sm"
           >
-            Book Free Workflow Audit
+            Book a workflow audit
           </button>
         </motion.div>
       </div>

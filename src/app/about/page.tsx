@@ -225,7 +225,7 @@ export default function AboutPage() {
             onClick={() => setIsAuditModalOpen(true)}
             className="active-scale rounded-full bg-[#0071E3] px-8 py-4 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0077ED]"
           >
-            Book a free workflow audit
+            Book a workflow audit
           </button>
         </motion.div>
       </div>

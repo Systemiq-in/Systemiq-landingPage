@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
+import { useScrollLock } from '@/hooks/useScrollLock';
 import { X, ArrowRight, Github, Code2, Bot, Sparkles, CheckCircle2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -26,6 +28,12 @@ const stepVariants = {
 };
 
 export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProps) {
+  useScrollLock(isOpen);
+
+  // `main` sets `relative z-20`, which caps any z-index inside it. Portal to
+  // body so the overlay actually sits above the navbar and floating CTA.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
   const [formData, setFormData] = useState({
@@ -80,7 +88,9 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
     }, 1500);
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         {/* Backdrop */}
@@ -298,6 +308,7 @@ export default function FellowshipModal({ isOpen, onClose }: FellowshipModalProp
           )}
         </motion.div>
       </div>
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

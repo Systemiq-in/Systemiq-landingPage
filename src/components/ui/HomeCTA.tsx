@@ -31,7 +31,7 @@ export default function HomeCTA() {
                 className="active-scale w-full sm:w-auto px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-semibold text-sm transition-all shadow-sm flex items-center justify-center gap-2 group hover:scale-[1.02]"
               >
                 <Calendar className="w-4 h-4 text-white" />
-                <span>Book Free Workflow Audit</span>
+                <span>Book a workflow audit</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
