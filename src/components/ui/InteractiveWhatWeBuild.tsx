@@ -105,8 +105,8 @@ export default function InteractiveWhatWeBuild() {
   };
 
   return (
-    <section className="py-12 lg:py-16 bg-transparent border-t border-white/[0.08]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section className="py-20 lg:py-28 bg-transparent border-t border-white/[0.08]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="space-y-2 max-w-2xl">
             <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase">
@@ -135,8 +135,7 @@ export default function InteractiveWhatWeBuild() {
           }}
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-auto"
         >
-          {brandCards.map((item, idx) => {
-            const isWide = idx === 0 || idx === 3;
+          {brandCards.map((item) => {
             return (
               <motion.div
                 key={item.id}
@@ -145,49 +144,43 @@ export default function InteractiveWhatWeBuild() {
                   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.23, 1, 0.32, 1] } }
                 }}
                 onClick={() => handleCardClick(item.title)}
-                className={`active-scale bento-card group flex flex-col justify-between p-6 sm:p-8 cursor-pointer ${
-                  isWide ? 'xl:col-span-2' : 'xl:col-span-1'
-                } hover:shadow-[0_8px_32px_rgba(0,113,227,0.15)] transition-all duration-500`}
+                className="active-scale bento-card group flex cursor-pointer flex-col p-6 sm:p-7 transition-all duration-500 hover:shadow-[0_8px_32px_rgba(0,113,227,0.15)]"
               >
                 {/* Spotlight effect placeholder */}
                 <div className="absolute top-0 right-0 w-[80%] h-[80%] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(0, 113, 227, 0.12) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }} />
 
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="flex justify-between items-start mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/10 shadow-inner flex items-center justify-center text-[#00A3FF] group-hover:bg-[#0071E3] group-hover:text-white group-hover:border-[#00A3FF] transition-all duration-500">
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="flex items-start justify-between">
+                    <div className="w-11 h-11 rounded-2xl bg-white/[0.03] border border-white/10 shadow-inner flex items-center justify-center text-[#00A3FF] transition-all duration-500 group-hover:bg-[#0071E3] group-hover:text-white group-hover:border-[#00A3FF]">
                       {item.icon}
                     </div>
-                    <span className="text-[10px] font-bold px-3 py-1.5 bg-white/[0.05] text-white/70 rounded-full border border-white/[0.05] tracking-widest group-hover:bg-[#0071E3]/20 group-hover:text-white group-hover:border-[#0071E3]/50 transition-colors duration-500">
+                    <span className="text-[10px] font-bold px-3 py-1.5 bg-white/[0.05] text-white/60 rounded-full border border-white/[0.05] tracking-widest transition-colors duration-500 group-hover:bg-[#0071E3]/20 group-hover:text-white group-hover:border-[#0071E3]/50">
                       {item.tag}
                     </span>
                   </div>
 
-                  <div className={`flex flex-col h-full flex-1 ${isWide ? 'xl:flex-row xl:items-start xl:justify-between xl:gap-8' : ''}`}>
-                    <div className="flex-1">
-                      <span className="text-xs font-semibold text-[#00A3FF] uppercase tracking-widest block mb-2">
-                        {item.category}
-                      </span>
-                      <h3 className="text-2xl font-bold text-white tracking-tight mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm font-medium text-white/60 leading-relaxed mb-6">
-                        {item.description}
-                      </p>
-                    </div>
-                    
-                    <div className={`space-y-3 pt-4 border-t border-white/10 mb-6 flex-1 ${isWide ? 'xl:border-t-0 xl:pt-0 xl:border-l xl:pl-8' : ''}`}>
-                      {item.outcomes.map((oc) => (
-                        <div key={oc} className="flex items-center gap-2 text-[13px] font-medium text-white/70">
-                          <CheckCircle2 className="w-4 h-4 text-[#0071E3] shrink-0" />
-                          <span>{oc}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <span className="mt-6 block text-[11px] font-semibold uppercase tracking-widest text-[#00A3FF]">
+                    {item.category}
+                  </span>
+                  <h3 className="mt-1.5 text-xl font-bold tracking-tight text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-white/55">
+                    {item.description}
+                  </p>
 
-                  <div className="flex items-center gap-2 text-[11px] font-bold text-white uppercase tracking-widest opacity-50 group-hover:opacity-100 transition-all duration-300 mt-auto pt-4">
+                  <ul className="mt-5 space-y-2 border-t border-white/10 pt-5">
+                    {item.outcomes.map((oc) => (
+                      <li key={oc} className="flex items-start gap-2 text-[13px] font-medium text-white/65">
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#0071E3]" />
+                        <span>{oc}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-auto flex items-center gap-2 pt-6 text-[11px] font-bold uppercase tracking-widest text-white/45 transition-colors duration-300 group-hover:text-white">
                     <span>{item.ctaText}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </motion.div>

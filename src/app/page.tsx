@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import TrustedSection from '@/components/ui/TrustedSection';
 import InteractiveWhatWeBuild from '@/components/ui/InteractiveWhatWeBuild';
-import TheSystemiqShift from '@/components/ui/TheSystemiqShift';
+import FrictionLedger from '@/components/ui/FrictionLedger';
 import WhySystemiq from '@/components/ui/WhySystemiq';
 import ArchitectureDiagram from '@/components/ui/ArchitectureDiagram';
 import HomeCTA from '@/components/ui/HomeCTA';
@@ -111,7 +111,7 @@ export default function HomePage() {
 
       {/* ---------------- THE PROBLEM ---------------- */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.1 }}>
-        <TheSystemiqShift />
+        <FrictionLedger />
       </motion.div>
 
       {/* ---------------- WHAT WE BUILD ---------------- */}

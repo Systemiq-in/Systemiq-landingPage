@@ -85,7 +85,7 @@ const structuredData = {
       url: site.domain,
       email: site.contact.email,
       telephone: site.contact.phoneRaw,
-      sameAs: [site.social.instagram],
+      sameAs: [site.social.instagram, site.social.linkedin],
       founder: { '@id': `${site.domain}/#operator` },
       areaServed: ['IN', 'OM', 'QA', 'AE'],
       address: {
@@ -109,6 +109,7 @@ const structuredData = {
       jobTitle: site.operator.role,
       email: site.contact.email,
       telephone: site.contact.phoneRaw,
+      sameAs: [site.social.linkedin],
       worksFor: { '@id': `${site.domain}/#business` },
     },
     {

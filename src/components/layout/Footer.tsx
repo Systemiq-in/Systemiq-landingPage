@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, MessageCircle, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Instagram, Linkedin } from 'lucide-react';
 import { site } from '@/content/site';
 
 export default function Footer() {
@@ -57,6 +57,15 @@ export default function Footer() {
               >
                 <Mail className="w-3.5 h-3.5" />
                 <span className="text-[11px] font-semibold">Email</span>
+              </a>
+              <a
+                href={site.social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 h-8 px-4 rounded-full bg-[#13151A] border border-white/[0.08] hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/10 text-white/80 hover:text-white transition shadow-sm"
+              >
+                <Linkedin className="w-3.5 h-3.5" />
+                <span className="text-[11px] font-semibold">LinkedIn</span>
               </a>
               <a
                 href={site.social.instagram}

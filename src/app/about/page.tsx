@@ -11,6 +11,7 @@ import {
   Code2,
   MessageSquare,
   ArrowRight,
+  Linkedin,
 } from 'lucide-react';
 import WorkflowAuditModal from '@/components/layout/WorkflowAuditModal';
 import { site } from '@/content/site';
@@ -119,6 +120,15 @@ export default function AboutPage() {
                   <span>See the system lineup</span>
                   <ArrowRight className="h-4 w-4 text-white/50" />
                 </Link>
+                <a
+                  href={site.social.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="active-scale inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white transition-all hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/10"
+                >
+                  <Linkedin className="h-4 w-4 text-[#0A66C2]" aria-hidden="true" />
+                  <span>LinkedIn</span>
+                </a>
                 <a
                   href={`mailto:${site.contact.email}`}
                   className="active-scale inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-white/70 transition-all hover:text-white"
