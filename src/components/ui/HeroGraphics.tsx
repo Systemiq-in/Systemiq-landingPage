@@ -1,8 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { motion, useReducedMotion } from 'framer-motion';
 
 export default function HeroGraphics() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
       {/* Advanced Animated Mesh Background */}
@@ -35,6 +38,38 @@ export default function HeroGraphics() {
         className="absolute top-[10%] -right-[10%] sm:top-[0%] sm:-right-[10%] w-[70vw] h-[70vw] sm:w-[50vw] sm:h-[50vw] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0, 163, 255, 0.2) 0%, rgba(0, 255, 255, 0.05) 50%, transparent 80%)', filter: 'blur(80px)', willChange: 'transform, opacity' }}
       />
+
+      {/* Brand watermark — the { / } mark sitting behind the headline.
+          The braces are near-black, so the mark is inverted to a white
+          silhouette and dropped to a few percent opacity. A blue bloom sits
+          behind it so the brand colour still reads at this scale. */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.div
+          aria-hidden="true"
+          animate={reduceMotion ? undefined : { scale: [1, 1.035, 1], opacity: [1, 0.82, 1] }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+          className="relative w-[min(150vw,1680px)] aspect-square"
+          style={{ willChange: 'transform, opacity' }}
+        >
+          <div
+            className="absolute inset-[26%] rounded-full"
+            style={{
+              background:
+                'radial-gradient(circle, rgba(0,113,227,0.22) 0%, rgba(0,163,255,0.07) 45%, transparent 70%)',
+              filter: 'blur(80px)',
+            }}
+          />
+          <Image
+            src="/logo_without_bg.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(max-width: 768px) 150vw, 1680px"
+            className="object-contain"
+            style={{ filter: 'brightness(0) invert(1)', opacity: 0.075 }}
+          />
+        </motion.div>
+      </div>
 
       {/* Floating Glassmorphism Elements (Desktop Only for Performance) */}
       <div className="absolute inset-0 max-w-7xl mx-auto hidden lg:block">
