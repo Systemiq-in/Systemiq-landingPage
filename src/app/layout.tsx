@@ -8,6 +8,7 @@ import ScrollProgress from '@/components/layout/ScrollProgress';
 import CommandMenu from '@/components/layout/CommandMenu';
 import FloatingCTA from '@/components/layout/FloatingCTA';
 import GlobalBackground from '@/components/layout/GlobalBackground';
+import { site } from '@/content/site';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,10 +23,13 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://systemiq.in'),
+  metadataBase: new URL(site.domain),
   title: {
-    default: 'Systemiq Technologies | Business Systems Studio',
-    template: '%s | Systemiq Technologies',
+    default: 'Systemiq | Custom ERP, Inventory & Business Software in India',
+    template: '%s | Systemiq',
+  },
+  alternates: {
+    canonical: '/',
   },
   robots: {
     index: true,
@@ -39,32 +43,83 @@ export const metadata: Metadata = {
     },
   },
   description:
-    'Systemiq Technologies is a Business Systems Studio engineering custom software systems, ERPs, CRMs, and internal tools for growing SMEs. Engineering systems that scale businesses.',
+    'Custom ERP, inventory, billing and dealer portal software for growing businesses in India. Eight systems already built and running — yours gets tailored from a proven architecture in weeks, not quarters.',
   keywords: [
-    'Business Systems Studio',
-    'Custom ERP Software',
-    'SME Software Engineering',
-    'Internal Dashboards',
-    'Inventory Automation',
-    'Workflow Software',
-    'Systemiq Technologies',
+    'custom ERP software India',
+    'inventory management software',
+    'B2B dealer portal',
+    'custom billing software',
+    'Tally integration',
+    'business automation Kerala',
+    'custom software developer India',
+    'Systemiq',
   ],
-  authors: [{ name: 'Systemiq Technologies' }],
-  creator: 'Systemiq Technologies',
+  authors: [{ name: site.operator.name }],
+  creator: site.operator.name,
+  publisher: site.name,
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    url: 'https://systemiq.in',
-    title: 'Systemiq Technologies | Engineering Systems That Scale Businesses',
+    locale: 'en_IN',
+    url: site.domain,
+    title: 'Systemiq | Custom Business Software, Built From Systems That Already Run',
     description:
-      'We replace spreadsheets, disconnected tools, and manual workflows with custom business systems for growing SMEs.',
-    siteName: 'Systemiq Technologies',
+      'Replace spreadsheets and disconnected tools with custom ERP, inventory, billing and portal software — tailored from eight proven architectures.',
+    siteName: site.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Systemiq Technologies | Business Systems Studio',
-    description: 'Custom Software. Engineered Around Your Business.',
+    title: 'Systemiq | Custom Business Software',
+    description: 'Custom ERP, inventory and portal software. Engineered around your operation.',
   },
+};
+
+/** Structured data — helps Google and AI search understand who runs this and how to reach them. */
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${site.domain}/#business`,
+      name: site.name,
+      description:
+        'Independent software practice building custom ERP, inventory, billing, dealer portal and workflow automation systems for small and mid-sized businesses.',
+      url: site.domain,
+      email: site.contact.email,
+      telephone: site.contact.phoneRaw,
+      founder: { '@id': `${site.domain}/#operator` },
+      areaServed: ['IN', 'OM', 'QA', 'AE'],
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'Kerala',
+        addressCountry: 'IN',
+      },
+      knowsAbout: [
+        'Custom ERP development',
+        'Inventory management systems',
+        'B2B dealer portals',
+        'Billing and invoicing software',
+        'Workflow automation',
+        'Tally integration',
+      ],
+    },
+    {
+      '@type': 'Person',
+      '@id': `${site.domain}/#operator`,
+      name: site.operator.name,
+      jobTitle: site.operator.role,
+      email: site.contact.email,
+      telephone: site.contact.phoneRaw,
+      worksFor: { '@id': `${site.domain}/#business` },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.domain}/#website`,
+      url: site.domain,
+      name: site.name,
+      publisher: { '@id': `${site.domain}/#business` },
+      inLanguage: 'en-IN',
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -75,6 +130,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${mono.variable} dark`}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NV4HPRRLMK"
           strategy="afterInteractive"

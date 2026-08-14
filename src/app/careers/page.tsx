@@ -7,24 +7,24 @@ import FellowshipModal from '@/components/layout/FellowshipModal';
 
 const principles = [
   {
-    title: 'Skip the Entry-Level Grind',
+    title: 'Own a whole module',
     icon: <Target className="w-6 h-6 text-[#00A3FF]" />,
-    desc: 'Don\'t spend your junior year fixing CSS bugs for a massive corp. Build and ship entire scalable modules yourself.',
+    desc: 'You take a defined module end to end — schema, API and interface — rather than picking off tickets someone else scoped.',
   },
   {
-    title: 'Bounty-Based Execution',
+    title: 'Paid per module',
     icon: <Rocket className="w-6 h-6 text-[#00A3FF]" />,
-    desc: 'Ship production code, get paid per module. High-speed, high-reward execution for talented college developers.',
+    desc: 'Work is scoped and priced per module before you start. You know what you are building and what it pays.',
   },
   {
-    title: 'AI-Native Workflow',
+    title: 'Use whatever tools you like',
     icon: <Zap className="w-6 h-6 text-[#00A3FF]" />,
-    desc: 'We expect you to use Claude, ChatGPT, and Antigravity. Write logic, let AI write the boilerplate. Ship 10x faster.',
+    desc: 'Use Claude, ChatGPT or whatever you like. I care about the logic being right and the code being readable, not about who typed the boilerplate.',
   },
   {
-    title: 'Real-World Scale',
+    title: 'Real systems, real consequences',
     icon: <BookOpen className="w-6 h-6 text-[#00A3FF]" />,
-    desc: 'Learn to build software that actually matters. No toy projects. You will build systems that handle millions in transactions.',
+    desc: 'The systems are real ones businesses run on — billing, inventory, dispatch. Bugs have consequences, which is the part that teaches you the most.',
   },
 ];
 
@@ -43,13 +43,13 @@ export default function CareersPage() {
           className="max-w-3xl mx-auto text-center space-y-6"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[#00A3FF] text-xs font-semibold tracking-widest uppercase">
-            Systemiq Builder Network
+            Collaborators
           </span>
           <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            Engineering Fellowship.
+            Build with me.
           </h1>
           <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal max-w-2xl mx-auto">
-            The Systemiq Fellowship is an elite network for top-tier college engineers. Ship production features alongside senior architects, leverage AI agents, and get paid for your raw execution.
+            Systemiq is a one-person practice, and on larger builds I bring in a small number of developers on a paid, per-module basis. If you can ship production code and want real systems to work on instead of tutorial projects, get in touch.
           </p>
         </motion.div>
 
@@ -57,7 +57,7 @@ export default function CareersPage() {
         <div className="space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Fellowship Culture.
+              How this works.
             </h2>
           </div>
 
@@ -92,9 +92,9 @@ export default function CareersPage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#0071E3]/20 blur-[100px] pointer-events-none" />
           
           <div className="space-y-4 relative z-10">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Ready to ship code?</h2>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Interested?</h2>
             <p className="text-base text-white/60 max-w-xl mx-auto font-normal">
-              We look for raw execution and ability. Leave the resume behind. Link your GitHub and show us the hardest backend system or frontend interface you've built.
+              Skip the résumé. Send a GitHub link and tell me about the hardest thing you have built and what broke along the way.
             </p>
           </div>
 
@@ -103,7 +103,7 @@ export default function CareersPage() {
               onClick={() => setIsModalOpen(true)}
               className="active-scale w-full sm:w-auto px-8 py-4 rounded-full bg-[#0071E3] hover:bg-[#00A3FF] text-white font-bold text-sm transition-all shadow-[0_0_20px_rgba(0,113,227,0.4)]"
             >
-              Apply for Fellowship
+              Get in touch
             </button>
           </div>
           

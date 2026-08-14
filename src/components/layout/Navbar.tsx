@@ -10,8 +10,9 @@ import WorkflowAuditModal from './WorkflowAuditModal';
 
 const navLinks = [
   { name: 'Solutions', href: '/solutions' },
+  { name: 'Systems', href: '/case-studies' },
   { name: 'Methodology', href: '/process' },
-  { name: 'Fellowship', href: '/careers' },
+  { name: 'Collaborate', href: '/careers' },
 ];
 
 export default function Navbar() {

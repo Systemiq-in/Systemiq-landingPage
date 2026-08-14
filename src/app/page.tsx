@@ -15,6 +15,7 @@ import TheSystemiqShift from '@/components/ui/TheSystemiqShift';
 import WhySystemiq from '@/components/ui/WhySystemiq';
 import ArchitectureDiagram from '@/components/ui/ArchitectureDiagram';
 import HomeCTA from '@/components/ui/HomeCTA';
+import SystemLineup from '@/components/ui/SystemLineup';
 import WorkflowAuditModal from '@/components/layout/WorkflowAuditModal';
 
 import HeroGraphics from '@/components/ui/HeroGraphics';
@@ -114,6 +115,9 @@ export default function HomePage() {
 
       {/* ---------------- WHAT WE BUILD ---------------- */}
       <InteractiveWhatWeBuild />
+
+      {/* ---------------- THE SYSTEM LINEUP ---------------- */}
+      <SystemLineup variant="compact" />
 
       {/* ---------------- WHY SYSTEMIQ ---------------- */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", bounce: 0, duration: 0.8 }}>

@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { site } from '@/content/site';
 
 export default function Footer() {
   return (
@@ -37,35 +38,25 @@ export default function Footer() {
               Business Systems Studio
             </h3>
             <p className="text-white/50 text-xs leading-relaxed max-w-sm font-normal">
-              Engineering systems that scale businesses. We replace manual spreadsheets and disconnected tools with custom software built specifically for how your SME runs.
+              {site.tagline} I replace manual spreadsheets and disconnected tools with software
+              built around how your business actually runs.
             </p>
             <div className="flex items-center gap-2 pt-1">
               <a
-                href="https://linkedin.com"
+                href={site.contact.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-[#13151A] border border-white/[0.08] hover:border-[#0071E3] hover:bg-[#0071E3]/10 text-white flex items-center justify-center transition shadow-sm"
-                aria-label="LinkedIn"
+                className="inline-flex items-center gap-2 h-8 px-4 rounded-full bg-[#13151A] border border-white/[0.08] hover:border-emerald-500/50 hover:bg-emerald-500/10 text-white/80 hover:text-white transition shadow-sm"
               >
-                <Linkedin className="w-3.5 h-3.5" />
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span className="text-[11px] font-semibold">WhatsApp</span>
               </a>
               <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-[#13151A] border border-white/[0.08] hover:border-[#0071E3] hover:bg-[#0071E3]/10 text-white flex items-center justify-center transition shadow-sm"
-                aria-label="Twitter"
+                href={`mailto:${site.contact.email}`}
+                className="inline-flex items-center gap-2 h-8 px-4 rounded-full bg-[#13151A] border border-white/[0.08] hover:border-[#0071E3] hover:bg-[#0071E3]/10 text-white/80 hover:text-white transition shadow-sm"
               >
-                <Twitter className="w-3.5 h-3.5" />
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-[#13151A] border border-white/[0.08] hover:border-[#0071E3] hover:bg-[#0071E3]/10 text-white flex items-center justify-center transition shadow-sm"
-                aria-label="GitHub"
-              >
-                <Github className="w-3.5 h-3.5" />
+                <Mail className="w-3.5 h-3.5" />
+                <span className="text-[11px] font-semibold">Email</span>
               </a>
             </div>
           </div>
@@ -122,12 +113,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/careers" className="hover:text-white transition">
-                  Careers Network
+                  Collaborate
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-white transition">
-                  Contact Engineering
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -136,22 +127,27 @@ export default function Footer() {
           {/* Contact */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
-              Studio Contact
+              Contact
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#0071E3] shrink-0 mt-0.5" />
-                <span>Global Remote Studio</span>
+                <span>{site.contact.location}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
-                <a href="mailto:contact@systemiq.in" className="hover:text-white transition underline">
-                  contact@systemiq.in
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="hover:text-white transition break-all"
+                >
+                  {site.contact.email}
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#0071E3] shrink-0" />
-                <span>+91 98765 43210</span>
+                <a href={`tel:${site.contact.phoneRaw}`} className="hover:text-white transition">
+                  {site.contact.phoneDisplay}
+                </a>
               </li>
             </ul>
           </div>
@@ -160,7 +156,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <div>
-            © {new Date().getFullYear()} Systemiq Technologies. All rights reserved.
+            © {new Date().getFullYear()} {site.name}. Built and run by {site.operator.name}.
           </div>
 
           <div className="flex items-center gap-6">

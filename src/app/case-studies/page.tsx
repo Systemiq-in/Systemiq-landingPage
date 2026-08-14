@@ -2,117 +2,104 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, TrendingUp, Clock, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Boxes, Wrench, Rocket } from 'lucide-react';
+import SystemLineup from '@/components/ui/SystemLineup';
 import WorkflowAuditModal from '@/components/layout/WorkflowAuditModal';
+import { systems } from '@/content/products';
 
-const fullCaseStudies = [
+const fitting = [
   {
-    client: 'Apex Steel & Manufacturing',
-    industry: 'Industrial Manufacturing',
-    headline: 'Replaced 18 Excel workbooks with a single real-time ERP matrix',
-    summary: 'Apex operated 4 manufacturing plants with manual Excel stock logs. Systemiq engineered a custom ERP with live barcode scanners and an automated bill of materials.',
-    metrics: [
-      { label: 'Time Saved', val: '24 hrs/wk', icon: <Clock className="w-4 h-4 text-[#00A3FF]" /> },
-      { label: 'Stock Accuracy', val: '99.9%', icon: <ShieldCheck className="w-4 h-4 text-emerald-400" /> },
-      { label: 'Dispatch Speed', val: '3x Faster', icon: <TrendingUp className="w-4 h-4 text-[#0071E3]" /> },
-    ],
+    icon: Boxes,
+    title: 'Pick the closest system',
+    body: 'We match your operation against the lineup. Usually one architecture already covers eighty percent of what you need.',
   },
   {
-    client: 'Metro Wholesale Logistics',
-    industry: 'Wholesale & Distribution',
-    headline: 'Launched self-service B2B dealer portal with instant Tally sync',
-    summary: 'Metro dealt with 350+ wholesale buyers sending paper orders via WhatsApp. Systemiq deployed a 24/7 dealer portal with credit checks and automatic Tally Prime ledger posting.',
-    metrics: [
-      { label: 'Dispatch Speed', val: '4x Faster', icon: <TrendingUp className="w-4 h-4 text-[#00A3FF]" /> },
-      { label: 'Billing Errors', val: 'Zero', icon: <AlertTriangle className="w-4 h-4 text-emerald-400" /> },
-      { label: 'Tally Auto Sync', val: '100%', icon: <ShieldCheck className="w-4 h-4 text-[#0071E3]" /> },
-    ],
+    icon: Wrench,
+    title: 'Fit it to your workflow',
+    body: 'Your fields, documents, tax rules, roles and terminology replace the originals. The engineered core stays intact and stays tested.',
+  },
+  {
+    icon: Rocket,
+    title: 'Launch and extend',
+    body: 'You go live in weeks. Anything genuinely specific to your business gets built on top of a system that is already running.',
   },
 ];
 
-export default function CaseStudiesPage() {
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+export default function SystemLineupPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleStudyClick = (title: string) => {
-    setSelectedTopic(title);
-    setIsModalOpen(true);
-  };
+  const liveCount = systems.filter((s) => s.status === 'live').length;
 
   return (
-    <div className="min-h-screen bg-transparent text-white/90 pt-32 pb-20 antialiased">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
-        {/* Header */}
-        <motion.div 
+    <div className="min-h-screen bg-transparent pt-32 text-white/90 antialiased">
+      {/* Header */}
+      <header className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", bounce: 0, duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center space-y-6"
+          transition={{ type: 'spring', bounce: 0, duration: 0.8 }}
+          className="max-w-4xl space-y-6"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[#00A3FF] text-xs font-semibold tracking-widest uppercase">
-            Proven Results
+          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-400">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            </span>
+            {liveCount} systems in production
           </span>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            Client Case Studies.
+
+          <h1 className="text-4xl font-extrabold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
+            Built already.
+            <br />
+            <span className="bg-gradient-to-br from-white via-blue-100 to-[#00A3FF] bg-clip-text text-transparent">
+              Waiting for your business.
+            </span>
           </h1>
-          <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal max-w-2xl mx-auto">
-            Discover how growing SMEs eliminated manual spreadsheets and scaled their daily business operations with custom software infrastructure.
+
+          <p className="max-w-2xl text-base leading-relaxed text-white/55 sm:text-lg">
+            Most software projects start with an empty repository and a six-month estimate. Ours
+            start with a system that already works. Below is the full lineup — every one of them a
+            real, running codebase we can fit to your operation.
           </p>
+
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="active-scale inline-flex items-center justify-center gap-3 rounded-full bg-white px-8 py-4 text-base font-semibold text-black shadow-[0_0_40px_rgba(255,255,255,0.1)] transition-all hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]"
+          >
+            <span>Find my system</span>
+            <ArrowRight className="h-4 w-4" />
+          </button>
         </motion.div>
 
-        {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {fullCaseStudies.map((cs, i) => (
+        {/* How fitting works */}
+        <div className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {fitting.map((step, i) => (
             <motion.div
+              key={step.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ type: "spring", bounce: 0, duration: 0.8, delay: i * 0.1 }}
-              key={cs.client}
-              onClick={() => handleStudyClick(cs.client)}
-              className="active-scale group bg-[#13151A]/80 rounded-[2rem] p-8 sm:p-10 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:border-white/10 hover:shadow-[0_12px_32px_rgba(0,113,227,0.15)] transition-all duration-500 cursor-pointer flex flex-col justify-between overflow-hidden relative"
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ type: 'spring', bounce: 0, duration: 0.7, delay: i * 0.08 }}
+              className="rounded-[1.75rem] border border-white/[0.06] bg-[#13151A]/80 p-7"
             >
-              <div className="space-y-8 relative z-10">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/[0.06] pb-6 gap-4 sm:gap-0">
-                  <span className="text-xl font-bold text-white">{cs.client}</span>
-                  <span className="text-xs font-semibold text-[#00A3FF] bg-[#0071E3]/10 px-4 py-1.5 rounded-full border border-[#0071E3]/20 w-fit">
-                    {cs.industry}
-                  </span>
-                </div>
-
-                <div className="space-y-4">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">"{cs.headline}"</h2>
-                  <p className="text-sm sm:text-base text-white/60 leading-relaxed font-normal">{cs.summary}</p>
-                </div>
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#0071E3]/20 bg-[#0071E3]/10">
+                <step.icon className="h-5 w-5 text-[#00A3FF]" aria-hidden="true" />
               </div>
-
-              <div className="space-y-8 pt-8 mt-8 border-t border-white/[0.06] relative z-10">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  {cs.metrics.map((m) => (
-                    <div key={m.label} className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.04] group-hover:bg-white/[0.04] transition-colors duration-300">
-                      <div className="flex items-center gap-2 mb-2">
-                        {m.icon}
-                        <span className="text-[10px] font-semibold text-white/50 uppercase tracking-wider">{m.label}</span>
-                      </div>
-                      <span className="text-2xl font-bold text-white block">{m.val}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between text-xs font-semibold text-[#00A3FF] group-hover:translate-x-1 transition-transform">
-                  <span>Read Full Case Study</span>
-                  <ChevronRight className="w-4 h-4" />
-                </div>
-              </div>
+              <h2 className="mt-5 text-lg font-bold text-white">{step.title}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-white/55">{step.body}</p>
             </motion.div>
           ))}
         </div>
+      </header>
+
+      {/* The lineup */}
+      <div className="mt-8">
+        <SystemLineup variant="full" />
       </div>
 
       <WorkflowAuditModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        defaultTopic={selectedTopic || 'Custom Software'}
+        defaultTopic="System lineup"
       />
     </div>
   );

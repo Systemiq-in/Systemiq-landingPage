@@ -301,7 +301,7 @@ export default function WorkflowAuditModal({
                             Ready to transform?
                           </h2>
                           <p className="text-[#86868B] text-lg max-w-md mx-auto">
-                            Submit your brief and our architects will prepare a preliminary system diagram before our call.
+                            Send your brief and I will sketch a preliminary system diagram before we speak.
                           </p>
                         </div>
 

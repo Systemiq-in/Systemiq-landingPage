@@ -56,8 +56,8 @@ const brandCards: BrandCard[] = [
     icon: <Warehouse className="w-5 h-5" />,
     tag: '#FastPick',
     description:
-      'Equip warehouse staff with fast mobile scanner apps. Speed up picking, packing, and dispatch with 99.9% accuracy.',
-    outcomes: ['99.9% pick accuracy', 'Fast mobile scanning', 'Instant dispatch manifests'],
+      'Equip warehouse staff with fast mobile scanner apps. Speed up picking, packing and dispatch, and stop counting stock by hand.',
+    outcomes: ['Scan-verified picking', 'Fast mobile scanning', 'Instant dispatch manifests'],
     ctaText: 'View Scanner Blueprint',
   },
   {

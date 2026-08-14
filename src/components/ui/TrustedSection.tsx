@@ -1,14 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Building2, Activity, Clock, ShieldCheck } from 'lucide-react';
+import { Boxes, UserRound, Clock, ShieldCheck } from 'lucide-react';
+import { site } from '@/content/site';
 
-const stats = [
-  { value: 'Bespoke', label: 'SME & Enterprise Solutions', icon: <Building2 className="w-5 h-5 text-[#0071E3]" /> },
-  { value: '99.9%', label: 'Uptime & Data Accuracy', icon: <Activity className="w-5 h-5 text-[#0071E3]" /> },
-  { value: '2-4 Wks', label: 'Fixed Sprint Timelines', icon: <Clock className="w-5 h-5 text-[#0071E3]" /> },
-  { value: '100%', label: 'Full Code Ownership', icon: <ShieldCheck className="w-5 h-5 text-[#0071E3]" /> },
+const icons = [
+  <Boxes key="a" className="w-5 h-5 text-[#0071E3]" />,
+  <UserRound key="b" className="w-5 h-5 text-[#0071E3]" />,
+  <Clock key="c" className="w-5 h-5 text-[#0071E3]" />,
+  <ShieldCheck key="d" className="w-5 h-5 text-[#0071E3]" />,
 ];
+
+const stats = site.facts.map((f, i) => ({ ...f, icon: icons[i] }));
 
 export default function TrustedSection() {
   return (

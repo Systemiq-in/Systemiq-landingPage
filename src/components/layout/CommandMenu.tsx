@@ -62,7 +62,7 @@ export default function CommandMenu() {
     },
     {
       id: 'about',
-      title: 'About Systemiq Studio',
+      title: 'About Systemiq',
       category: 'Pages',
       icon: <Info className="w-4 h-4 text-[#0EA5E9]" />,
       url: '/about',
@@ -90,22 +90,22 @@ export default function CommandMenu() {
     },
     {
       id: 'case-studies',
-      title: 'Case Studies & Metrics',
+      title: 'System Lineup — Ready to Deploy',
       category: 'Pages',
       icon: <FolderGit2 className="w-4 h-4 text-[#0EA5E9]" />,
       url: '/case-studies',
     },
     {
       id: 'careers',
-      title: 'Careers & Builder Network',
+      title: 'Collaborate & Build',
       category: 'Pages',
       icon: <Users className="w-4 h-4 text-[#0071E3]" />,
       url: '/careers',
-      badge: 'Fellowship',
+      badge: 'Paid',
     },
     {
       id: 'contact',
-      title: 'Contact Engineering Team',
+      title: 'Contact Muhammad Ramzy',
       category: 'Pages',
       icon: <Mail className="w-4 h-4 text-[#0EA5E9]" />,
       url: '/contact',
@@ -179,7 +179,7 @@ export default function CommandMenu() {
                 <input
                   type="text"
                   autoFocus
-                  placeholder="Search pages or actions... (e.g. ERP, Process, Fellowship)"
+                  placeholder="Search pages or actions... (e.g. ERP, Systems, Contact)"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none font-sans"

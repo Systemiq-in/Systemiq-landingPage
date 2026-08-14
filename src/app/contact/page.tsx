@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2, MessageCircle, Clock } from 'lucide-react';
+import { site } from '@/content/site';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -60,16 +61,18 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", bounce: 0, duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center space-y-4"
+          className="max-w-3xl space-y-4"
         >
           <span className="text-xs font-semibold text-[#0071E3] tracking-wide uppercase">
-            Direct Studio Contact
+            Get in touch
           </span>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            Contact Engineering.
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.05]">
+            Talk to the engineer.
           </h1>
-          <p className="text-base sm:text-lg text-white/50 leading-relaxed font-normal">
-            Have questions about custom software, system integrations, or sprint quotes? Connect directly with our Senior Engineering Leads.
+          <p className="text-base sm:text-lg text-white/55 leading-relaxed font-normal">
+            No sales team, no call routing. Messages come straight to{' '}
+            <span className="font-semibold text-white">{site.operator.name}</span>, and you will
+            hear back {site.contact.responseTime}.
           </p>
         </motion.div>
 
@@ -84,38 +87,84 @@ export default function ContactPage() {
             className="lg:col-span-5 space-y-6"
           >
             <div className="bg-[#13151A]/80 rounded-3xl p-8 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6">
-              <h2 className="text-2xl font-bold text-white tracking-tight">Studio Information</h2>
+              <div>
+                <h2 className="text-2xl font-bold text-white tracking-tight">
+                  {site.operator.name}
+                </h2>
+                <p className="mt-1 text-sm font-semibold text-[#00A3FF]">{site.operator.role}</p>
+              </div>
 
               <div className="space-y-4 text-xs sm:text-sm">
+                <a
+                  href={`https://wa.me/${site.contact.phoneRaw.replace('+', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 group"
+                >
+                  <div className="w-9 h-9 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
+                    <MessageCircle className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-white/50 block">
+                      WhatsApp — fastest
+                    </span>
+                    <span className="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                      {site.contact.phoneDisplay}
+                    </span>
+                  </div>
+                </a>
+
+                <a href={`tel:${site.contact.phoneRaw}`} className="flex items-start gap-3 group">
+                  <div className="w-9 h-9 rounded-2xl bg-transparent text-[#0071E3] flex items-center justify-center shrink-0 border border-white/[0.06]">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-white/50 block">Call</span>
+                    <span className="text-sm font-semibold text-white group-hover:text-[#00A3FF] transition-colors">
+                      {site.contact.phoneDisplay}
+                    </span>
+                  </div>
+                </a>
+
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="flex items-start gap-3 group"
+                >
+                  <div className="w-9 h-9 rounded-2xl bg-transparent text-[#0071E3] flex items-center justify-center shrink-0 border border-white/[0.06]">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-white/50 block">Email</span>
+                    <span className="text-sm font-semibold text-white break-all group-hover:text-[#00A3FF] transition-colors">
+                      {site.contact.email}
+                    </span>
+                  </div>
+                </a>
+
                 <div className="flex items-start gap-3">
                   <div className="w-9 h-9 rounded-2xl bg-transparent text-[#0071E3] flex items-center justify-center shrink-0 border border-white/[0.06]">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-white/50 block">Studio Location</span>
-                    <span className="text-sm font-semibold text-white">Global Remote Studio</span>
+                    <span className="text-xs font-semibold text-white/50 block">Based in</span>
+                    <span className="text-sm font-semibold text-white">
+                      {site.contact.location}
+                    </span>
+                    <span className="text-xs text-white/45 block mt-0.5">
+                      {site.contact.availability}
+                    </span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 pt-2 border-t border-white/[0.06]">
                   <div className="w-9 h-9 rounded-2xl bg-transparent text-[#0071E3] flex items-center justify-center shrink-0 border border-white/[0.06]">
-                    <Mail className="w-4 h-4" />
+                    <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-white/50 block">Email Inquiry</span>
-                    <a href="mailto:contact@systemiq.in" className="text-sm font-semibold text-[#0071E3] underline">
-                      contact@systemiq.in
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-2xl bg-transparent text-[#0071E3] flex items-center justify-center shrink-0 border border-white/[0.06]">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-white/50 block">Phone Line</span>
-                    <span className="text-sm font-semibold text-white">+1 (800) SYSTEMIQ</span>
+                    <span className="text-xs font-semibold text-white/50 block">Response time</span>
+                    <span className="text-sm font-semibold text-white">
+                      Replies {site.contact.responseTime}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -130,22 +179,22 @@ export default function ContactPage() {
             transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.1 }}
             className="lg:col-span-7 bg-[#13151A]/80 rounded-3xl p-8 sm:p-10 border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6"
           >
-            <h2 className="text-2xl font-bold text-white tracking-tight">Send Us a Message</h2>
+            <h2 className="text-2xl font-bold text-white tracking-tight">Send a message</h2>
 
             {isSubmitted ? (
               <div className="py-8 text-center space-y-4">
                 <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-white">Message Received!</h3>
+                <h3 className="text-xl font-bold text-white">Message received</h3>
                 <p className="text-xs sm:text-sm text-white/50 max-w-sm mx-auto font-normal">
-                  Thank you, <span className="font-semibold text-white">{formData.name}</span>. An engineering lead will respond within 24 hours.
+                  Thank you, <span className="font-semibold text-white">{formData.name}</span>. I will reply {site.contact.responseTime}.
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
                   className="active-scale px-6 py-2.5 rounded-full bg-transparent border border-white/[0.06] text-white font-semibold text-xs transition"
                 >
-                  Send Another Message
+                  Send another message
                 </button>
               </div>
             ) : (
@@ -167,7 +216,7 @@ export default function ContactPage() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="e.g. Rahul Sharma"
+                      placeholder="Your name"
                       className="flex h-11 w-full rounded-md border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 px-4 py-2 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00A3FF] focus:ring-1 focus:ring-[#00A3FF]/50 transition-all shadow-inner"
                     />
                   </div>
@@ -181,7 +230,7 @@ export default function ContactPage() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="rahul@company.com"
+                      placeholder="you@company.com"
                       className="flex h-11 w-full rounded-md border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 px-4 py-2 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00A3FF] focus:ring-1 focus:ring-[#00A3FF]/50 transition-all shadow-inner"
                     />
                   </div>
@@ -210,7 +259,7 @@ export default function ContactPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="e.g. Apex Industrial"
+                      placeholder="Your company"
                       className="flex h-11 w-full rounded-md border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 px-4 py-2 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00A3FF] focus:ring-1 focus:ring-[#00A3FF]/50 transition-all shadow-inner"
                     />
                   </div>
@@ -239,11 +288,11 @@ export default function ContactPage() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Sending Message...</span>
+                      <span>Sending…</span>
                     </>
                   ) : (
                     <>
-                      <span>Send Inquiry</span>
+                      <span>Send message</span>
                       <Send className="w-4 h-4" />
                     </>
                   )}
