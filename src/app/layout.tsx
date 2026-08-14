@@ -4,7 +4,6 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import ScrollProgress from '@/components/layout/ScrollProgress';
 import CommandMenu from '@/components/layout/CommandMenu';
 import FloatingCTA from '@/components/layout/FloatingCTA';
 import GlobalBackground from '@/components/layout/GlobalBackground';
@@ -151,7 +150,6 @@ export default function RootLayout({
       </head>
       <body className="bg-[#090A0C] text-white/90 antialiased selection:bg-[#0071E3]/30 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
         <GlobalBackground />
-        <ScrollProgress />
         <Navbar />
         <CommandMenu />
         <main className="flex-1 relative z-20">{children}</main>

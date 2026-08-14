@@ -34,7 +34,7 @@ const brandCards: BrandCard[] = [
     icon: <Server className="w-5 h-5" />,
     tag: '#FullStack',
     description:
-      'From stunning marketing websites and customer-facing web applications to powerful internal ERP systems tailored to your business.',
+      'Customer-facing sites and portals, plus the internal systems your team runs the business on.',
     outcomes: ['High-conversion websites', 'Scalable web applications', 'Custom business software'],
     ctaText: 'View Software Blueprint',
   },
@@ -117,7 +117,7 @@ export default function InteractiveWhatWeBuild() {
             </h2>
           </div>
           <p className="text-white/50 text-sm sm:text-base font-normal max-w-md leading-relaxed">
-            From stunning marketing websites and dynamic web apps to powerful ERPs. Select a solution module to view its architecture.
+            Pick a module to see what it does and how it is put together.
           </p>
         </div>
 

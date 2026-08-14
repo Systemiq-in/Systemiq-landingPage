@@ -21,13 +21,13 @@ export default function TheSystemiqShift() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center max-w-4xl mx-auto space-y-3">
           <span className="text-xs font-semibold text-[#00A3FF] tracking-widest uppercase">
-            The Paradigm Shift
+            The problem
           </span>
           <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tighter leading-tight">
-            Stop forcing your business into rigid, generic software.
+            Your tools work. They just don't talk to each other.
           </h2>
           <p className="text-lg sm:text-2xl text-white/50 font-medium leading-relaxed">
-            Off-the-shelf tools, fragmented apps, and endless spreadsheets drain your momentum. We build the exact system your workflow actually needs.
+            Stock in one spreadsheet, orders on WhatsApp, invoices re-keyed into Tally by hand. Nothing is broken — but everything is manual, and the gap between the tools is where the cost lives.
           </p>
         </div>
 

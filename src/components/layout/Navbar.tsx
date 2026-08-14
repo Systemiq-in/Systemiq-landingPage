@@ -40,7 +40,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="fixed top-0 sm:top-4 inset-x-0 z-[100] flex justify-center px-4 transition-all duration-500">
+      <div className="fixed top-0 sm:top-4 inset-x-0 z-[100] flex justify-center px-4 pt-[max(0.75rem,env(safe-area-inset-top))] sm:pt-0 transition-all duration-500">
         <div 
           className={`flex items-center justify-between w-full lg:w-auto transition-all duration-300 ${
             isScrolled 
@@ -135,7 +135,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-[60px] z-[100] lg:hidden bg-[#090A0C]/90 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl overflow-hidden"
+            className="fixed inset-x-0 top-[calc(74px+env(safe-area-inset-top))] z-[100] lg:hidden bg-[#090A0C]/90 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl overflow-hidden"
           >
             <div className="px-6 py-8 flex flex-col space-y-4">
               <motion.div

@@ -45,7 +45,7 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.03] backdrop-blur-xl border border-white/10 text-xs font-semibold text-white/90 tracking-wide mb-8 shadow-[0_4px_24px_rgba(0,0,0,0.2)]"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#00A3FF]" />
-            <span>The Premium Business Studio</span>
+            <span>Business Systems Studio · Kerala, India</span>
           </motion.div>
 
           <motion.h1
@@ -54,9 +54,9 @@ export default function HomePage() {
             transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-7xl lg:text-[8rem] font-extrabold tracking-[-0.04em] text-white leading-[0.95] sm:leading-[0.9] text-balance pb-2"
           >
-            Software that <br className="hidden sm:block" />
+            Your operation <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-[#00A3FF]">
-              feels like magic.
+              outgrew its tools.
             </span>
           </motion.h1>
 
@@ -66,8 +66,9 @@ export default function HomePage() {
             transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.4 }}
             className="mt-6 text-lg sm:text-2xl lg:text-3xl text-white/60 max-w-3xl mx-auto font-medium leading-relaxed sm:leading-snug tracking-tight text-balance px-4 sm:px-0"
           >
-            Systemiq engineers stunning websites, dynamic web apps, and bespoke software solutions that silently orchestrate your entire business. 
-            No spreadsheets. No chaos. Just clarity.
+            Custom ERP, inventory, billing and dealer portals — built around how your
+            business already runs. Starting from eight systems that already work, so
+            yours launches in weeks.
           </motion.p>
 
           <motion.div
@@ -108,7 +109,7 @@ export default function HomePage() {
       {/* ---------------- TRUSTED SECTION ---------------- */}
       <TrustedSection />
 
-      {/* ---------------- THE PARADIGM SHIFT ---------------- */}
+      {/* ---------------- THE PROBLEM ---------------- */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ type: "spring", bounce: 0, duration: 0.8, delay: 0.1 }}>
         <TheSystemiqShift />
       </motion.div>

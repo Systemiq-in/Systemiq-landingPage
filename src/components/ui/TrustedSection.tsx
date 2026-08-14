@@ -5,10 +5,10 @@ import { Boxes, UserRound, Clock, ShieldCheck } from 'lucide-react';
 import { site } from '@/content/site';
 
 const icons = [
-  <Boxes key="a" className="w-5 h-5 text-[#0071E3]" />,
-  <UserRound key="b" className="w-5 h-5 text-[#0071E3]" />,
-  <Clock key="c" className="w-5 h-5 text-[#0071E3]" />,
-  <ShieldCheck key="d" className="w-5 h-5 text-[#0071E3]" />,
+  <Boxes key="a" className="w-5 h-5" />,
+  <UserRound key="b" className="w-5 h-5" />,
+  <Clock key="c" className="w-5 h-5" />,
+  <ShieldCheck key="d" className="w-5 h-5" />,
 ];
 
 const stats = site.facts.map((f, i) => ({ ...f, icon: icons[i] }));
@@ -27,7 +27,7 @@ export default function TrustedSection() {
               transition={{ duration: 0.3, delay: idx * 0.05 }}
               className="bento-card group flex flex-col items-center p-6 text-center"
             >
-              <div className="w-10 h-10 mb-4 rounded-xl bg-white/[0.03] border border-white/10 shadow-inner flex items-center justify-center group-hover:bg-[#0071E3] group-hover:border-[#00A3FF] transition-all duration-300">
+              <div className="w-10 h-10 mb-4 rounded-xl bg-white/[0.03] border border-white/10 shadow-inner flex items-center justify-center text-[#0071E3] transition-all duration-300 group-hover:bg-[#0071E3] group-hover:border-[#00A3FF] group-hover:text-white">
                 {stat.icon}
               </div>
               <span className="text-3xl sm:text-4xl font-extrabold text-white block tracking-tight">

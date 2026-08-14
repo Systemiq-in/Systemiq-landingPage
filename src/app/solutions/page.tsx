@@ -42,7 +42,7 @@ const solutionModules = [
     category: 'Automation',
     icon: <Bot className="w-5 h-5 text-white" />,
     iconBg: 'bg-indigo-500',
-    desc: 'Automate customer support and data analysis. We integrate cutting-edge LLMs directly into your business workflows.',
+    desc: 'Put a language model where the repetitive reading and writing happens — triaging enquiries, extracting data from documents, drafting replies.',
     features: ['Custom AI chatbots', 'Automated data extraction', 'Workflow orchestration'],
     colSpan: 'md:col-span-1 lg:col-span-1'
   },

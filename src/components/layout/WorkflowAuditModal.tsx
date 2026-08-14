@@ -95,7 +95,7 @@ export default function WorkflowAuditModal({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6 overflow-hidden">
+        <div className="fixed inset-0 z-[120] flex items-center justify-center p-3 sm:p-6 overflow-hidden">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -111,10 +111,13 @@ export default function WorkflowAuditModal({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
-            className="relative w-full max-w-3xl bg-white rounded-[2rem] border border-black/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.08)] z-10 flex flex-col h-[500px]"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Book a workflow audit"
+            className="relative w-full max-w-3xl bg-white rounded-[1.75rem] sm:rounded-[2rem] border border-black/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.08)] z-10 flex flex-col max-h-[92dvh] sm:h-[540px] overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-8 py-6 border-b border-black/[0.06]">
+            <div className="flex items-center justify-between px-5 py-4 sm:px-8 sm:py-6 border-b border-black/[0.06] shrink-0">
               <div className="flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-[#0071E3]" />
                 <span className="text-sm font-semibold text-[#1D1D1F] tracking-wide">
@@ -130,33 +133,33 @@ export default function WorkflowAuditModal({
             </div>
 
             {/* Body */}
-            <div className="flex-1 relative overflow-hidden bg-[#FAFAFA]">
+            <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain bg-[#FAFAFA]">
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 space-y-6"
+                  className="flex min-h-full flex-col items-center justify-center text-center p-6 sm:p-8 space-y-5 sm:space-y-6"
                 >
-                  <div className="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center">
-                    <CheckCircle2 className="w-10 h-10 text-[#0071E3]" />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 text-[#0071E3]" />
                   </div>
                   <div>
-                    <h3 className="text-3xl font-extrabold text-[#1D1D1F] tracking-tight">
-                      Booking Confirmed
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1D1D1F] tracking-tight">
+                      Brief received
                     </h3>
-                    <p className="text-base text-[#86868B] mt-3 max-w-md mx-auto leading-relaxed">
-                      Thank you, <span className="font-semibold text-[#1D1D1F]">{formData.name || 'there'}</span>. A System Architect will review your brief and contact you within 24 hours to schedule the audit.
+                    <p className="text-sm sm:text-base text-[#86868B] mt-3 max-w-md mx-auto leading-relaxed">
+                      Thank you, <span className="font-semibold text-[#1D1D1F]">{formData.name || 'there'}</span>. I will read your brief and get back to you within one business day to set up the call.
                     </p>
                   </div>
                   <button
                     onClick={resetForm}
                     className="active-scale px-8 py-3 rounded-full bg-[#1D1D1F] hover:bg-black text-white font-semibold text-sm transition-transform"
                   >
-                    Close Window
+                    Close
                   </button>
                 </motion.div>
               ) : (
-                <div className="absolute inset-0 flex flex-col px-8 py-10">
+                <div className="flex min-h-full flex-col px-5 py-7 sm:px-8 sm:py-10">
                   <AnimatePresence mode="wait">
                     {step === 1 && (
                       <motion.div
@@ -164,13 +167,13 @@ export default function WorkflowAuditModal({
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="flex-1 flex flex-col justify-center space-y-6 max-w-xl mx-auto w-full"
+                        className="flex-1 flex flex-col justify-center space-y-5 sm:space-y-6 max-w-xl mx-auto w-full"
                       >
                         <div className="space-y-2">
-                          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1D1D1F]">
-                            Let's start with the basics.
+                          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1D1D1F] text-balance">
+                            First, who are you?
                           </h2>
-                          <p className="text-[#86868B] text-lg">What's your name and email?</p>
+                          <p className="text-[#86868B] text-base sm:text-lg">Name and email so I can reply.</p>
                         </div>
                         <div className="space-y-4 pt-4">
                           <div className="relative">
@@ -183,7 +186,7 @@ export default function WorkflowAuditModal({
                               onChange={handleChange}
                               onKeyDown={handleKeyDown}
                               placeholder="Your full name"
-                              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
+                              className="w-full pl-12 pr-4 py-3.5 sm:py-4 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-base sm:text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
                             />
                           </div>
                           <div className="relative">
@@ -195,7 +198,7 @@ export default function WorkflowAuditModal({
                               onChange={handleChange}
                               onKeyDown={handleKeyDown}
                               placeholder="Your work email"
-                              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
+                              className="w-full pl-12 pr-4 py-3.5 sm:py-4 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-base sm:text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
                             />
                           </div>
                         </div>
@@ -208,13 +211,13 @@ export default function WorkflowAuditModal({
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="flex-1 flex flex-col justify-center space-y-6 max-w-xl mx-auto w-full"
+                        className="flex-1 flex flex-col justify-center space-y-5 sm:space-y-6 max-w-xl mx-auto w-full"
                       >
                         <div className="space-y-2">
-                          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1D1D1F]">
+                          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1D1D1F] text-balance">
                             About your company.
                           </h2>
-                          <p className="text-[#86868B] text-lg">Where are you operating from?</p>
+                          <p className="text-[#86868B] text-base sm:text-lg">Company name and rough team size.</p>
                         </div>
                         <div className="space-y-4 pt-4">
                           <div className="relative">
@@ -227,7 +230,7 @@ export default function WorkflowAuditModal({
                               onChange={handleChange}
                               onKeyDown={handleKeyDown}
                               placeholder="Company Name"
-                              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
+                              className="w-full pl-12 pr-4 py-3.5 sm:py-4 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-base sm:text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm"
                             />
                           </div>
                           
@@ -249,7 +252,7 @@ export default function WorkflowAuditModal({
                               </button>
                             ))}
                           </div>
-                          <p className="text-xs text-center text-[#86868B] pt-2">Select team size to continue</p>
+                          <p className="text-xs text-center text-[#86868B] pt-2">Pick a team size to continue</p>
                         </div>
                       </motion.div>
                     )}
@@ -260,13 +263,13 @@ export default function WorkflowAuditModal({
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="flex-1 flex flex-col justify-center space-y-6 max-w-xl mx-auto w-full"
+                        className="flex-1 flex flex-col justify-center space-y-5 sm:space-y-6 max-w-xl mx-auto w-full"
                       >
                         <div className="space-y-2">
-                          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1D1D1F]">
-                            What's the challenge?
+                          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1D1D1F] text-balance">
+                            What's slowing you down?
                           </h2>
-                          <p className="text-[#86868B] text-lg">Briefly describe your current bottlenecks.</p>
+                          <p className="text-[#86868B] text-base sm:text-lg">A couple of sentences is plenty.</p>
                         </div>
                         <div className="pt-4">
                           <div className="relative">
@@ -277,8 +280,8 @@ export default function WorkflowAuditModal({
                               name="description"
                               value={formData.description}
                               onChange={handleChange}
-                              placeholder="e.g. We are stuck using 5 different spreadsheets to manage warehouse inventory and Tally billing..."
-                              className="w-full pl-12 pr-4 py-5 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm resize-none"
+                              placeholder="e.g. Stock lives in three spreadsheets and we re-key every order into Tally by hand."
+                              className="w-full pl-12 pr-4 py-4 sm:py-5 rounded-2xl bg-white border border-black/[0.08] text-[#1D1D1F] text-base sm:text-lg focus:outline-none focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 transition-all shadow-sm resize-none"
                             />
                           </div>
                         </div>
@@ -291,16 +294,16 @@ export default function WorkflowAuditModal({
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="flex-1 flex flex-col justify-center items-center text-center space-y-8 max-w-xl mx-auto w-full"
+                        className="flex-1 flex flex-col justify-center items-center text-center space-y-6 sm:space-y-8 max-w-xl mx-auto w-full"
                       >
                         <div className="space-y-4">
-                          <div className="w-16 h-16 rounded-2xl bg-[#0071E3]/10 flex items-center justify-center mx-auto mb-6">
-                            <Rocket className="w-8 h-8 text-[#0071E3]" />
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#0071E3]/10 flex items-center justify-center mx-auto mb-5 sm:mb-6">
+                            <Rocket className="w-7 h-7 sm:w-8 sm:h-8 text-[#0071E3]" />
                           </div>
-                          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1D1D1F]">
-                            Ready to transform?
+                          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#1D1D1F] text-balance">
+                            That's everything.
                           </h2>
-                          <p className="text-[#86868B] text-lg max-w-md mx-auto">
+                          <p className="text-[#86868B] text-base sm:text-lg max-w-md mx-auto">
                             Send your brief and I will sketch a preliminary system diagram before we speak.
                           </p>
                         </div>
@@ -314,16 +317,16 @@ export default function WorkflowAuditModal({
                         <button
                           onClick={handleSubmit}
                           disabled={isSubmitting}
-                          className="active-scale px-10 py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-lg flex items-center justify-center gap-3 shadow-[0_8px_24px_rgba(0,113,227,0.3)] transition-all disabled:opacity-50"
+                          className="active-scale w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-base sm:text-lg flex items-center justify-center gap-3 shadow-[0_8px_24px_rgba(0,113,227,0.3)] transition-all disabled:opacity-50"
                         >
                           {isSubmitting ? (
                             <>
                               <Loader2 className="w-5 h-5 animate-spin" />
-                              <span>Sending Brief...</span>
+                              <span>Sending…</span>
                             </>
                           ) : (
                             <>
-                              <span>Submit Audit Request</span>
+                              <span>Send my brief</span>
                               <ArrowRight className="w-5 h-5" />
                             </>
                           )}
@@ -337,19 +340,19 @@ export default function WorkflowAuditModal({
 
             {/* Footer Navigation */}
             {!isSubmitted && (
-              <div className="flex items-center justify-between px-8 py-5 bg-white border-t border-black/[0.06]">
+              <div className="flex items-center justify-between gap-3 px-5 py-4 sm:px-8 sm:py-5 bg-white border-t border-black/[0.06] shrink-0">
                 <div className="flex items-center gap-2">
                   <div className="flex gap-1.5">
                     {Array.from({ length: totalSteps }).map((_, i) => (
                       <div
                         key={i}
-                        className={`w-10 h-1.5 rounded-full transition-colors duration-300 ${
+                        className={`w-6 sm:w-10 h-1.5 rounded-full transition-colors duration-300 ${
                           i + 1 <= step ? 'bg-[#0071E3]' : 'bg-[#E5E5EA]'
                         }`}
                       />
                     ))}
                   </div>
-                  <span className="text-xs font-semibold text-[#86868B] ml-2 tracking-widest uppercase">
+                  <span className="hidden sm:inline text-xs font-semibold text-[#86868B] ml-2 tracking-widest uppercase">
                     Step {step} of {totalSteps}
                   </span>
                 </div>
